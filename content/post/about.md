@@ -2,6 +2,8 @@
 title: "About"
 date: 2014-01-29T19:01:49+08:00
 draft: false
+tags:
+- fukuball
 ---
 
 我是林志傑，網路上常用的名字是 Fukuball，前 iNDIEVOX 技術長。我使用 PHP 及 Python，最近對機器學習感到興趣，所以空閒時會將 Python 有關機器學習的 Github Project 翻譯成 PHP 版本。 / 我也是一個快樂的吉他手～
