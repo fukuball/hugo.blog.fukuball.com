@@ -2,8 +2,10 @@
 title: "林軒田教授機器學習基石 Machine Learning Foundations 第 9 講學習筆記"
 date: 2016-01-06T13:29:31+08:00
 draft: false
+slug: lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-jiu-jiang-xue-xi-bi-ji
 tags:
 - machine learning
+- 機器學習
 ---
 
 ### 前言

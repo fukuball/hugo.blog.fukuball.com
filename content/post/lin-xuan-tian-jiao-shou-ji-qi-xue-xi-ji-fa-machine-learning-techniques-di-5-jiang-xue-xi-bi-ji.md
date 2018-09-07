@@ -2,8 +2,10 @@
 title: "林軒田教授機器學習技法 Machine Learning Techniques 第 5 講學習筆記"
 date: 2016-06-28T07:41:37+08:00
 draft: false
+slug: lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-5-jiang-xue-xi-bi-ji
 tags:
 - machine learning
+- 機器學習
 ---
 
 ### 前言
