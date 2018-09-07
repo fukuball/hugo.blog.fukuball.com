@@ -2,6 +2,7 @@
 title: "基於 LSTM 深度學習方法研發而成的張雨生歌詞產生模型，致敬張雨生"
 date: 2018-03-27T08:16:40+08:00
 draft: false
+slug: ji-yu-lstm-shen-du-xue-xi-fang-fa-yan-fa-er-cheng-de-zhang-yu-sheng-ge-ci-chan-sheng-mo-xing-zhi-jing-zhang-yu-sheng
 tags:
 - machine learning
 ---
