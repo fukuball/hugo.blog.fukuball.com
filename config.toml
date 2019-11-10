@@ -17,7 +17,7 @@ canonifyurls = true
 [author]
   name = "Fukuball"
   bio = "我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，對機器學習及區塊鏈技術感到興趣。 https://www.fukuball.com"
-  job = "Staff Engineer"
+  job = "Co-Founder / Head of Engineering at OurSong"
   location = "Taiwan"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
   gravatarEmail = "fukuball@gmail.com"
@@ -98,7 +98,7 @@ canonifyurls = true
   # If false it will flat categories.
   hierarchicalCategories = true
 
-  description = "我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，最近對機器學習感到興趣。 https://www.fukuball.com"
+  description = "我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，對機器學習及區塊鏈技術感到興趣。 https://www.fukuball.com"
 
   # Customization
   # Define the behavior of the sidebar
