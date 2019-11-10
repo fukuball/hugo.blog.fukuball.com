@@ -18,7 +18,7 @@ canonifyurls = true
   name = "Fukuball"
   bio = "我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，對機器學習及區塊鏈技術感到興趣。 https://www.fukuball.com"
   job = "Co-Founder / Head of Engineering at OurSong"
-  location = "Taiwan"
+  location = "Taipei, Taiwan"
   # Your Gravatar email. Overwrite `author.picture` everywhere in the blog
   gravatarEmail = "fukuball@gmail.com"
   # Your profile picture
