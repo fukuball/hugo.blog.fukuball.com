@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Laravel on I am Fukuball</title>
+    <link>https://blog.fukuball.com/tags/laravel/</link>
+    <description>Recent content in Laravel on I am Fukuball</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 Apr 2014 12:45:33 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.fukuball.com/tags/laravel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何在 Heroku 上建立開發環境及正式環境</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%9C%A8-heroku-%E4%B8%8A%E5%BB%BA%E7%AB%8B%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E5%8F%8A%E6%AD%A3%E5%BC%8F%E7%92%B0%E5%A2%83/</link>
+      <pubDate>Wed, 30 Apr 2014 12:45:33 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%9C%A8-heroku-%E4%B8%8A%E5%BB%BA%E7%AB%8B%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E5%8F%8A%E6%AD%A3%E5%BC%8F%E7%92%B0%E5%A2%83/</guid>
+      <description>在開發網站的時候，我們至少會有一個正在開發中的開發環境，即真正上線開放給使用者使用的正式環境，通常我們會使用類似 git 的版本控制系統開一個 dev branch 及 ㄧ個 master branch，分別對應到開發環境及正式環境。
+所以在 Heroku 上，我們也會希望開一個給使用者使用的 Heroku app（正式環境），另一個就是線上開發版的 Heroku app（開發環境），開發者可能在自己的 local 端開發完之後，將自己的開發的成果 merge 到 dev branch，我們就可以看在線上開發版的運作情況，沒問題了我們才會發佈到正式環境。
+首先我們需要先 create 兩個 Heroku App，這邊我們以 Laravel 專案為例：
+Step 1：新增 Heroku App
+$ heroku create my-laravel-project --buildpack // 新增正式環境 Heroku Laravel App $ heroku create dev-my-laravel-project --buildpack // 新增開發環境 Heroku Laravel App  Step 2：將 dev branch 專案發佈到開發環境
+$ git config remote.heroku.url &amp;quot;git@heroku.com:dev-my-laravel-project.git&amp;quot; $ git push -f heroku dev:master  Step 3：將 merge 好的 master branch 專案發佈到正式環境</description>
+    </item>
+    
+    <item>
+      <title>如何將 Laravel 專案發佈到 Heroku</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%B0%87-laravel-%E5%B0%88%E6%A1%88%E7%99%BC%E4%BD%88%E5%88%B0-heroku/</link>
+      <pubDate>Wed, 30 Apr 2014 12:28:21 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%B0%87-laravel-%E5%B0%88%E6%A1%88%E7%99%BC%E4%BD%88%E5%88%B0-heroku/</guid>
+      <description>目前最火紅的 PHP Framework 就是 Laravel 了，以往 PHP Framework 的缺點就是沒有一個熱絡的社群，Laravel 的出現漸漸改變了這樣的現象，Laravel 社群比起其他 PHP Framework 的社群熱絡多了，雖然比起 Rails、Django 及 Node.js 確實還是差了一大截，但總是好現象。
+由於看好它的發展性，目前有一些 Side Project 是用 Laravel 來實作，這些 Side Project 如果沒有必要實在是不太想碰機器或者安裝環境，所以發佈到 Heroku 是最好的選擇，只要發佈到 Heroku，Heroku 就會幫忙安裝好所有需要的環境。
+步驟如下：
+Step 1：使用 CLI 在 Heroku 上開啟一個可以 Build Laravel 的專案
+$ heroku create my-laravel-project --buildpack https://github.com/winglian/heroku-buildpack-php  Step 2：在 Laravel 的 Project 資料夾內發佈專案到 Heroku
+$ git push heroku master  有時 Heroku 發佈專案會失敗，基本上發佈失敗只要再下一次指令就可能會成功，我也不知道為何有時會這樣，或許是因為是用 Laravel 的關係吧！總之，一次不成功，那就試第二次就對了！
+其實還蠻簡單的，還不用管機器，真的很方便～</description>
+    </item>
+    
+  </channel>
+</rss>

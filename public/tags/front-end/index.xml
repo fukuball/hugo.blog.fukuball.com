@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Front End on I am Fukuball</title>
+    <link>https://blog.fukuball.com/tags/front-end/</link>
+    <description>Recent content in Front End on I am Fukuball</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Jul 2015 08:25:40 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.fukuball.com/tags/front-end/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何使用 CSS3 Transition</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-css3-transition/</link>
+      <pubDate>Wed, 08 Jul 2015 08:25:40 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-css3-transition/</guid>
+      <description>前言 我們之前曾經介紹過 如何使用 CSS3 Animation，也不小心在該篇文章中說要另文跟大家介紹如何使用 CSS3 Transition，拖稿了近一年，今天終於要來實現諾言了～雖然大家可能根本就不在意，但哥就是真性情的人他媽的當真了啊！
+在這個浮誇的時代，如果網頁上沒有酷炫的功能或特效，似乎就遜掉了（幹！開場跟如何使用 CSS3 Animation 這篇文章一模一樣，可以再混一點啊），好啦，不說廢話，總之就是網頁有使用到 CSS3 Transition 馬上就會讓你的網站帥十倍啦！很爽吧！（請注意：本人並不會因此帥十倍）
+就讓我們一起來看看 CSS3 Transition 大法怎麼練吧！
+CSS3 Transition 第一級 第一級讓我們先由簡單的範例從做中學，現在讓我們想像一個情境，我們希望滑鼠 hover 至某個 div 元素時，讓這個 div 元素改變背景色，若沒有用轉場（Transition）效果，我們就會看到 div 元素硬生生的改變顏色，一點都不溫柔，這樣橫衝直撞會讓 TA 很不舒服，所以我們才會需要 CSS3 Transition 來讓 TA 舒服一點。
+div.example-no-transition { width: 580px; padding: 9px 15px; background-color: #FF5050; color: white; margin-bottom: 20px; margin-top: 20px; border-radius: 5px; } div.example-no-transition:hover { background-color: #6666FF; }  這段 CSS 語法就是代表當滑鼠 hover 至 div.example-no-transition 元素時，背景顏色會變成 #6666FF，但就是很生硬的變過去，但當我們加入 transition 那就不一樣了。</description>
+    </item>
+    
+    <item>
+      <title>如何使用 CSS3 Animation</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-css3-animation/</link>
+      <pubDate>Tue, 08 Jul 2014 14:55:36 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-css3-animation/</guid>
+      <description>前言 在這個浮誇的時代，如果網頁上沒有酷炫的功能或特效，似乎就遜掉了；如何讓網頁變得酷炫呢？其中一個方法就是使用 CSS3 Animation！只要使用了 CSS3 Animation 就可以讓網頁中的元素動起來，立馬讓你的網頁酷炫度超越世界上 80% 的網頁！
+而我個人身為一個全端工程師，稍微研究一下 CSS3 Animation 也是合理的，而且只要會一點點就可以拿來唬唬人，何樂而不為？很可惜這個技能就是唬不了正妹，哎，誰叫正妹只喜歡魔術呢～
+不過請特別注意 CSS3 的 Animation 與 Transition 並不相同喔！雖然都可以做到相似的效果，有時看起來也真的很像，但實際上 Animation 與 Transition 依操作的程度不同所以適合使用的地方也會有所不同，或許我之後會再寫一篇文章介紹 Transition。（吧？）
+就讓我們一起來看看 CSS3 Animation 大法怎麼練吧！
+CSS3 Animation 第一級 假設我們要在一個 div 元素上加上動畫特效：
+Step 1：定義要使用哪個關鍵影格(keyframe)來執行動畫 div { width: 100px; height: 100px; background: red; position: relative; -webkit-animation: animation-keyframe-name 5s; /* Chrome, Safari, Opera */ -webkit-animation-iteration-count: infinite; animation: animation-keyframe-name 5s; animation-iteration-count: infinite; }  這段 CSS 語法就是代表 div 元素要用哪個關鍵影格來執行動畫，詳細的動畫動作都會寫在關鍵影格裡面，在這邊的意思就是要使用一個名稱叫 animation-keyframe-name 的關鍵影格來進行動畫，後面的 5s 就代表這個動畫執行的時間會是 5 秒鐘。而 animation-iteration-count: infinite 則代表這個關鍵影格動畫會不斷重複執行。</description>
+    </item>
+    
+    <item>
+      <title>如何做出網頁版 iTunes 11 的封面背景特效</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%81%9A%E5%87%BA%E7%B6%B2%E9%A0%81%E7%89%88-itunes-11-%E7%9A%84%E5%B0%81%E9%9D%A2%E8%83%8C%E6%99%AF%E7%89%B9%E6%95%88/</link>
+      <pubDate>Wed, 25 Jun 2014 21:02:44 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%81%9A%E5%87%BA%E7%B6%B2%E9%A0%81%E7%89%88-itunes-11-%E7%9A%84%E5%B0%81%E9%9D%A2%E8%83%8C%E6%99%AF%E7%89%B9%E6%95%88/</guid>
+      <description>前言 最近為了 training 新人，我在 iNDIEVOX 主持了每兩週會舉行一次的技術分享會，每位與會人員都需要準備一個分享講題，講題可以是任何開發技術相關的主題，甚至是相關產業新聞。
+不過最近有些忙碌，加上世界杯熬夜的影響，我自己得準備的分享講題眼看就要開天窗了，只好拿出去年在 HappyDesigner Mini 分享會 #3 的講題來充充場面，剛好也可以逼自己整理成 blog！
+那麼&amp;hellip;&amp;hellip; 究竟要如何做出網頁版 iTunes 11 的封面背景特效呢？在哪裡才能買得到呢？
+&amp;hellip; &amp;hellip; 我們這邊會直接說明如何實作，所以是買不到的喔！
+觀察分析 首先讓我們觀察分析一下 iTunes 11 的封面特效：
+透過我們精準的觀察與分析之後，我們可以將 iTunes 11 的封面特效歸納成以下三點：
+ 專輯資訊字體顏色配色與專輯封面配色相似 專輯資訊區塊背景色與專輯封面背景色相似 專輯資訊區塊背景色形成一個模糊遮罩蓋在專輯封面上  也就是說我們只要做到以上三點，大概就可以做到類似 iTunes 11 的封面特效了！
+實作 Step 1：實作蓋在專輯封面上模糊遮罩 首先我們先不管顏色，看看是否能用 CSS 3 來實作蓋在專輯封面上模糊遮罩，研究一番之後發現並不難實作，CSS 3 的語法如下：
+.mask { box-shadow: rgb(9, 8, 9) 14px 17px 25px inset, rgb(9, 8, 9) -1px -1px 170px inset; }  我們使用 CSS 3 中的 box-shadow 這個 property 來實做陰影效果，將這個陰影蓋在封面上便可以形成一個模糊遮罩，其中 rgb(9, 8, 8) 表示陰影的顏色，inset 表示陰影是往區塊內部長，14px 17px 25px 分別表示陰影向水平方向長的長度、陰影向垂直方向長的長度、陰影模糊的長度，由於陰影是向區塊內長，分別就表示水平方向由左向內長 14px 的陰影、垂直方向由上向內長 17px、然後都長 25px 的模糊程度。</description>
+    </item>
+    
+    <item>
+      <title>如何使用 skrollr 做出簡易的 Parallax Scrolling 網頁</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-skrollr-%E5%81%9A%E5%87%BA%E7%B0%A1%E6%98%93%E7%9A%84-parallax-scrolling-%E7%B6%B2%E9%A0%81/</link>
+      <pubDate>Wed, 11 Jun 2014 13:45:51 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-skrollr-%E5%81%9A%E5%87%BA%E7%B0%A1%E6%98%93%E7%9A%84-parallax-scrolling-%E7%B6%B2%E9%A0%81/</guid>
+      <description>前一陣子大家非常瘋 Parallax Scrolling 網頁，主要是利用人們瀏覽網頁時最習慣的動作「滾動」來做一些特效，讓使用者透過簡易的滾動就能瀏覽完整個網頁。
+Parallax Scrolling 中文翻成視差滾動，wiki 上的定義上說明這是電腦圖學中一種特別的滑動特效技巧，原理是把背景圖片的移動速度放慢，讓前景圖片移動較快，因而在2D畫面上產生多層次的佈景深度。
+但說了這麼多，不如還是透過實際的例子來感受一下什麼是 Parallax Scrolling，20 Best Websites with Parallax Scrolling of 2013 中就有許多有趣的例子！
+如果仔細去研究這些例子的原始碼就會發現，要做這樣的網頁實在很費工，如果可以的話當然想找找有什麼方法可以快速的做好一個 Parallax Scrolling 網頁，於是就在 github 上找到了 skrollr。
+skrollr 的使用方法真的非常簡單，步驟如下：
+Step1：引入函式庫到網頁中：
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/path/to/skrollr.min.js&amp;quot;&amp;gt; &amp;lt;/script&amp;gt;  Step2：在網頁底端初始化 skrollr
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt; var skrollr_obj = skrollr.init(); &amp;lt;/script&amp;gt;  Step3：利用以下語法來安排網頁中元素的轉場
+&amp;lt;div data-0=&amp;quot;background-color:rgb(0,0,255);&amp;quot; data-500=&amp;quot;background-color:rgb(255,0,0);&amp;quot;&amp;gt; WOOOT &amp;lt;/div&amp;gt;  上面語法的意義就是使用者滾動位置從 0 滾動到 500 時 div 的 CSS 樣式變化，也就是說使用者滾動位置到 500 時，div 的背景色會從原來的藍色慢慢變為紅色。
+如果要做淡出功能可以這樣寫：
+&amp;lt;div data-2100=&amp;quot;opacity: 1;&amp;quot; data-2400=&amp;quot;opacity: 0;&amp;quot;&amp;gt; &amp;lt;img src=&amp;quot;/public/image/show-case/skrollr-demo/cell.</description>
+    </item>
+    
+  </channel>
+</rss>

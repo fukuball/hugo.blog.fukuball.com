@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on I am Fukuball</title>
+    <link>https://blog.fukuball.com/tags/git/</link>
+    <description>Recent content in Git on I am Fukuball</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Apr 2014 14:38:22 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.fukuball.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Git 簡易使用教學</title>
+      <link>https://blog.fukuball.com/git-%E7%B0%A1%E6%98%93%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/</link>
+      <pubDate>Thu, 24 Apr 2014 14:38:22 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/git-%E7%B0%A1%E6%98%93%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/</guid>
+      <description>前言 多人共同開發的專案，有時我們需要開發新功能，同時又要修 Bug，可能主程式也要不斷維護開發，我們需要同步進行以加速開發，這時我們通常會從主 branch（通常預設為 master）開出一個新的 branch 來開發，當完成所要開發的新功能或完成 bug 的修正時，就可以將這個 branch merge 回主 branch，因此使用 git branch 在軟體開發上是非常重要的技能。
+git branch 使用 git branch 可以列出所有的 branch 並告訴你目前正在哪個 branch：
+$ git branch dev * master  假設要再開一個 bug-fix 的 branch，就可以使用以下指令來開 branch：
+$ git branch bug-fix  若要刪除 branch 則使用 git branch -d 來刪除，-D 則為強制刪除
+$ git branch -d bug-fix  git checkout 目前我們已有多個 branch，我們可以使用 git checkout 來切換 branch：
+$ git checkout dev  git merge 當我們在 branch 完成工作之後，就要將更新的程式碼 merge 回主 branch，這時請先回到主 branch：</description>
+    </item>
+    
+    <item>
+      <title>Git 簡易使用教學</title>
+      <link>https://blog.fukuball.com/git-%E7%B0%A1%E6%98%93%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/</link>
+      <pubDate>Thu, 24 Apr 2014 13:48:47 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/git-%E7%B0%A1%E6%98%93%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/</guid>
+      <description>前言 版本控制一直是軟體開發中非常重要的工具，而 Git 與 Subversion、CVS 不同的地方在於 Subversion 及 CVS 是屬於 Centralized VCS，Centralized VCS 的共同缺點是做什麼事都要跟伺服器連線，這樣開發會比較慢，且只要伺服器壞掉，就無法工作了。
+Git 則屬於分散式版本控制系統，讓本地端也維護完整的 Repository，即使沒網路，照常可以 commit 和看 history log，伺服器的 Repository 可以在將來有網路連線時再同步更新。
+安裝設定 Git Github 上有各大平台完整的安裝及設定教學，建議直接參照這個教學來設定就可以了。
+其中請特別注意設定好提交者的 name 及 Email，Git 會記錄每個 commit 是由誰提交的，這在版本控制上是很重要的資訊。
+我們可以使用以下的指令來進行設定：（&amp;ndash;global 表示是全域設定）
+$ git config --global user.name &amp;quot;Fukuball Lin&amp;quot; $ git config --global user.email &amp;quot;fukuball@gmail.com&amp;quot;  設定完成後可以用以下指令來觀察是否有設定完成
+$ git config --list user.name=fukuball user.email=fukuball@gmail.com  git init 當 Git 安裝設定好之後，就可以開始使用 Git 版本控制了，假設現在你有一個 Hello-World 的資料夾，那在這個資料夾底下下以下指令就可以開啟一個 Git Repository：</description>
+    </item>
+    
+  </channel>
+</rss>

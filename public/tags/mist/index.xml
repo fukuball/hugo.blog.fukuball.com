@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mist on I am Fukuball</title>
+    <link>https://blog.fukuball.com/tags/mist/</link>
+    <description>Recent content in Mist on I am Fukuball</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 08 Sep 2018 11:54:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.fukuball.com/tags/mist/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ethereum 開發筆記練習 1：使用 Mist 發行自己的 Token</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98%E7%B7%B4%E7%BF%92-1%E4%BD%BF%E7%94%A8-mist-%E7%99%BC%E8%A1%8C%E8%87%AA%E5%B7%B1%E7%9A%84-token/</link>
+      <pubDate>Sat, 08 Sep 2018 11:54:00 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98%E7%B7%B4%E7%BF%92-1%E4%BD%BF%E7%94%A8-mist-%E7%99%BC%E8%A1%8C%E8%87%AA%E5%B7%B1%E7%9A%84-token/</guid>
+      <description>之前說過，Blockchain 基本上是因為金流帳本這樣的問題而被創造出來的，也就是說區塊鏈非常適合運用在金流的應用上，我們也可以建立自己的 Blockchain 來搭建自己的金流系統，不過在 Ethereum 上 Smart Contract 這種設計讓我們擁有可以在 Ethereum 區塊鏈上創造自己金流系統的能力，如此我們就不需要自己建一條鏈了。
+我們使用 Smart Contract 仿造貨幣性質創造了數位資產（說穿了其實就是在 Smart Contract 上紀錄的變數而已），而這種具貨幣性質的數位資產又被稱作 Token，如此我們就可以在應用程式中使用這個去中心化的金流系統，由於 Token 的應用很普遍，大部分的功能都已經標準化了，我們只要仿造標準來實作就可以發行自己的數位貨幣了。
+在這邊我們就練習一下怎麼使用 Mist 發佈 Token Smart Contract 來發行自己的數位貨幣。（目前我們還沒有學習過如何撰寫 Smart Contract，因此這邊會先直接提供範例程式碼，實作的部分我們之後再慢慢學習）
+以下是我們的範例程式碼：
+ 請打開 Mist，如下圖點擊 Contract，然後點擊 Deploy New Contract。
+你會看到如下圖的頁面，請在 Solidity Contract Source Code 中貼上我們上面提供的範例程式碼。
+貼上範例程式碼之後，Mist 會自動編譯程式，檢查是否有語法上的錯誤，如果沒問題，右方的 Select Contract to Deploy 就會出現選項，在這邊我們選擇 Token ERC 20。
+選擇 Token ERC 20 之後，右方會出現要初始化 Contract 的參數表單，有 Initial supply、Token name、Token symbol 需要填寫。Initial supply 代表 Token 的總發行量是多少，我這邊設定成 7777777777，你可以設成你想要的數字。Token name 就是這個 Token 要叫什麼名字，這邊我設定成 7 Token，你想要取 Dog Coin 或是 Cat Coin 也都可以。Token symbol 就是這個 Token 要用什麼代號，像是美金就是用 $、Ether 是用 ETH，這邊我設定成 7token，你可以取自己覺得帥的代號。</description>
+    </item>
+    
+    <item>
+      <title>Ethereum 開發筆記 1–3：使用 Mist</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-13%E4%BD%BF%E7%94%A8-mist/</link>
+      <pubDate>Fri, 07 Sep 2018 15:45:00 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-13%E4%BD%BF%E7%94%A8-mist/</guid>
+      <description>Mist 跟前回介紹的 MetaMask 一樣是可以與 Ethereum 進行互動的工具，除了可以管理 Ethereum 相關密鑰之外，Mist 還包含了 Ethereum 節點以及網頁瀏覽器，方便大家瀏覽 Dapp 網頁。
+首先請到這邊安裝 Mist，請選擇適於自己的作業系統安裝。
+由於 Mist 會安裝節點在你的電腦裡，也因此會同步整個帳本下來，所以會花上不少時間同時也會佔用許多硬碟空間。我們目前僅是要使用測試鏈，所以請切換到 Ropsten 測試鏈（如下圖），這樣就不用花這麼多時間與空間了。
+在 Mist 的左下角可以觀察目前已同步到你的電腦的區塊數（如下圖），如果這個數字跟 Etherscan（Etherscan 是一個可以查看 Ethereum 區塊鏈所有交易的網站） 上的最新區塊數一致的話，那就代表已經同步完成了。
+接下來讓我們用 Mist 開一個 Ethereum 帳戶，請點擊 Add Account，並依指示輸入密碼後創建帳號，密碼請務必要記下來，將來交易時都會需要輸入你的密碼。
+學會創建 Ethereum 帳戶之後，我們要來看一下 Mist 要怎麼備份帳號，請點擊 Mist 上方選單的 File -&amp;gt; Backup -&amp;gt;Accounts（如下圖），這樣就會打開帳號存放的資料夾，所有的帳號都會加密存在這邊，所以只要備份這些檔案及當時設定的密碼，你就可以在別台電腦復原你的帳號。
+現在你這個 Ethereum 帳戶還沒有任何 Ether，我們仿造之前用 MetaMask 來跟水龍頭要 Ether 的步驟來取得 Ether 看看。
+我個人提供了一個水龍頭 Dapp，請前往這個網址來取得 Ether：https://blog.fukuball.com/dapp/faucet/
+由於 Mist 也是一個 Dapp 網頁瀏覽器，請在 Mist 上方的網址列輸入：https://blog.fukuball.com/dapp/faucet/
+Mist 在揭露你的 Ethereum 帳戶資訊給 Dapp 網頁時都會詢問你的同意，請先選擇要瀏覽這個 Dapp 網頁的帳號（你可能在 Mist 有多個帳號，所以就需要選擇目前要用哪個帳號瀏覽這個網頁）。</description>
+    </item>
+    
+  </channel>
+</rss>

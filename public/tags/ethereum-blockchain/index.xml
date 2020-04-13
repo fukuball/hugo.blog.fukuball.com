@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ethereum Blockchain on I am Fukuball</title>
+    <link>https://blog.fukuball.com/tags/ethereum-blockchain/</link>
+    <description>Recent content in Ethereum Blockchain on I am Fukuball</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 06 Sep 2018 15:57:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.fukuball.com/tags/ethereum-blockchain/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ethereum 開發筆記 1–1：Blockchain 簡介</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-11blockchain-%E7%B0%A1%E4%BB%8B/</link>
+      <pubDate>Thu, 06 Sep 2018 15:57:23 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-11blockchain-%E7%B0%A1%E4%BB%8B/</guid>
+      <description>網際網路發展至今，大家已經很習慣上網使用系統與服務了，這樣普遍存在網路上的系統大部分都是 Client-Server 式的系統，這樣的系統會有自己的內部網路與資料庫，當不同的系統之間要溝通或同步資料的時候，通常會透過 API 這樣的管道來溝通與同步資料，而 API 需要工程師撰寫，並不是在這些系統原生就會有的機制與功能，這就會產生開發成本，也因此不同系統之間的資料交換一直是一個需要被解決的問題。
+Blockchain 的特性上，若系統是屬於 Blockchain 上的節點，那麼所有的系統節點就是共享同一份資料，當其中一個系統更改了 Blockchain 上的資料，那這一份更改就會同步到所有的系統。
+這樣的特性除了泛用的資料同步分享之外，其實也非常適合使用作為「帳本」（可同步、且不可竄改），Bitcoin 是第一個將這樣帳本特性發揚光大的應用，雖然 Bitcoin 被製造出來時還沒有 Blockchain 這樣的概念，但背後的技術及運用的特性就是現在大家在講的 Blockchain。Blockchain 的思想基本上就是以「帳本」這樣的概念產生的，這個帳本上記錄所有的交易紀錄（也就是資料紀錄），且只能新增紀錄，不能修改或刪除紀錄，所有的紀錄像鏈子一樣結合起來，就像一個 chian of block，並透過加密機制讓鏈結的資料不可被竄改，也因此所有的交易紀錄（也就是資料）被紀錄到帳本之中，那就永遠不會消失。要算帳時只要將個人所擁有的所有交易紀錄進帳與出帳加總起來，就可以得到這個帳戶的結餘。Bitcoin 運用了早已存在的 P2P 運算、共識機制、加密機制、Chain of Block 及 Merkle Tree 整合出了現在大家在說的 Blockchain，而這一切的出發點就是為了製造出一個去中心化的金流系統（資料交換系統）。
+Bitcoin 帶來了第一波 Blockchain 革命，第二波 Blockchain 革命就是在 Ethereum 開始的。由於在 Bitcoin 上的交易紀錄只是紀錄資料，假設我們將一個可執行的程式紀錄在 Blockchain 交易紀錄上會發生什麼事呢？
+這樣這個程式就可以共享在整個 Blockchain 上，大家都可以在 Blockchain 上運行程式，而程式運行的資料可以在 Blockchain 上存取，讓整個 Blockchain 作為資料庫，這樣的程式就叫做 Smart Contract。這樣將程式放到 Blockchain 上運行的想法帶來了 Ethereum 的成功，如此 Ethereum Blockchain 就成了一個非常龐大的運算平台，讓許多去中心化的應用如雨後春筍地開發出來，讓未來的網路應用充滿了更多想像！
+這份筆記將會紀錄在 Ethereum 上開發應用所學習到的知識，作為自己的回憶，也分享給想一起學習的開發者。</description>
+    </item>
+    
+  </channel>
+</rss>

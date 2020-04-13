@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sublime Text on I am Fukuball</title>
+    <link>https://blog.fukuball.com/tags/sublime-text/</link>
+    <description>Recent content in Sublime Text on I am Fukuball</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Apr 2014 10:43:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.fukuball.com/tags/sublime-text/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>我在 Sublime Text 2 常用的快捷鍵</title>
+      <link>https://blog.fukuball.com/%E6%88%91%E5%9C%A8-sublime-text-2-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%8D%B5/</link>
+      <pubDate>Thu, 24 Apr 2014 10:43:45 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E6%88%91%E5%9C%A8-sublime-text-2-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%8D%B5/</guid>
+      <description> Sublime Text 2 好用的地方在於它有許多方便的快捷鍵，當然已經有人整理出這些方便的快捷鍵（請參考：Sublime Text 2 – Useful Shortcuts (Mac OS X)），而我這篇主要是分享我個人常用的，其他冷門的快捷鍵其實不用浪費我們的腦容量去記。
+符號說明：
+ ⌘ 為俗稱的蘋果鍵 ⇧ 為 shift 鍵 ⌃ 為 control 鍵 ⌥ 為 option/alt 鍵  以下是我常用的快捷鍵列表：
+一般   ⌘R 跳至某個 method   ⌘⇧P 開啟 Sublime Text 的命令列   ⌃ ` 開啟 python console   編輯   ⌘L 全選所在行，連續按則往下繼續選下一行   ⌘D 全選所在單字，連續按則往下繼續選相同單字，可以一次同時編輯所有選擇的單字   ⌃⇧M 選擇花刮號裡所有內容   ⌃M 跳至相配對的花刮號   ⌃⇧K 刪除所在行，連續按則往下繼續刪下一行   ⌘Z 復原   ⌘⇧Z 反復原   ⌘⌥ + 滑鼠選擇 可以垂直選擇   尋找/取代   ⌘F 尋找   ⌘⌥F 取代   ⌘⇧F 在整個 Project 尋找/取代   </description>
+    </item>
+    
+    <item>
+      <title>我的 Sublime Text 2 設定</title>
+      <link>https://blog.fukuball.com/%E6%88%91%E7%9A%84-sublime-text-2-%E8%A8%AD%E5%AE%9A/</link>
+      <pubDate>Thu, 24 Apr 2014 10:03:53 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E6%88%91%E7%9A%84-sublime-text-2-%E8%A8%AD%E5%AE%9A/</guid>
+      <description>使用文字編輯器撰寫程式碼的時候，第一步就是要挑整適合於自己使用的編輯環境，在 Sublime Text 2 裡只要使用快捷鍵 ⌘, 就可以開啟設定頁面，然後就可以依照個人使用情況來做調整啦～
+以下是我目前的 Sublime Text 2 設定值，大家可以參考看看
+{ &amp;quot;font_size&amp;quot;: 18.0, &amp;quot;ignored_packages&amp;quot;: [ &amp;quot;Vintage&amp;quot; ], &amp;quot;tab_size&amp;quot;: 4, &amp;quot;translate_tabs_to_spaces&amp;quot;: true, &amp;quot;highlight_line&amp;quot;: true, &amp;quot;trim_trailing_white_space_on_save&amp;quot;: true }  我將 font_size 設成 18，這樣對眼睛比較好，畢竟要長時間看程式碼，還是大一點的字型比較好。
+另外，Sublime Text 可以透過 Vintage 這個內建的 package 提供 vi 模擬模式，讓使用者可以使用 vi 的指令模式來操作 Sublime Text，由於我個人不熟悉 vi，所以就在 ignored_packages 將這個 packeage ignore 掉，其實 Sublime Text 一開始預設就是 ignore 這個 package 的，畢竟都已經使用 Sublime Text 了，要使用 vi 就使用真正的 vi 吧。
+tab_size 我是設成 4，其實之前我都是使用 3，但實在太多 open source 的 project 都是使用 4，只好改變我的習慣。</description>
+    </item>
+    
+    <item>
+      <title>如何在 Sublime Text 2 搜尋所有非 ASCII 字元</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%9C%A8-sublime-text-2-%E6%90%9C%E5%B0%8B%E6%89%80%E6%9C%89%E9%9D%9E-ascii-%E5%AD%97%E5%85%83/</link>
+      <pubDate>Tue, 15 Apr 2014 08:11:24 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%9C%A8-sublime-text-2-%E6%90%9C%E5%B0%8B%E6%89%80%E6%9C%89%E9%9D%9E-ascii-%E5%AD%97%E5%85%83/</guid>
+      <description>寫程式有時會需要找出原始碼裡所有非 ASCII 字元，拜訪了一下 Google 大神得到了這個答案，筆記一下！
+Regular Expression:
+[^\x00-\x7F]  </description>
+    </item>
+    
+  </channel>
+</rss>

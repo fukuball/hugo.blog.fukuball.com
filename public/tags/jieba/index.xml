@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jieba on I am Fukuball</title>
+    <link>https://blog.fukuball.com/tags/jieba/</link>
+    <description>Recent content in Jieba on I am Fukuball</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 06 Aug 2014 13:49:55 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.fukuball.com/tags/jieba/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>如何使用 jieba 結巴中文分詞程式</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-jieba-%E7%B5%90%E5%B7%B4%E4%B8%AD%E6%96%87%E5%88%86%E8%A9%9E%E7%A8%8B%E5%BC%8F/</link>
+      <pubDate>Wed, 06 Aug 2014 13:49:55 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-jieba-%E7%B5%90%E5%B7%B4%E4%B8%AD%E6%96%87%E5%88%86%E8%A9%9E%E7%A8%8B%E5%BC%8F/</guid>
+      <description>前言 自然語言處理的其中一個重要環節就是中文斷詞的處理，比起英文斷詞，中文斷詞在先天上就比較難處理，比如電腦要怎麼知道「全台大停電」要斷詞成「全台 / 大 / 停電」呢？如果是英文「Power outage all over Taiwan」，就可以直接用空白斷成「Power / outage / all / over / Taiwan」，可見中文斷詞真的是一個大問題啊～
+這樣的問題其實已經有很多解法，比如中研院也有提供「中文斷詞系統」，但就是很難用，不僅 API Call 的次數有限制，還很難串，Server 也常常掛掉，真不曉得為何中研院不將核心開源出來，讓大家可以一起來改善這種現象，總之我要棄中研院的斷詞系統而去了。
+近來玩了一下 jieba 結巴這個 Python Based 的開源中文斷詞程式，感覺大好，順手發了一些 pull request，今天早上就成為 contributor 了！ 感覺真爽！每次發 pull request 總是有種莫名的爽感，既期待被 merge 又怕被 reject，就跟告白的感覺類似啊～
+這麼好用的開源中文斷詞系統，當然要介紹給大家用啊！
+背後演算法 jieba 中文斷詞所使用的演算法是基於 Trie Tree 結構去生成句子中中文字所有可能成詞的情況，然後使用動態規劃（Dynamic programming）算法來找出最大機率的路徑，這個路徑就是基於詞頻的最大斷詞結果。對於辨識新詞（字典詞庫中不存在的詞）則使用了 HMM 模型（Hidden Markov Model）及 Viterbi 算法來辨識出來。基本上這樣就可以完成具有斷詞功能的程式了，或許我之後可以找個時間寫幾篇部落格來介紹這幾個演算法。
+如何安裝 推薦用 pip 安裝 jieba 套件，或者使用 Virtualenv 安裝（未來可能會介紹如何使用 Virtualevn，這樣就可以同時在一台機器上跑不同的 Python 環境）：
+pip install jieba  基本斷詞用法，使用預設詞庫 Sample Code：</description>
+    </item>
+    
+  </channel>
+</rss>

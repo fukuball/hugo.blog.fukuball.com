@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Private Chain on I am Fukuball</title>
+    <link>https://blog.fukuball.com/tags/private-chain/</link>
+    <description>Recent content in Private Chain on I am Fukuball</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Sep 2018 18:34:28 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.fukuball.com/tags/private-chain/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ethereum 開發筆記 2–2：Geth 基礎用法及架設 Muti-Nodes 私有鏈</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-22geth-%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95%E5%8F%8A%E6%9E%B6%E8%A8%AD-muti-nodes-%E7%A7%81%E6%9C%89%E9%8F%88/</link>
+      <pubDate>Sun, 23 Sep 2018 18:34:28 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-22geth-%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95%E5%8F%8A%E6%9E%B6%E8%A8%AD-muti-nodes-%E7%A7%81%E6%9C%89%E9%8F%88/</guid>
+      <description>要連上 Ethereum 就需要安裝 Ethereum Node，在這邊我們選擇使用 Geth 來安裝 Ethereum Node，接下來就來一步一步的學學怎麼使用 Geth，甚至如何使用 Geth 來架設自己的 Ethereum 私有鏈。
+安裝環境 首先我們在 AWS 上開啟兩台 Ubuntu 虛擬機器，記得開 t2.medium（2 vCPU, 4 GB RAM）這個規格以上才跑得動，硬碟可以開 100 G，Security Group 將 TCP 30303 打開，Ethereum Node 之間是用 30303 這個 port 來溝通的。
+接下來使用以下指令安裝 Geth：
+$ sudo apt-get install -y software-properties-common $ sudo add-apt-repository -y ppa:ethereum/ethereum $ sudo apt-get update $ sudo apt-get install -y ethereum  兩台虛擬機器都要安裝，應該幾分鐘就可以裝好了。
+使用 Main Net 安裝完 Geth 之後，我們就可以透過 Geth 連上 Ethereum Network 了，我們就來連上 Main Net 看看：</description>
+    </item>
+    
+  </channel>
+</rss>

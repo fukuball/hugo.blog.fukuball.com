@@ -1,0 +1,1902 @@
+
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.48 with theme Tranquilpeak 0.4.3-BETA">
+    <title>Machine Learning</title>
+    <meta name="author" content="Fukuball">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="images/favicon.ico">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.fukuball.com/tags/machine-learning/index.xml">
+    
+
+    
+    <meta name="description" content="我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，對機器學習及區塊鏈技術感到興趣。 https://www.fukuball.com">
+    <meta property="og:description" content="我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，對機器學習及區塊鏈技術感到興趣。 https://www.fukuball.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Machine Learning">
+    <meta property="og:url" content="/tags/machine-learning/">
+    <meta property="og:site_name" content="I am Fukuball">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="I am Fukuball">
+    <meta name="twitter:description" content="我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，對機器學習及區塊鏈技術感到興趣。 https://www.fukuball.com">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/6c910ba730e0acfda9ee450eec9776e6?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://blog.fukuball.com/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="1">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.fukuball.com/">I am Fukuball</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.fukuball.com/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/6c910ba730e0acfda9ee450eec9776e6?s=90" alt="" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="1">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.fukuball.com/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/6c910ba730e0acfda9ee450eec9776e6?s=110" alt="" />
+        </a>
+        <h4 class="sidebar-profile-name">Fukuball</h4>
+        
+          <h5 class="sidebar-profile-bio">我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，對機器學習及區塊鏈技術感到興趣。 <a href="https://www.fukuball.com">https://www.fukuball.com</a></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.fukuball.com/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.fukuball.com/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://facebook.com/fukuball" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-facebook"></i>
+      
+      <span class="sidebar-button-desc">Facebook</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/fukuball" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.fukuball.com/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">Blog</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="1"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-3-jiang-xue-xi-bi-ji/">
+          林軒田教授機器學習技法 Machine Learning Techniques 第 3 講學習筆記
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2016-05-23T18:58:10&#43;08:00">
+        
+  May 23, 2016
+
+      </time>
+    
+    
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody" style="margin-bottom: 50px;">
+      <div class="main-content-wrap">
+        
+
+<h3 id="前言">前言</h3>
+
+<p>本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 <a href="http://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-2-jiang-xue-xi-bi-ji/">第 2 講</a> 的碼農們，我建議可以先回頭去讀一下再回來喔！</p>
+
+<h3 id="範例原始碼-fukuml-簡單易用的機器學習套件-https-github-com-fukuball-fuku-ml">範例原始碼：<a href="https://github.com/fukuball/fuku-ml">FukuML - 簡單易用的機器學習套件</a></h3>
+
+<p>我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 <a href="https://github.com/fukuball/fuku-ml">GitHub</a> 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。</p>
+
+<p>如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 <a href="https://github.com/fukuball/fuku-ml">FukuML</a> 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 <a href="https://github.com/fukuball/fuku-ml">FukuML</a> 了。不過我還是有寫 <a href="https://github.com/fukuball/FukuML-Tutorial">Tutorial</a> 啦，之後會不定期更新，讓大家可以容易上手比較重要！</p>
+
+<h3 id="熱身回顧一下">熱身回顧一下</h3>
+
+<p>在上一講中，我們介紹了 Dual SVM，這是為了讓我們可以對資料點做高維度的特徵轉換，這樣就可以讓 SVM 學習更複雜的非線性模型，但我們又不想要跟高維度的計算牽扯上關係，Dual SVM 將問題作了一些轉換，能夠將演算法跟高維度的計算脫鉤，但上一講中的 Q 矩陣實際上還是計算了高維度特徵矩陣內積，所以並沒有真的解決問題。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-1.png">
+</p>
+
+<h3 id="dual-svm-仍與高維度-d-有依賴關係">Dual SVM 仍與高維度 d 有依賴關係</h3>
+
+<p>目前推導出來的 Dual SVM 仍與高維度 d 有依賴關係，我們能不能簡化 Q 矩陣的高維度特徵矩陣內積計算呢？</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-2.png">
+</p>
+
+<h3 id="觀察矩陣內積的每一個運算">觀察矩陣內積的每一個運算</h3>
+
+<p>我們用二次轉換拆開來觀察，發現原本將矩陣進行特徵轉換之後在做矩陣內積，可以分成 0 次項、1 次項、 2 次項分開來計算，結果會是一樣的。而更高維度的轉換也會有相同的性質。如此我們就可以限制計算量只在原本的特徵維度 O(d)。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-3.png">
+</p>
+
+<h3 id="kernel-的概念">Kernel 的概念</h3>
+
+<p>有了上述的性質，我們可以引進 Kernel 的概念，之前都是將矩陣進行特徵轉換之後再去計算內積，現在我們可以改成使用 kernel function 來做計算，znTzm 可以改成對應的 kernel function K(xn, xm)。</p>
+
+<p>由於我們都不去 z 空間做計算了，因此也無法得到 z 空間的 w，所以 b 與 w 的式子都要改成使用 kernel function K(xn, xm) 來計算。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-4.png">
+</p>
+
+<h3 id="用-qp-解-kernel-svm">用 QP 解 Kernel SVM</h3>
+
+<p>導出 Kernel function 之後，我們一樣可以將 kernel function 計算出來的 Q 矩陣丟進去 QP Solver 來解 SVM。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-5.png">
+</p>
+
+<h3 id="polynomial-kernel">Polynomial Kernel</h3>
+
+<p>我們可以將 Kernel Function 整理成更一般化的形式，這樣就可以推導出各式各樣的 Polynomail Kernel。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-6.png">
+</p>
+
+<h3 id="poly-2-kernel-圖示">Poly-2 Kernel 圖示</h3>
+
+<p>我們使用一個例子來看一下 Poly-2 Kernel 的效果，我們可以調整 gamma 參數得出不一樣的分類曲線。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-7.png">
+</p>
+
+<h3 id="polynomial-kernel-一般化">Polynomial Kernel 一般化</h3>
+
+<p>由 Poly-2 Kernel，我們可以再做更多變化，常數項用 zeta 當參數、特徵空間轉換用 Q 當參數，加上原本的 gamma 參數，Polynomial SVM 可以很自由地調整 Kernel 參數來得到更好的分類效果。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-8.png">
+</p>
+
+<h3 id="無限多維轉換的-kernel">無限多維轉換的 Kernel</h3>
+
+<p>由於我們的演算法已經跟高維度的空間脫鉤了，所以我們有了這樣的想法，我們是不是可以使用無限多維轉換的 kernel 呢？</p>
+
+<p>我們觀察一下指數函數 exp(-(x-x&rsquo;)^2)，結果發現就是一個對 X 的無限多維轉換，由此我們可以推導出下式的無限多維轉換 Kernel，也稱為 Gaussian kernel。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-9.png">
+</p>
+
+<h3 id="gaussian-svm">Gaussian SVM</h3>
+
+<p>推導出 Gaussian Kernel 之後，使用 Gaussian Kernel 的 SVM 就是 Gaussian SVM。Gaussian SVM 演算法會與 Polynomial SVM 一樣，只是 Kernel 不一樣，由於是無限多維轉換，我們也不用再去煩腦要用幾次的轉換。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-10.png">
+</p>
+
+<h3 id="觀察-gaussian-svm-的效果">觀察 Gaussian SVM 的效果</h3>
+
+<p>Gaussian SVM 是無限多維的轉換，因此可以預期它有很強的 power 可以做好分類，同時又保證 mergin 最大可以避免 overfit。但下圖中實驗調整 Gaussian Kernel 的 gamma 參數，其實還是有可能會產生 overfit，所以 Gaussian SVM 也不是萬能的，還是要謹慎驗證計算出來的結果。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-12.png">
+</p>
+
+<h3 id="回顧-linear-kernel-優缺點">回顧 Linear Kernel 優缺點</h3>
+
+<p>我們來回顧一下目前學過的 Kernel。首先是 Linear Kernel，優點是模型較為簡單，也因此比較安全，不容易 overfit；可以算出確切的 W 及 Support Vectors，解釋性較好。缺點就是，限制會較多，如果資料點非線性可分就沒用。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-13.png">
+</p>
+
+<h3 id="回顧-polynomial-kernel-優缺點">回顧 Polynomial Kernel 優缺點</h3>
+
+<p>再來是 Polynomial Kernel，由於可以進行 Q 次轉換，分類能力會比 Linear Kernel 好。缺點就是高次轉換可能會有一些數字問題產生，造成計算結果怪異。然後太多參數要選，比較難使用。也因此 Polynomial Kernel 可能會用在比較低次轉換的 SVM 問題上，但這樣也許就可以用 Linear SVM 取代。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-14.png">
+</p>
+
+<h3 id="回顧-gaussian-kernel-優缺點">回顧 Gaussian Kernel 優缺點</h3>
+
+<p>最後是 Gaussian Kernel，優點就是無限多維的轉換，分類能力當然更好，而且需要選擇的參數的較少。但缺點就是無法計算出確切的 w 及 support vectors，預測時都要透過 kernel function 來計算，也因此比較沒有解釋性，而且也是會發生 overfit。比起 Polynomail SVM，Gaussian SVM 比較常用。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-15.png">
+</p>
+
+<h3 id="其他-kernel">其他 Kernel</h3>
+
+<p>除了目前介紹的 Kernel 之外是否還有其他 Kernel 呢？當然有，你也可以自己定義自己的 Kernel，只要符合 Mercer&rsquo;s condition 就是一個合法的 Kernel。不過要定義自己的 Kernel 並不是件容易的事。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-16.png">
+</p>
+
+<h3 id="總結">總結</h3>
+
+<p>在這一講中，我們終於脫離了高維度空間的計算依賴，使用 Kernel Funciton 來解 Dual SVM，因此引進了 Polynomial Kernel SVM 的概念，最後甚至推導出了無限多維轉換的 Gaussian Kernel SVM。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-3-17.png">
+</p>
+
+      </div>
+      <p>
+        <a href="https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-3-jiang-xue-xi-bi-ji/" class="postShorten-excerpt_link link"></a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-2-jiang-xue-xi-bi-ji/">
+          林軒田教授機器學習技法 Machine Learning Techniques 第 2 講學習筆記
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2016-05-07T14:24:53&#43;08:00">
+        
+  May 7, 2016
+
+      </time>
+    
+    
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody" style="margin-bottom: 50px;">
+      <div class="main-content-wrap">
+        
+
+<h3 id="前言">前言</h3>
+
+<p>本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 <a href="http://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-1-jiang-xue-xi-bi-ji/">第 1 講</a> 的碼農們，我建議可以先回頭去讀一下再回來喔！</p>
+
+<h3 id="範例原始碼-fukuml-簡單易用的機器學習套件-https-github-com-fukuball-fuku-ml">範例原始碼：<a href="https://github.com/fukuball/fuku-ml">FukuML - 簡單易用的機器學習套件</a></h3>
+
+<p>我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 <a href="https://github.com/fukuball/fuku-ml">GitHub</a> 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。</p>
+
+<p>如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 <a href="https://github.com/fukuball/fuku-ml">FukuML</a> 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 <a href="https://github.com/fukuball/fuku-ml">FukuML</a> 了。不過我還是有寫 <a href="https://github.com/fukuball/FukuML-Tutorial">Tutorial</a> 啦，之後會不定期更新，讓大家可以容易上手比較重要！</p>
+
+<h3 id="熱身回顧一下">熱身回顧一下</h3>
+
+<p>從機器學習基石課程中，我們已經了解了機器學習一些基本的演算法，在機器學習技法課程中我們將介紹更多進階的機器學習演算法。首先登場的就是支持向量機（Support Vector Machine）了，第一講中我們將先介紹最簡單的 Hard Margin Linear Support Vector Machine。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-1.png">
+</p>
+
+<h3 id="非線性-svm">非線性 SVM</h3>
+
+<p>學會了 Hard Margin Linear SVM 之後，如果我們想要訓練非線性模型要怎麼做呢？跟之前的學習模型一樣，我們只要將資料點經過非線性轉換之後，在高維空間做訓練就可以了。</p>
+
+<p>非線性的轉換其實可以依我們的需求轉換到非常高維，甚至可能到無限多維，如果是無限多維的話，我們怎麼使用 QP Solver 來解 SVM 呢？如果 SVM 模型可以轉換到與 feature 維度無關，那我們就可以使用無限多維的轉換了。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-2.png">
+</p>
+
+<h3 id="與特徵維度無關的-svm">與特徵維度無關的 SVM</h3>
+
+<p>為了可以做到無限多維特徵轉換，我們需要將 SVM 轉為另外一個問題，在數學上已證明這兩個問題其實是一樣的，所以又稱為是 SVM 的對偶問題，Dual SVM，由於背後的數學證明很複雜，這門課程只會解釋一些必要的原理來讓我們理解。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-3.png">
+</p>
+
+<h3 id="使用-lagrange-multipliers-當工具">使用 Lagrange Multipliers 當工具</h3>
+
+<p>我們在正規化那一講中曾經使用過 Lagrange Multipliers 來推導正規化的數學式，在推導 Dual SVM 也會使用到 Lagrange Multiplier。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-4.png">
+</p>
+
+<h3 id="將-svm-的限制條件轉換成無限制條件">將 SVM 的限制條件轉換成無限制條件</h3>
+
+<p>在以往的課程中，我們已經了解有限制條件時，會造成我們找最佳解的困難，所以第一步我們先想辦法把 SVM 的限制條件轉換成無限制條件看看。</p>
+
+<p>有了這樣的想法，我們把原本 SVM 的數學式改寫成一個 Lagrange Function，如下圖所示，原本的 N 的限制式改成了 1-yn(wTZn + b)，並用 N 個 Lagrange Multiplier 來做調整（N 個 alpha）。</p>
+
+<p>數學需要證明 SVM 會等於 min (max Largrange Function, all alpha &gt;= 0)，我們可以先看一下 Largrange Function 的意涵。我們希望 SVM 可以完美的分好資料，所以 1-yn(wTZn + b) 應該都是 &lt;= 0，假設現在 1-yn(wTZn + b) 有一些正值的話，那 max Largrange Function 就會趨向無限大，所以如果我們找到正確的 b, w 分好資料，那 max Largrange 就會趨向 1/2wTw，這樣加上前面的 min，就可以知道 Lagrange Function 的轉換解出來的答案會跟原本的 SVM 一樣。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-5.png">
+</p>
+
+<h3 id="max-min-做交換">Max Min 做交換</h3>
+
+<p>由於 Lagrange 對偶性質，Max Min 可以透過下圖的關係式做調換，原本的 min(max Lagrange Function) 有大於等於 max(min Lagrange Function) 的關係，在 QP 的性質上，其實又說兩邊解出來的答案會一模一樣。（這邊用單純的說明，沒有數學推導證明）</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-7.png">
+</p>
+
+<h3 id="解-lagrange-dual-1">解 Lagrange Dual (1)</h3>
+
+<p>導出目前的 Lagrange Dual 式子 max(min Lagrange Function)之後，我們要來解看看最佳解了。由於 min Lagrange Function 是沒有限制條件的，所以我們可以用偏微分來求極值。</p>
+
+<p>首先我們對 b 做偏微分，會得到 - sigma(anyn) ＝0，負號可以不用管，所以寫成 sigma(anyn) = 0。</p>
+
+<p>將這個限制式代入原本的式子，就可以把原本的式子做一些簡化，如下圖所示。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-8.png">
+</p>
+
+<h3 id="解-lagrange-dual-2">解 Lagrange Dual (2)</h3>
+
+<p>接下來我們對 wi 做偏微分，可以得到 w = sigma(anynzn)，一樣將這個限制式代入原本的式子，原本式子中的 w 就都可以換掉。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-9.png">
+</p>
+
+<h3 id="kkt-optimality-conditions">KKT Optimality Conditions</h3>
+
+<p>將過這些最佳換轉換的式子，導出了一些限制式：</p>
+
+<ol>
+<li>yn(wTZn + b)&gt;= 1，這是原本要將資料分好的限制式</li>
+<li>an &gt;= 0，對偶問題 Lagrange Multiplier 的條件</li>
+<li>sigma(ynan) = 0，w = sigma(anynzn)，這是最佳解時會有的條件</li>
+<li>在最佳解時，an(1-yn(wTZn + b)) = 0</li>
+</ol>
+
+<p>這就是著名的 KKT Optimality Conditions，目前這些 b,w 最佳解時的限制式，其中的變數就只剩下 an，所以實務上我們就要去找出最佳解時的 an 會是什麼，再利用上述的關係解出 b, w。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-10.png">
+</p>
+
+<h3 id="dual-svm">Dual SVM</h3>
+
+<p>導出最佳解時的所有限制式之後，原來的式子可以改成下圖中的式子，這個式子其實也是一個 QP 問題，我們可以用 QP Solver 來解出最佳解時的 an。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-11.png">
+</p>
+
+<h3 id="用-qp-solver-解-dual-svm">用 QP Solver 解 Dual SVM</h3>
+
+<p>我們可以用 QP Solver 解 Dual SVM，造上一講的做法去將 QP Solver 所需要的參數找出來，會有下圖中的參數。相等關係的限制式可以改成一個 &gt;= 及 一個 &lt;= 的關係，如果你所使用的 QP Solver 有提供相等關係的參數，那就不用這樣做。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-12.png">
+</p>
+
+<h3 id="特殊的-qp-solver">特殊的 QP Solver</h3>
+
+<p>找出 Dual SVM 的所有 QP Solver 所需參數之後，我們就可以將參數丟進去 QP Solver 讓它幫忙解出最佳解。由於其中的 Q 參數可能會很大，因此使用有對 SVM 問題做特殊處理的 QP Solver 會比較沒問題。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-13.png">
+</p>
+
+<h3 id="找出最佳的-w-b">找出最佳的 w , b</h3>
+
+<p>機器學習演算法最終就是要找出最佳的 w, b 來做未來的預測，不過現在 QP Solver 解出來的只有最佳解時的 an，我們要怎麼求出最佳解時的 w, b 呢？從 KKT Optimality Conditions 我們可以找出 w, b，w ＝sigma(anynzn) 這個條件可以算出 w，an(1-yn(wTZn + b)) = 0 這個條件可以算出 b，因為 an 通常會有大於 0 的情況，所以 1-yn(wTZn + b) 等於 0 才能符合條件，所以 b ＝yn - wTZn。</p>
+
+<p>由於 an 大於 0 的點才能算出 b，這些大於 0 的 an 的資料點其實就是落在胖胖的邊界上。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-14.png">
+</p>
+
+<h3 id="support-vector-的性質">Support Vector 的性質</h3>
+
+<p>由於 w = sigma(anynzn)，所以其實也只有 an 大於 0 的點會影響到 w 的計算，b 也是只有 an 大於 0 時才有辦法計算，所以 an 大於 0 的資料點其實就是 Support Vector。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-15.png">
+</p>
+
+<h3 id="support-vector-可以呈現胖胖的超平面">Support Vector 可以呈現胖胖的超平面</h3>
+
+<p>我們來看看 w ＝ sigma(anynzn) 的含義，其實他的意思就是 w 可以被 Support Vecotr 線性組合呈現出來。這跟 PLA 也有點像，PLA 的 w 含義是被它犯錯的點的線性組合呈現出來。其實在 Logistic Regression 及 Linear Regression 也可以找到類似的性質，簡而言之，我們最後來出來做預測的 w 其實都可以被我們的訓練資料線性組合呈現出來。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-16.png">
+</p>
+
+<h3 id="比較一下-primal-及-dual-svm">比較一下 Primal 及 Dual SVM</h3>
+
+<p>我們將 Primal 及 Dual SVM 的式子放在一起比較，其實可以發現 Dual SVM 與資料點的特徵維度 d 已經沒有關係了，因此可以做很高維度的特徵轉換。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-17.png">
+</p>
+
+<h3 id="但其實-dual-svm-只是把特徵維度藏起來">但其實 Dual SVM 只是把特徵維度藏起來</h3>
+
+<p>但其實仔細一看 Dual SVM 只是把特徵維度藏起來，在計算 Q 時，就會與特徵維度牽扯上關係，這樣就還是無法做無限維度的轉換，我們如何真正不需要計算到高維度特徵呢？這是下一講的課程了。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-18.png">
+</p>
+
+<h3 id="總結">總結</h3>
+
+<p>在這一講中，我們介紹了 Dual SVM，這是為了讓我們可以對資料點做高維度的特徵轉換，這樣就可以讓 SVM 學習更複雜的非線性模型，但我們又不想要跟高維度的計算牽扯上關係，Dual SVM 將問題作了一些轉換，算是把高維度的計算藏了一半，另一半就是下次的課程了。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-2-19.png">
+</p>
+
+      </div>
+      <p>
+        <a href="https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-2-jiang-xue-xi-bi-ji/" class="postShorten-excerpt_link link"></a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-1-jiang-xue-xi-bi-ji/">
+          林軒田教授機器學習技法 Machine Learning Techniques 第 1 講學習筆記
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2016-04-21T09:00:27&#43;08:00">
+        
+  April 21, 2016
+
+      </time>
+    
+    
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody" style="margin-bottom: 50px;">
+      <div class="main-content-wrap">
+        
+
+<h3 id="前言">前言</h3>
+
+<p>本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 <a href="http://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-liu-jiang-xue-xi-bi-ji/">機器學習基石系列</a> 的碼農們，我建議可以先回頭去讀一下再回來喔！</p>
+
+<h3 id="範例原始碼-fukuml-簡單易用的機器學習套件-https-github-com-fukuball-fuku-ml">範例原始碼：<a href="https://github.com/fukuball/fuku-ml">FukuML - 簡單易用的機器學習套件</a></h3>
+
+<p>我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 <a href="https://github.com/fukuball/fuku-ml">GitHub</a> 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。</p>
+
+<p>如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 <a href="https://github.com/fukuball/fuku-ml">FukuML</a> 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 <a href="https://github.com/fukuball/fuku-ml">FukuML</a> 了。不過我還是有寫 <a href="https://github.com/fukuball/FukuML-Tutorial">Tutorial</a> 啦，之後會不定期更新，讓大家可以容易上手比較重要！</p>
+
+<h3 id="熱身回顧一下">熱身回顧一下</h3>
+
+<p>從機器學習基石課程中，我們已經了解了機器學習一些基本的演算法，在機器學習技法課程中我們將介紹更多進階的機器學習演算法。首先登場的就是支持向量機（Support Vector Machine）了，第一講中我們將先介紹最簡單的 Hard Margin Linear Support Vector Machine。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-1.png">
+</p>
+
+<h3 id="線性分類回憶">線性分類回憶</h3>
+
+<p>回憶一下之前的課程中，我們使用 PLA 及 Pocket 來學習出可以分出兩類的線。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-2.png">
+</p>
+
+<h3 id="哪條線最好">哪條線最好？</h3>
+
+<p>但其實可以將訓練資料分類的線可能會有很多條線，如下圖所示。我們要怎麼選呢？如果用眼睛來看，你或許會覺得右邊的這條線最好。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-3.png">
+</p>
+
+<h3 id="為何右邊這條線最好">為何右邊這條線最好？</h3>
+
+<p>為何會覺得右邊這條線最好呢？假設先在我們再一次取得資料，可以預期資料與訓練資料會有點接近，但並不會完全一樣，這是因為 noise 的原因。所以偏差了一點點的 X 及 O 再左邊這條線可能就會不小心超出現，所以就會被誤判了，但在右邊這條線就可以容忍更多的誤差，也就比較不容易 overfitting，也因此右邊這條線最好。</p>
+
+<p>如何描述這條線？我們可以說這條線與最近的訓練資料距離是所有的線中最大的。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-4.png">
+</p>
+
+<h3 id="胖的線">胖的線</h3>
+
+<p>我們希望得到的線與最近的資料點的距離最大，換的角度，我們也可以說，我們想要得到最胖的線，而且這個胖線還可以將訓練資料分好分類。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-5.png">
+</p>
+
+<h3 id="large-margin-separating-hyperplane">Large-Margin Separating Hyperplane</h3>
+
+<p>這種胖的線名稱就叫 Large-Margin Separating Hyperplane，原本的問題就可以定義成要找最大的 margin，而且還要分好類，也就是 yn = sign(wTXn)。</p>
+
+<p>最大的 margin 可以轉換成點與超平面之間最小的距離 distance(Xn, w)，然後 yn = sign(wTXn)，就代表 Yn 與 score 同號，所以可以轉換成 YnwTXn &gt; 0，我們需要求解滿足這些條件的超平面。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-7.png">
+</p>
+
+<h3 id="點與超平面的距離-符號解釋">點與超平面的距離 - 符號解釋</h3>
+
+<p>點與超平面的距離怎麼算呢？在這邊的推導，我們需要暫時將 w0 分出來，寫成 b，所以我們之前熟悉的 wTXn 在這邊暫時變成 wTxn + b，以方便推導。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-8.png">
+</p>
+
+<h3 id="點與超平面的距離-推導">點與超平面的距離 - 推導</h3>
+
+<p>如果我們現在有一個超平面 wTx + b = 0，假設 x&rsquo; 與 x&rdquo; 都在這個超平面上，也就是 wTx&rsquo; + b 及 wTx&rdquo; + b 都會是 0，如此就會得到 wTx&rsquo; = -b 及 wTx&rdquo; = -b。現在我們將 wT 與 (X&rdquo;- X&rsquo;) 相乘，由於剛剛的式子，我們會得到 0。(X&rdquo;- X&rsquo;)是一個在 wTx + b = 0 超平面上的向量，W 與這個向量相乘會是 0 就代表 w 是這個超平面的法向量，要算 x 與超平面的距離，就是將 (x-x&rsquo;) 這個向量投影到 w，就可以算出點與超平面的距離了，公式如下所示。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-9.png">
+</p>
+
+<h3 id="分開訓練資料的超平面">分開訓練資料的超平面</h3>
+
+<p>由於我們要求的事可以分開訓練資料的超平面，因此已有 yn(wTXn+ b) &gt; 0 這個條件，也因此距離公式中的 |wTx+b| 可以用 yn(wTXn + b) 來取代，這樣會比較容易求解。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-10.png">
+</p>
+
+<h3 id="減少超平面解的數量">減少超平面解的數量</h3>
+
+<p>觀察一下下圖中所有求解的條件，我們可以再進一步簡化。假設我們要找的是 wTx + b = 0 這個超平面，我們對這個超平面進行縮放其實是沒有任何影響的，現在我們也將 wTx + b 進行放縮，讓它跟 yn 相乘會是 1，也就是 yn(wTXn + b) = 1，這樣原本的 margin(b,w) 就是可以轉換成 1 除以 w 的長度，我們只要求讓這個值最大的平面就可以了。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-11.png">
+</p>
+
+<h3 id="再次簡化問題">再次簡化問題</h3>
+
+<p>經過上述的推導，我們的問題變成求滿足(1) max 1/||w|| 及 (2) min yn(wTXn + b) = 1 這兩個條件的超平面，但這樣我們好像還是覺得有些複雜不會解，可以再這麼簡化呢？</p>
+
+<p>min yn(wTXn + b) = 1 這個條件我們可以讓它的限制再鬆一點，只要 yn(wTxn+b)&gt;=1 就好了，理論上保證最後得到的解，一定會有等於 1 的情況，而不會全部都大於 1。</p>
+
+<p>另外 max 1/||w|| 我們改成 min ||w||，||w|| 是 wTw 開根號，我們可以不理根號然後乘上 <sup>1</sup>&frasl;<sub>2</sub> 以方便後面的推導，所以轉換成 min <sup>1</sup>&frasl;<sub>2</sub>(wTw)。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-12.png">
+</p>
+
+<h3 id="解一個簡單的問題來看看">解一個簡單的問題來看看</h3>
+
+<p>現在我們求解的條件變成求 min <sup>1</sup>&frasl;<sub>2</sub>(wTw) 且 yn(wTXn + b)&gt;=1 的超平面，我們用一個簡單的例子來求解看看。如下圖所示，我們可以找出 w1 = 1, w2 = -1, b = -1 滿足我們的條件，這個超平面就是 x1 - x2 - 1，這個超平面也稱為 Support Vector Machine（SVM）。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-13.png">
+</p>
+
+<h3 id="支持向量機-support-vector-machine">支持向量機（Support Vector Machine）</h3>
+
+<p>從上面這個簡單例子，讓我們來了解一下支持向量機。首先，這個向量可以由 margin 的公式得出 marging 的寬度值。我們會發現有些點會剛好在這個 margin 的邊界上，這些點就是所謂的支持向量（Support Vector）。這些支持向量可以標出胖線的位置，其他的點則無法，所以其他的點在這個問題上是不重要的點。</p>
+
+<p>所以 SVM 的意思就是：透過 Support Vector 的協助來學習出最胖的超平面。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-14.png">
+</p>
+
+<h3 id="實際上怎麼解這個問題">實際上怎麼解這個問題？</h3>
+
+<p>我們剛剛只是從一個簡單的例子來解 SVM，那實際上怎麼解這個問題呢？之前我們學過 gradient descent，在這邊好像沒用，因為有很多限制，我們不能讓演算法自由自在的計算 gradient descent。</p>
+
+<p>但這個問題其實有現存的方法可以解，觀察所有的限制式就會發現 SVM 可以用二次規劃（quadratic programming）來找出最佳解。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-15.png">
+</p>
+
+<h3 id="二次規劃">二次規劃</h3>
+
+<p>我們把 SVM 的限制式，跟二次規劃的限制式做一個比較，就發現可以將問題轉換成二次規劃的相關參數，找出 SVM 問題在二次規劃時的 u, Q, p, a, c，我們就可以把這些參數丟到 QP Solver 來幫我們解 SVM。</p>
+
+<p>目前各語言都有提供 QP Solver，但是介面參數可能會不相同，要自己讀文件去了解各個參數，自己做轉換。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-16.png">
+</p>
+
+<h3 id="第一個-svm">第一個 SVM</h3>
+
+<p>使用 QP Solver 你就可以解第一個學會的 SVM，這個 SVM 是 hard margin（需要訓練資料線性可分），且學習出來的是線性模型，如果要做非線性模型，只要將資料做非線性轉換就可以了。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-17.png">
+</p>
+
+<h3 id="探討一下其中的理論">探討一下其中的理論</h3>
+
+<p>為何胖的超平面會比較好呢？除了我們前述用例子說明之外，有沒有什麼理論基礎呢？其實如果觀察 SVM 的限制式，我們把它拿來與正規化做比較，會發現 SVM 與正規化實際上做的事情很類似，也因此兩個方法都有避免 Overfitting 的能力。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-18.png">
+</p>
+
+<h3 id="svm-的優勢">SVM 的優勢</h3>
+
+<p>SVM 的優勢在哪呢？之前我們學過可以將資料做特徵轉換到高維度，讓假設集合變多，可以學習更複雜的模型，但這很可能會造成 overfitting。但簡單的模型假設集合太少，無法學習複雜的模型。</p>
+
+<p>我們希望可以讓假設集合不是太多，但又可以學習較複雜的模型，SVM 就可以兩全其美，他比起正規化更好的地方就在於正規化需要對原來的演算法作調整，但 SVM 本身就像是一個具備正規化的演算法。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-20.png">
+</p>
+
+<h3 id="總結">總結</h3>
+
+<p>在這一講我們了解了 SVM，且知道 SVM 的特性就是去找出可以將訓練資料分好的一條最胖的超平面。而實務上我們會用二次規劃的工具來解 SVM。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Techniques-1-21.png">
+</p>
+
+      </div>
+      <p>
+        <a href="https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-1-jiang-xue-xi-bi-ji/" class="postShorten-excerpt_link link"></a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-liu-jiang-xue-xi-bi-ji/">
+          林軒田教授機器學習基石 Machine Learning Foundations 第 16 講學習筆記
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2016-03-20T17:16:59&#43;08:00">
+        
+  March 20, 2016
+
+      </time>
+    
+    
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody" style="margin-bottom: 50px;">
+      <div class="main-content-wrap">
+        
+
+<h3 id="前言">前言</h3>
+
+<p>本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 <a href="http://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-wu-jiang-xue-xi-bi-ji/">第十五講</a> 的碼農們，我建議可以先回頭去讀一下再回來喔！</p>
+
+<h3 id="範例原始碼-fukuml-簡單易用的機器學習套件-https-github-com-fukuball-fuku-ml">範例原始碼：<a href="https://github.com/fukuball/fuku-ml">FukuML - 簡單易用的機器學習套件</a></h3>
+
+<p>我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 <a href="https://github.com/fukuball/fuku-ml">GitHub</a> 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。</p>
+
+<p>如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 <a href="https://github.com/fukuball/fuku-ml">FukuML</a> 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 <a href="https://github.com/fukuball/fuku-ml">FukuML</a> 了。不過我還是有寫 <a href="https://github.com/fukuball/FukuML-Tutorial">Tutorial</a> 啦，之後會不定期更新，讓大家可以容易上手比較重要！</p>
+
+<h3 id="熱身回顧一下">熱身回顧一下</h3>
+
+<p>在上一講中，我們了解了如何使用 Cross Validation 來幫助我們客觀選擇較好的模型，基本上機器學習所有相關的基本知識都已經具備了，這一講是林軒田老師給的三個錦囊妙計，算是一種經驗分享吧～</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-16-1.png">
+</p>
+
+<h3 id="第一計-奧卡姆剃刀">第一計 奧卡姆剃刀</h3>
+
+<p>資料的解釋應該要越簡單越好，我們應該要用剃刀剃掉過分的解釋，據說這句話是愛因斯坦說的。</p>
+
+<p>如下圖，我們在使用機器學習時，也希望學習出來的模型會是左較簡單的模型。在直覺上我們會覺得左圖會比右圖夠有解釋性，當然理論上也證明如此了。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-16-2.png">
+</p>
+
+<h3 id="較簡單的模型">較簡單的模型</h3>
+
+<p>什麼是叫簡單的模型呢？較教簡單的模型，就是看起來很簡單，假設較少、參數較少，假設集合也比較好。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-16-3.png">
+</p>
+
+<h3 id="簡單比較好">簡單比較好</h3>
+
+<p>那為什麼簡單會比較好呢？除了之前數學上的解釋之外，我們可以有這樣直觀的解釋：如果一個簡單的模型可以為數據做一個好的鑒別，那就代表這個模型的假設很有解釋性，如果是複雜的模型，由於它永遠都可以把訓練資料分的很好，這樣其實是沒有什麼解釋性的，也因此用簡單的模型會是比較好的。</p>
+
+<p>所以根據這一計的想法，我們應該要先試線性模型，然後盡可能了解自己是不是已經盡可能地用了簡單的模型。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-16-4.png">
+</p>
+
+<h3 id="第二計-避免取樣偏差">第二計 避免取樣偏差</h3>
+
+<p>取樣有可能會有偏差，VC 理論其中的一個假設就是訓練資料與測試資料要來自於同一個分佈，否則就無法成立。如果取樣有偏差，那機器學習的效果就會不好。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-16-5.png">
+</p>
+
+<h3 id="處理取樣偏差">處理取樣偏差</h3>
+
+<p>要避免取樣偏差，要好好了解測試環境，讓訓練環境跟測試環境可以儘可能接近。舉例來說，如果測試環境會使用時間軸近期的資料，那訓練時要想辦法對時間軸較近的資料做一些權重的調整，在做 Validation 的時候也應該要選擇時間軸較近的資料。</p>
+
+<p>另一個例子，其實信用卡核卡問題也有取樣偏差的風險，因為銀行只會有錯誤核卡，申請人刷爆卡的記錄，卻沒有錯誤不核卡，但該位申請人信用良好的資料。因此搜集到的資料本身就已經有被篩選過了，也因此可以針對這個部分在做一些優化。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-16-6.png">
+</p>
+
+<h3 id="第三計-避免偷看資料">第三計 避免偷看資料</h3>
+
+<p>之前我們的課程中有說過，我們可能會因為看過資料而猜測圈圈會有最好的效果，但這樣就會造成我們的學習過程沒有考慮到人腦幫忙計算過的 model complexity，所以我們要避免偷看資料。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-16-7.png">
+</p>
+
+<h3 id="資料重複利用地偷看">資料重複利用地偷看</h3>
+
+<p>其實使用資料的過程中，我們就不斷地偷看資料，甚至看別人論文時，也是在累積偷看資料的過程，所以需要了解到這個概念，有可能讓你的機器學習受到影響。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-16-8.png">
+</p>
+
+<h3 id="處理資料偷看">處理資料偷看</h3>
+
+<p>實際上偷看資料的情況很容易發生，要做到完全不偷看資料很難，所以我們可以做的就是，一開始就將測試資料鎖起來，學習的過程中完全不用，然後使用 Validation 來避免偷看資料。</p>
+
+<p>如果說希望將自己的 Domain Knowledge 加入假設，應該一開始就加進去，而不是看完資料再加進去。然後，要時時刻刻會實驗的結果存著懷疑之心，要有一種感覺這樣的結果可能受到的資料偷看污染的影響。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-16-9.png">
+</p>
+
+<h3 id="power-of-three">Power of Three</h3>
+
+<p>除了三個錦囊妙計，林軒田老師將機器學習的重點整理成 Power of Three，帶我們整個回顧一下。</p>
+
+<p>第一個是機器學習有三個相關領域，Data Mining、Artificial Intelligence、Statistics。</p>
+
+<ul>
+<li>Data Mining 是從大量的數據裡面找出有趣的特性，它跟 ML 是高度相關的。</li>
+<li>Artificail Intelligence 是想讓機器做一些有智慧的事，ML 是實現 AI 的一種工具。</li>
+<li>Statistics 是從數據裡做一些推論的動作，是 ML 的一種工具。</li>
+</ul>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-16-10.png">
+</p>
+
+<h3 id="三個理論保證">三個理論保證</h3>
+
+<ul>
+<li>Hoeffding 不等式，針對單一個 hypothesis 保證錯誤率在某個上界，我們會用在 Testing。</li>
+<li>Multi-Bin Hoeffding，針對 M 個 hypothesis 保證錯誤率在某個上界，我們會用在 Validation。</li>
+<li>VC Bound，針對所有的 hypothesis set 保證錯誤率在某個上界，我們會用在 Training。</li>
+</ul>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-16-11.png">
+</p>
+
+<h3 id="三個模型">三個模型</h3>
+
+<ul>
+<li>PLA/Pocket，用在二元分類，由於是 NP-Hard 的問題，我們使用特殊的方法來優化。</li>
+<li>Linear Regression，線性迴歸很容易優化，可以用公式解。</li>
+<li>Logistic Regression，用來計算機率，使用遞迴的方式優化。</li>
+</ul>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-16-12.png">
+</p>
+
+<h3 id="三個重要工具">三個重要工具</h3>
+
+<ul>
+<li>Feature Transform，可以轉換到高維空間，將 Ein 變小。</li>
+<li>Regularization，與 Feature Transform 相反，讓模型變簡單，VC Dimenstion 變小，但 Ein 會變大。</li>
+<li>Validation，留下一些乾淨的資料來做模型的選擇。</li>
+</ul>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-16-13.png">
+</p>
+
+<h3 id="未來的方向">未來的方向</h3>
+
+<p>底下所有機器學習相關的關鍵字都是未來可以去學習的，將在後續的機器學習技法課程中講解。大致上有三個方向，一個是更多不一樣的轉換方式，不只有多項式的轉換；一個是更多的正規化方式；最後一個是沒有那麼多的 Label，比如說無監督式的學習等等。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-16-15.png">
+</p>
+
+      </div>
+      <p>
+        <a href="https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-liu-jiang-xue-xi-bi-ji/" class="postShorten-excerpt_link link"></a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-wu-jiang-xue-xi-bi-ji/">
+          林軒田教授機器學習基石 Machine Learning Foundations 第 15 講學習筆記
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2016-03-19T18:44:00&#43;08:00">
+        
+  March 19, 2016
+
+      </time>
+    
+    
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody" style="margin-bottom: 50px;">
+      <div class="main-content-wrap">
+        
+
+<h3 id="前言">前言</h3>
+
+<p>本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 <a href="http://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-si-jiang-xue-xi-bi-ji/">第十四講</a> 的碼農們，我建議可以先回頭去讀一下再回來喔！</p>
+
+<h3 id="範例原始碼-fukuml-簡單易用的機器學習套件-https-github-com-fukuball-fuku-ml">範例原始碼：<a href="https://github.com/fukuball/fuku-ml">FukuML - 簡單易用的機器學習套件</a></h3>
+
+<p>我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 <a href="https://github.com/fukuball/fuku-ml">GitHub</a> 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。</p>
+
+<p>如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 <a href="https://github.com/fukuball/fuku-ml">FukuML</a> 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 <a href="https://github.com/fukuball/fuku-ml">FukuML</a> 了。不過我還是有寫 <a href="https://github.com/fukuball/FukuML-Tutorial">Tutorial</a> 啦，之後會不定期更新，讓大家可以容易上手比較重要！</p>
+
+<h3 id="熱身回顧一下">熱身回顧一下</h3>
+
+<p>在上一講中，我們進一步了解了如何透過正規化（Regularization）來避免 Overfitting，但正規化這個方法會有一個參數 lambda，這個 lambda 我們又要如何選擇呢？在這一講將會學習到使用 Validation 這個方法來幫助我們選擇比較好的 lambda 值，同理，這個方法也可以幫助我們用於選擇各種不同的學習模型。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-1.png?1">
+</p>
+
+<h3 id="許多學習模型可以使用">許多學習模型可以使用</h3>
+
+<p>經過了前面 14 講，我們已經學會了許多學習模型，在演算法上我們有 PLA、Pocket、Linear Regression、Logistic Regression 可以做選擇；然後在模型學習的過程中，我們可以指定演算法要經過幾次的學習，每次學習優化的過程要走多大步；我們也可以有很多種線性轉換的方式將模型轉換到更複雜的空間來進行學習；如果模型太過複雜了，我們也有很多種正規化的方法來讓模型退回叫簡單的模型，並可透過 lambda 這個參數來調整退回的程度。</p>
+
+<p>我們可以任意組合，但組合完之後我們要怎麼判斷哪個組合未來在做預測時效果會比較好呢？</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-2.png">
+</p>
+
+<h3 id="用-ein-來做選擇">用 Ein 來做選擇</h3>
+
+<p>如果我們用 Ein 來做選擇，那就永遠會選擇到比較複雜的模型，這在上一講中我們已經知道這很可能會有 Overfitting 發生。所以用 Ein 來做選擇是很危險的。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-3.png">
+</p>
+
+<h3 id="用-etest-來做選擇">用 Etest 來做選擇</h3>
+
+<p>使用 Etest 來做選擇，基本上理論上是可行的，但 Etest 實際在我們訓練的過程中是不能拿來用的，直接拿 Etest 來幫助我們選擇模型其實是一種作弊行為。所以用 Etest 來做選擇也是不可行的。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-4.png">
+</p>
+
+<h3 id="引進-eval">引進 Eval</h3>
+
+<p>既然用 Ein 或 Etest 來做選擇是不可行的，那如果我們把我們手中的資料 D 保留一份下來作為 Dval，然後在訓練的過程中都不使用 Dval，等訓練完之後，在挑選各種模型的時候再用 Dval 來做選擇，那這樣會是一個比較安全的做法。</p>
+
+<p>這有點像是我們在練習時，會把一些練習題留下來，等考試之前再驗證看看自己的成果如何，機器學習也用上了這個概念。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-5.png">
+</p>
+
+<h3 id="進一步了解-dval">進一步了解 Dval</h3>
+
+<p>所以有了 Dval 的概念之後，我們就會把拿到的資料先分成 Dtrain 及 Dval，Dtrain 用來做訓練得出 g-，Dval 用來做驗證。在霍夫丁不等式的理論中，我們可以保證 Eout(g-) 會跟 Eval(g-) 很接近。所以用 Eval 來選擇最好的模型是可行的。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-6.png">
+</p>
+
+<h3 id="選出-eval-表現最好的模型">選出 Eval 表現最好的模型</h3>
+
+<p>所以現在當我們有很多個模型需要做選擇時，每個會用訓練資料先得出各自最好的 g-，然後我們再用驗證資料計算 Eval，Eval 表現最好的模型就是我們要的。不過 g- 使用的訓練資料較少，也因此未來的表現也可能因為訓練資料少而受影響。所以我們選出了最好的模型之後，會再將所有的資料使用進去訓練出一個最好的 g。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-7.png">
+</p>
+
+<h3 id="驗證資料的影響">驗證資料的影響</h3>
+
+<p>我們用一些實驗來看驗證資料的影響，用 Ein 來選的話，Eout 就會是上面那條黑實線，因為 Ein 永遠會選擇最複雜的模型。然後用 Etest 來選模型，當然會得到最好的 Eout 值，但這是作弊。紅色的線代表我們用 g- 直接來做預測，當驗證資料越多的時候，g- 的 Eout 值就變高了，有時甚至比 Ein 選出來的模型還差。藍色的線代表我們用驗證資料選出模型之後，再將全部的資料丟進去訓練出 g，如此得到的效果都會比用 Ein 來選好。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-8.png">
+</p>
+
+<h3 id="那要保留多少驗證資料">那要保留多少驗證資料</h3>
+
+<p>從上面的實驗，我們會知道驗證資料的多寡也會影響選出來的模型，所以我們應怎麼選擇保留多少驗證資料呢？實務上我們目前都是用 <sup>1</sup>&frasl;<sub>5</sub> 的資料作為驗證資料。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-9.png">
+</p>
+
+<h3 id="一個極端的例子">一個極端的例子</h3>
+
+<p>我們從 Eout(g) 及 Eout(g-) 及 Eval(g-) 的關係中觀察，如果我們的驗證資料 k 越小，那 Eout(g) 與 Eout(g-) 就會越接近；但驗證資料 k 越大，那 Eout(g-) 及 Eval(g-) 就會越接近；有沒有方法可以讓 Eout(g) 跟 Eout(g-) 很接近，卻又可以讓 Eval 可以正確地挑出最好的模型。</p>
+
+<p>這個方法就是 leave-one-out cross validataion，每次只保留一個資料作為驗證資料，重複這個過程，直到所有的資料都做過驗證資料，並將所有的 Eval 做平均之後，Eval 最好的那個模型就會是我們想要的模型。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-10.png">
+</p>
+
+<h3 id="用一個簡單的例子來說明-leave-one-out">用一個簡單的例子來說明 Leave One Out</h3>
+
+<p>我們用一個簡單的例子來說明 Leave One Out Cross Validation 選擇模型的效果。假設現在我們有三個點，現在有兩個模型要做選擇，一個是線性模型，一個是常數模型。從下圖我們可以看出常數模型的 Eloocv 會比較小，所以我們就會用常數模型作為我們最後訓練完的結果。</p>
+
+<p>這也告訴我們，當資料很少的時候，有時選擇簡單的模型效果反而會比較好。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-11.png">
+</p>
+
+<h3 id="理論上也有保證">理論上也有保證</h3>
+
+<p>我們剛才都是以實驗上的角度來說明 cross validation 是有效果的，這邊有一個理論推導也可以支持這個結果。推導 Eloovc 的期望值時，最後可以得到跟 Eout(N-1) 平均相等。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-12.png">
+</p>
+
+<h3 id="leave-one-out-cross-validation-的缺點">Leave-One-Out Cross Validation 的缺點</h3>
+
+<p>雖然 Leave-One-Out Cross Validation 在理論上的確可以讓我們得到的結果很接近真實得到的 Eout，但這個方法也有缺點。如果我們有 1000 個資料，那我們就每個模型都要訓練一千次來計算出各自的 Eloocv，這樣計算量會非常大。</p>
+
+<p>然後觀察下圖 Eloovc 的曲線，我們可以看出隨著 Feature 值的上升，Eloocv 值不會是一個穩定下降再上升的曲線，它會有跳動的情況發生（例如多個模型表現都很好的情況），所以有時會造成選擇的盲點。</p>
+
+<p>因此實務上我們都不會使用 Leave-One-Out Cross Validation 這個方法來選擇模型。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-13.png">
+</p>
+
+<h3 id="分份數的概念">分份數的概念</h3>
+
+<p>Leave-One-Out Cross Validation 很像是把 D 個資料分成 D 分來做 cross validation，那我們可以將份數變少，比如說分成 5 份或 10 份做 cross validation，這樣就可以大大減少計算量了。</p>
+
+<p>目前實務上都是分 10 份，使用 10-fold cross validation。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-14.png">
+</p>
+
+<h3 id="一些提醒">一些提醒</h3>
+
+<p>Cross Validaton 是用來做模型的選擇，基本上也會是用風險，因此 validation 表現的結果很好，也不是百分之百未來做預測時效果都會很好。還是要記得觀察未來的預測情況。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-15.png">
+</p>
+
+<h3 id="總結">總結</h3>
+
+<p>由於我們已經學會了很多機器學習的方法，有許多地方可以調整我們學習的模型，所以在眾多的學習模型中哪個是最好的，我們也需要有一個方法來幫助我們做選擇，這個方法就是 Cross Validation。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-15-16.png">
+</p>
+
+      </div>
+      <p>
+        <a href="https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-wu-jiang-xue-xi-bi-ji/" class="postShorten-excerpt_link link"></a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-si-jiang-xue-xi-bi-ji/">
+          林軒田教授機器學習基石 Machine Learning Foundations 第 14 講學習筆記
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2016-03-15T14:06:26&#43;08:00">
+        
+  March 15, 2016
+
+      </time>
+    
+    
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody" style="margin-bottom: 50px;">
+      <div class="main-content-wrap">
+        
+
+<h3 id="前言">前言</h3>
+
+<p>本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 <a href="http://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-san-jiang-xue-xi-bi-ji/">第十三講</a> 的碼農們，我建議可以先回頭去讀一下再回來喔！</p>
+
+<h3 id="範例原始碼-fukuml-簡單易用的機器學習套件-https-github-com-fukuball-fuku-ml">範例原始碼：<a href="https://github.com/fukuball/fuku-ml">FukuML - 簡單易用的機器學習套件</a></h3>
+
+<p>我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 <a href="https://github.com/fukuball/fuku-ml">GitHub</a> 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。</p>
+
+<p>如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 <a href="https://github.com/fukuball/fuku-ml">FukuML</a> 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 <a href="https://github.com/fukuball/fuku-ml">FukuML</a> 了。不過我還是有寫 <a href="https://github.com/fukuball/FukuML-Tutorial">Tutorial</a> 啦，之後會不定期更新，讓大家可以容易上手比較重要！</p>
+
+<h3 id="熱身回顧一下">熱身回顧一下</h3>
+
+<p>在上一講中，我們更進一步的了解了什麼是 Overfitting 是因為 stochastic noise 及 deterministic noise 而造成，與簡易地介紹了幾個簡單的方法來避免 overfitting，這一講將介紹一個比較內行的方法來避免 overfitting，這個方法叫做正規化（Regularization）。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-14-1.png">
+</p>
+
+<h3 id="正規化">正規化</h3>
+
+<p>正規化（Regularization）的想法，就是我們了解 overfitting 發生時，有可能是因為我們訓練的假設模型本身就過於複雜，因此我們能不能讓複雜的假設模型退回至簡單的假設模型呢？這個退回去的方法就是正規化。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-14-2.png">
+</p>
+
+<h3 id="退回簡單模型就像是加了限制">退回簡單模型就像是加了限制</h3>
+
+<p>假設我們現在是一個 10 次多項式的假設集合，我們想要退回成為較為簡單的 2 次多項式假設集合，其實可以想成就像是 2 次以上的項的係數都是 0，也就像是我們為求解的過程加上了一些限制，希望 2 次以上的項的係數都是 0。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-14-3.png">
+</p>
+
+<h3 id="使用較鬆的限制">使用較鬆的限制</h3>
+
+<p>直接將高維的項次設成 0 可能不是一個好方法，通常我們會希望由學習的過程來決定哪些項次要是 0，這樣的得到的學習效果可能會比較好。所以我們的限制就改成，希望不為 0 的係數不超過三個，由機器從資料來學習出最好的 w，這樣可能會得到比較好的結果。而這樣的限制並不是平滑的函數，所以這是一個 NP Hard 的問題。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-14-4.png">
+</p>
+
+<h3 id="換個方式得出較為平滑的限制">換個方式得出較為平滑的限制</h3>
+
+<p>所以我們需要換個方式得出較為平滑的限制，這樣在演算法上會比較容易求解，在 Regression 這個問題上，我們可以把限制改為 ||w^2|| &lt;= C 來代表 w 不超過三個係數不為 0，這個含義就像是讓 w 限制在某些值裡面，也許他不一定代表 w 不超過三個係數不為 0，但它可能可以包含，而且 C 的值是一個連續的數，求解上會比較容易。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-14-5.png">
+</p>
+
+<h3 id="regularized-linear-regression">Regularized Linear Regression</h3>
+
+<p>加上 ||w^2|| &lt;= C 這個限制的線性迴歸（Linear Regression）就是正規化線性迴歸（Regularized Linear Regression），如何求解優化這個問題呢？</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-14-6.png">
+</p>
+
+<h3 id="使用-lagrange-multiplier">使用 Lagrange Multiplier</h3>
+
+<p>讓我們用微觀的角度來看求解優化這個問題，原來沒有限制的時候，我們使用梯度下降法來求解，只需要讓目標函數沿著提度的反方向走，直到梯度為 0。加入了限制之後，這代表 w 需要在一個紅色的球裡面滾動，如圖所示。由圖來看，我們的解應該都是在求的邊界附近，只要梯度與 w 不是平行的，目標函數就可以再向谷底滾動一點點，可以得到更好的解。如此往下推，最佳的結果就是梯度與 w_reg 是平行的時候。所以使用梯度下降法解這個問題，就是去求解 w_reg 及 lamda，然後讓 w_reg 與梯度平行即為最佳解。（而這個 lamda 就是 Lagrange Multiplier）</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-14-7.png">
+</p>
+
+<h3 id="ridge-regression">Ridge Regression</h3>
+
+<p>有了上式的概念之後，我們只要知道 lamda，就可以很容易地求出 w_reg。這個式子經過整理之後，能夠直接得出最佳解，這個方法在統計上就稱為是
+Ridge Regression。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-14-8.png">
+</p>
+
+<h3 id="擴增錯誤">擴增錯誤</h3>
+
+<p>我們將上式進行積分，可以得到下圖中的式子，在意義上我們要優化的除了 Ein 之外，也要考慮到擴增出來的錯誤。由於 WTW 是正的，lambda 及 N 也是正的，因此在優化求解的時候可以保證 WTW 不能太大。這個方法可以對模型複雜度進行懲罰，讓 Ein(W) 在解空間受到了限制。給定 C 跟給定 lamda 對我們來說可能是一樣的，使用這個角度所推導出來的式子對我們來說更容易求解。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-14-9.png">
+</p>
+
+<h3 id="如何求-lambda">如何求 lambda</h3>
+
+<p>現在就剩下，改如何給定 lambda 呢？總歸一句話，我們可以做實驗來決定。我們只要知道 lambda 的性質就好，選越大的 lambda 代表懲罰越多，這就代表 w 長度值越小，這其實就就代表 C 越小（限制越多）。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-14-10.png">
+</p>
+
+<h3 id="legendre-polynomials">Legendre Polynomials</h3>
+
+<p>有一個小細節要注意，之前學過將空間轉換到高維度以求得更小 Ein 的方法，都可以配合正規化來避免 overfitting。不過單純轉換到高次，由於高次的維度 xi 值乘很多次，Regularizer 可能會過度懲罰這些高次項，因此我們需要使用 Legendre Polynomials 來進行高次轉換，讓高次項不會在訓練過程中被過度懲罰。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-14-11.png">
+</p>
+
+<h3 id="如何選擇最好的-lambda">如何選擇最好的 lambda</h3>
+
+<p>如何選擇最好的 lambda？剛剛說要透過實驗，那麼怎麼做實驗呢？這就是下一次的課程了。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-14-16.png">
+</p>
+
+<h3 id="總結">總結</h3>
+
+<p>在這一章我們學會了如何使用正規化這個方法來避免 overfitting，在核心概念上就像為解空間加上了限制，也因此可以避免過度優化。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-14-17.png">
+</p>
+
+      </div>
+      <p>
+        <a href="https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-si-jiang-xue-xi-bi-ji/" class="postShorten-excerpt_link link"></a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-san-jiang-xue-xi-bi-ji/">
+          林軒田教授機器學習基石 Machine Learning Foundations 第 13 講學習筆記
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2016-02-29T18:01:32&#43;08:00">
+        
+  February 29, 2016
+
+      </time>
+    
+    
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody" style="margin-bottom: 50px;">
+      <div class="main-content-wrap">
+        
+
+<h3 id="前言">前言</h3>
+
+<p>本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 <a href="http://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-er-jiang-xue-xi-bi-ji/">第十二講</a> 的碼農們，我建議可以先回頭去讀一下再回來喔！</p>
+
+<h3 id="範例原始碼-fukuml-簡單易用的機器學習套件-https-github-com-fukuball-fuku-ml">範例原始碼：<a href="https://github.com/fukuball/fuku-ml">FukuML - 簡單易用的機器學習套件</a></h3>
+
+<p>我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 <a href="https://github.com/fukuball/fuku-ml">GitHub</a> 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。</p>
+
+<p>如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 <a href="https://github.com/fukuball/fuku-ml">FukuML</a> 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 <a href="https://github.com/fukuball/fuku-ml">FukuML</a> 了。不過我還是有寫 <a href="https://github.com/fukuball/FukuML-Tutorial">Tutorial</a> 啦，之後會不定期更新，讓大家可以容易上手比較重要！</p>
+
+<h3 id="熱身回顧一下">熱身回顧一下</h3>
+
+<p>在上一講中，我們了解了如何使用非線性轉換來讓我們的機器學習演算法可以學習出非線性分類模型，也了解了這樣的方法可能會讓模型複雜度變高，造成 Overfitting 使未來 Eout 效果不佳的情況，所以要慎用此方法。在這一講中將更進一步說明什麼是 Overfitting，並講解如何避免 Overfitting。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-13-1.png">
+</p>
+
+<h3 id="bad-generalization-無法舉一反三">Bad Generalization 無法舉一反三</h3>
+
+<p>我們來看個例子，現在我們使用一個二次多項式加上一點 noise 產生資料點，由於有 noise，我們是無法學習出一個二次多項式讓 Ein 為 0。但如果我們使用了非線性轉換到四次多項式來進行學習，我們可以找到一個 w 讓 Ein 為 0，看起來可能會像是圖中的紅線。但可想而知紅線的 Eout 可能會非常高，如此我們的機器學習是失敗的，無法舉一反三。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-13-2.png">
+</p>
+
+<h3 id="overfitting-過度優化">Overfitting 過度優化</h3>
+
+<p>其實這就是一種過度優化，當我們發現 Eout - Ein 很大時，就是發生了 Bad Generalization。</p>
+
+<p>我們觀察圖中的 dvc*，當 dvc* 越來越高時，Ein 會下降，但 Eout 會上升，這時就是產生了 Overfitting。</p>
+
+<p>當 dvc* 往左時，Ein 會上升，Eout 也會上升，這時就是產生了 Underfitting。</p>
+
+<p>Underfitting 不會很常發生，因為我們會追求低的 Ein，因此可以避免 Underfitting，但 Overfitting 卻常常發生，因為追求低 Ein，會讓我們不小心進入陷阱。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-13-3.png">
+</p>
+
+<h3 id="case-study-1-2">Case Study <sup>1</sup>&frasl;<sub>2</sub></h3>
+
+<p>我們再來看一個例子，我們現在有兩個 target function，一個是 10 次多項式加上一些 noise，一個是 50 次多項式然後沒有 noise，現在我們使用一個 2 次多項式及一個 10 次多項式來逼近學習這兩個 target function，以觀察 Overfitting 現象。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-13-4.png">
+</p>
+
+<h3 id="case-study-2-2">Case Study <sup>2</sup>&frasl;<sub>2</sub></h3>
+
+<p>結果我們發現，當我們將學習模型由 2 次多項式轉換到 10 次多項式時，無論是在 10 次或 50 次多項式的資料點都會產生 Overfitting，Ein 變小了，但是 Eout 卻變得非常大！</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-13-5.png">
+</p>
+
+<h3 id="learning-curve">Learning Curve</h3>
+
+<p>我們將 Ein 及 Eout 的變化畫成圖示，我們可以看出 10 次多項式的模型在資料點 N 趨近于無限大時，的確可以得到很低的 Eout，但在資料點不夠多的情況下，Eout 卻會比原來的 2 次多項式模型高很多，圖中灰色的區域會很容易產生 Overfitting。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-13-6.png">
+</p>
+
+<h3 id="noise-的影響">Noise 的影響</h3>
+
+<p>會產生 Overfitting 其實就是 Noise 的影響，尤其當資料點不夠多的情況下影響會很大，在有 Noise 的情況下，複雜的學習模型會去模擬 Noise，因此也就會造成未來在做預測時反而會不準確。所以在有 Noise 的情況下，有時簡單的模型反而會有好的效果。</p>
+
+<p>Noise 除了我們一般所知的 stochastic noise 之外，還有另一種 Noise，當我們要學習的模型越複雜時，這其實對我們的學習演算法也是一種 Noise，這就是 deterministic noise。我們將這兩個 Noise 與 Data N 的數量畫成圖來觀察 Overfitting，我們可以得到四個結論：</p>
+
+<ol>
+<li>當 data 越少時，Overfitting 越容易發生</li>
+<li>當 stochastic noise 越大時，Overfitting 越容易發生</li>
+<li>當 deterministic noist 越大時，Overfitting 越容易發生</li>
+<li>當使用的學習模型越複雜時，因為他會模擬 Noist，Overfitting 越容易發生</li>
+</ol>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-13-8.png">
+</p>
+
+<h3 id="避免-overfitting-的方法">避免 Overfitting 的方法</h3>
+
+<p>我們有幾個方法來避免 Overfitting：</p>
+
+<ol>
+<li>先從簡單的模型開始學習，再慢慢使用複雜的模型，這在上一講有說過了。</li>
+<li>使用資料清洗（Data Cleaning/Pruning），將錯誤的 label 修正，或直接刪除錯誤的數據。</li>
+<li>製造資料（Data Hinting），使用合理的方法將原來手的的資料變得更多，比如在數字識別的這個問題將已有的數字透過平移、旋轉來製造出更多資料。</li>
+<li>正規化（Regularization），下 14 講的主題。</li>
+<li>驗證（Validation），第 15 講的主題。</li>
+</ol>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-13-9.png">
+</p>
+
+<h3 id="總結">總結</h3>
+
+<p>在這一講中，我們更了解了什麼是 Overfitting，也觀察到 Overfitting 是很容易發生的，也介紹了一些避免 Overfitting 的方法。</p>
+
+<p style="text-align:center">
+    <img src="http://static.obeobe.com/image/blog-image/Machine-Learning-Foundations-13-12.png">
+</p>
+
+      </div>
+      <p>
+        <a href="https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-san-jiang-xue-xi-bi-ji/" class="postShorten-excerpt_link link"></a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+            
+  <div class="pagination-bar">
+    <ul class="pagination">
+      
+        
+          <li class="pagination-prev">
+            <a class="btn btn--default btn--small" href="https://blog.fukuball.com/tags/machine-learning/page/2/">
+              <i class="fa fa-angle-left text-base icon-mr"></i>
+              <span></span>
+            </a>
+          </li>
+        
+        
+          <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="https://blog.fukuball.com/tags/machine-learning/page/4/">
+              <span></span>
+              <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+          </li>
+        
+      
+      <li class="pagination-number"> </li>
+    </ul>
+  </div>
+
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Fukuball. 
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/6c910ba730e0acfda9ee450eec9776e6?s=110" alt="" />
+    
+    <h4 id="about-card-name">Fukuball</h4>
+    
+      <div id="about-card-bio">我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，對機器學習及區塊鏈技術感到興趣。 <a href="https://www.fukuball.com">https://www.fukuball.com</a></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Co-Founder / Head of Engineering at OurSong
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Taipei, Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-23smart-contract-%E5%88%9D%E6%8E%A2%E5%BE%9E-bytecode-%E5%88%B0-solidity/">
+                <h3 class="media-heading">Ethereum 開發筆記 2–3：Smart Contract 初探，從 Bytecode 到 Solidity</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Ethereum 上的 EVM（Ethereum Virtual Machine）可以執行程式，而 EVM 上的可執行程式基本上是 Bytecode 的形式，所以所謂的 Smart Contract 就是存放在 Ethereum 上的 Bytecode，然後可由 EVM 來執行。
+Bytecode Smart Contract 直接用 Bytecode 寫 Smart Contract 我們來嘗試一下直接用 Bytecode 來寫 Smart Contract，以下這段程式碼主要內容是執行運算後，將運算結果存放在 0 這個位置：
+PUSH1 0x03 PUSH1 0x05 ADD // 3 + 5 -&gt; 8 PUSH1 0x02 MUL // 8 * 2 -&gt; 16 PUSH1 0x00 SSTORE // 將 16 存到 0 這個位置  這段程式轉成 Bytecode 就是：
+0x60 0x03 0x60 0x05 0x01 0x60 0x02 0x02 0x60 0x00 0x55  也就是：</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-22geth-%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95%E5%8F%8A%E6%9E%B6%E8%A8%AD-muti-nodes-%E7%A7%81%E6%9C%89%E9%8F%88/">
+                <h3 class="media-heading">Ethereum 開發筆記 2–2：Geth 基礎用法及架設 Muti-Nodes 私有鏈</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">要連上 Ethereum 就需要安裝 Ethereum Node，在這邊我們選擇使用 Geth 來安裝 Ethereum Node，接下來就來一步一步的學學怎麼使用 Geth，甚至如何使用 Geth 來架設自己的 Ethereum 私有鏈。
+安裝環境 首先我們在 AWS 上開啟兩台 Ubuntu 虛擬機器，記得開 t2.medium（2 vCPU, 4 GB RAM）這個規格以上才跑得動，硬碟可以開 100 G，Security Group 將 TCP 30303 打開，Ethereum Node 之間是用 30303 這個 port 來溝通的。
+接下來使用以下指令安裝 Geth：
+$ sudo apt-get install -y software-properties-common $ sudo add-apt-repository -y ppa:ethereum/ethereum $ sudo apt-get update $ sudo apt-get install -y ethereum  兩台虛擬機器都要安裝，應該幾分鐘就可以裝好了。
+使用 Main Net 安裝完 Geth 之後，我們就可以透過 Geth 連上 Ethereum Network 了，我們就來連上 Main Net 看看：</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-21ethereum-%E9%96%8B%E7%99%BC%E6%95%B4%E9%AB%94%E8%84%88%E7%B5%A1/">
+                <h3 class="media-heading">Ethereum 開發筆記 2–1：Ethereum 開發整體脈絡</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">在第一次接觸 Ethereum 應用程式開發時，會發現有各式各樣工具，不知要從何下手，我們用一個圖來說明一下與 Ethereum 互動時的整體脈絡及這之間的工具主要做了什麼事，了解之後自己就可以挑選開發時、甚至使用在產品上時要用什麼適合的工具了。
+要在自己的機器接上 Ethereum 首先需要安裝 Ethereum Node，我們之前安裝的 Mist 其實就會在我們的機器上安裝 Ethereum Node 並同步帳本，而像這樣安裝 Node 並同步帳本甚至進行挖礦的軟體有很多，大家可以去選擇適合自己使用的。Mist 其實是將一個叫 geth 的軟體用 GUI 包裝起來，如果是開發者的話，可以選擇直接安裝 geth。
+geth 提供了許多 API 指令可以讓我們跟 Ethereum 做互動，但有時下指令並不是那麼親和，所以 geth 提供了 RPC(Remote Procedure Calls) 與 IPC(Inter-process Communications) 兩種方式來與 geth 互動，如果你要在 local 機器連上 geth，那就可以使用 IPC；如果要讓遠端連上 geth，那就使用 RPC，可以開 HTTP 或 Web Socket 兩種方式來讓遠端使用。
+以上就是 Ethereum 應用程式開發的基礎環境，接下來跟開發網頁應用程式一樣，Ethereum 應用程式也分成後端與前端，後端程式就是 Smart Contract，前端程式就是 Dapp。Smart Contract 可使用 Solidity 撰寫，目前也有許多其他語言可以撰寫 Smart Contract。Smart Contract 要在 Ethereum 上的 EVM 執行要先 Compile 成 Byte Code 之後，再透過 IPC 或 RPC 發佈到 Ethereum 上。前端程式的 Dapp 可用 Web3 JavaScript 透過 RPC 接上 Ethereum，以及使用網頁應用常用到的 HTML、CSS、JavaScript 製作成使用者互動介面，如此就能執行發佈在 Ethereum 上 Smart Contract 所提供的一些程式功能了。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-18ethereum-%E7%9A%84%E7%8D%8E%E5%8B%B5%E6%A9%9F%E5%88%B6/">
+                <h3 class="media-heading">Ethereum 開發筆記 1–8：Ethereum 的獎勵機制</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Bitcoin 的獎勵機制基本上是挖到新區塊的節點獲得記帳權及獎勵，Ethereum 大體也是遵循這樣的概念，但做了一些調整與變化，讓我們整個脈絡了解一下。
+由於 Blockchain 是一種去中心化的系統，所有的礦工（節點）可以同時挖礦（計算合法 hash），彼此獨立運作，所以極有可能出現兩的礦工同時發現不同的滿足條件的區塊，如此就會產生我們之前有提過的分叉（Fork）。
+那我們該採用誰的區塊當主鏈呢？我們會先依工作量最大的區塊為主鏈，如果工作量一樣，就看誰先接了子區塊，一般來說只有成了主鏈的區塊才能獲得獎勵。但這樣沒有變成主鏈的區塊之前的算力就都白費了，所以 Ethereum 創造了 Uncle Block（叔塊）這樣的概念，不能成為主鏈的區塊如果後來被收留成為 Uncle Block，那這些沒有成為主鏈的區塊也有機會可以做為 Uncle Block 而獲得獎勵。
+這就是 Ethereum 共識機制中的 GHOST（Greedy Heaviest Observed Subtree）協議，Ethereum 會這樣設計的原因，是由於 Ethereum 產生區塊的速度較快，也因此較容易產生分叉，也會使得新區塊較難以在整個網絡傳播，這對於傳播速度較慢的區塊並不公平。且分叉後的區塊可能在幾個區塊之後整併起來，我們會發現裡面的交易可能會與主鏈一致（雖然單獨查看分塊交易內容不同，不過數個區塊整體一起看交易內容就一致了），符合這種條件的分叉區塊我們就會納入主鏈參考，這些區塊就成了所謂的 Uncle Block，這某種角度也是更確認了 Blockchain 上的交易內容一致，因此 Uncle Block 也有貢獻，應該給予獎勵。
+以上我們已經了解了 Ethereum 上的區塊大致分成兩種，普通區塊和 Uncle Block，Ethereum 對這兩種區塊的獎勵方式是不同的。我們分別來看一下。
+普通區塊獎勵  固定獎勵 5 ETH 區塊內所有的 Gas Fee 如果區塊納入了 Uncle Block，那每包含一個 Uncle Block 可以得到固定獎勵 5 ETH * 1/32，也就是 0.15625 ETH，一個區塊最多隻能包含 2 個 Uncle Block，也因此不會無限延伸，同時又可鼓勵區塊納入 Uncle Block，增加交易內容的一致性。  Uncle Block 獎勵  用公式計算：（Uncle Block 高度 + 8 - 包含此 Uncle Block 的區塊的高度）* 普通區塊固定獎勵 / 8  我們用個實例來看一下獎勵怎麼算。首先我們來看一個普通區塊：https://etherscan.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-17blockchain-%E7%9A%84%E4%B8%80%E4%BA%9B%E9%87%8D%E8%A6%81%E6%80%A7%E8%B3%AA/">
+                <h3 class="media-heading">Ethereum 開發筆記 1–7：Blockchain 的一些重要性質</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">我們這邊再次總結一下 Blockchain 中幾點較重要的性質，包含共識機制、不可竄改、經濟激勵三項。
+共識機制（Consensus） 在分散式系統中，我們需要有一套用於協同合作的共識機制來組織行動，但有時候系統中的成員可能會出錯或是故意傳送出錯誤的資訊，而使得網路中不同成員對於全體協作的策略得出不同的結論，進而破壞系統的一致性，這就是所謂的拜占庭將軍問題。
+拜占庭將軍問題（Byzantine Generals Problem） 拜占庭將軍問題這個故事是這樣的：
+ 一組拜占庭將軍分別各率領一支軍隊共同圍困一座城市，這個敵人雖不比拜占庭帝國，但也足以抵禦 5 支拜占庭軍隊的同時襲擊。這 10 支軍隊在分開的包圍狀態下，他們任 1 支軍隊單獨進攻都毫無勝算，除非有至少 6 支軍隊（一半以上）同時襲擊才能攻下敵國。他們分散在敵國的四周，依靠通信兵騎馬相互通信來協商進攻意向及進攻時間。困擾這些將軍的問題是，他們不確定他們中是否有叛徒，叛徒可能擅自變更進攻意向或者進攻時間。在這種狀態下，拜占庭將軍們才能保證有多於 6 支軍隊在同一時間一起發起進攻，從而贏取戰鬥？
+ 上述的故事對映到電腦系統裡，將軍便成了電腦，而通信兵就是通訊系統。叛徒發送前後不一致的進攻提議，被稱為「拜占庭錯誤」，而能夠處理拜占庭錯誤的這種容錯性稱為「Byzantine Fault Tolerance」。Blockchain 上的共識機制通常具有容錯的設計來達成一致性，主要比較常見的共識機制方法有兩個，「工作量證明」以及「股權證明」兩種方法。
+工作量證明演算法（Proof of Work, PoW） 中本聰在 Bitcoin 中創造性的引入了「工作量證明」（俗稱挖礦）來解決拜占庭將軍問題，顧名思義，工作量證明就是用來證明你做了一定量的工作，可用工作成果來證明完成相應的工作量。其中的工作技術原理可以看之前這篇文章：Ethereum 開發筆記 1–4：Blockchain 技術原理簡介
+由於工作量證明具相當高的計算成本，因此無誘因去偽造，只有遵守協議約定，才能夠回收成本並獲得收益，也因此減少了叛徒的產生，減少拜占庭錯誤。
+股權證明演算法（Proof of Stake, PoS） 股權證明的出現，主要是希望取代工作量證明，進而減少「挖礦」的大量運算。它與工作量證明不同地方在於：工作量證明中，大家比的是「算力」（運算能力），透過大量運算得出符合難度的 Hash 值，進而得到獎勵；而在股權證明，大家比拼的是「股權」，「股權」越大的人（節點）越大機會負責產生新區塊，進而得到獎勵。
+舉例來說，在股權證明系統中所有擁有股權（此 Blockchain 的數位貨幣）的人都有機會被挑選為產生新區塊（也就是記帳）的人，擁有更多股權的人被選中的機率越大。假這這個系統中共有三個人：Alice 持有 50 股、Bob 持有 30 股、Cathy 持有 20 股，那每次 Alice 被選為記帳人的機率會是 Cathy 的兩倍。所以股權證明會驅使人們購買更多的股權，進而增加獲選為記帳人的機率，以買股權來代替挖礦，同樣需要付出高成本，也因此可以減少叛徒的產生，減少拜占庭錯誤。
+不可竄改（Immutability） Blockchain 不可竄改的性質主要來自資料結構及 hash 方式的設計，讓資料的順序緊密鏈結，若從中竄改了某些資料，那之後的鏈結 hash 都會發生錯誤，形成了 Blockchain 不可竄改的特性。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-16blockchain-%E7%9B%B8%E9%97%9C%E7%9A%84%E5%8A%A0%E5%AF%86%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98/">
+                <h3 class="media-heading">Ethereum 開發筆記 1–6：Blockchain 相關的加密基礎知識</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Blockchain 裡應用了一些加密技術來保證及驗證交易訊息的正確性，這也更加強了 Blockchain 資料不可竄改的特性。我們來介紹其中比較重要的「公私鑰加密」以及「Merkle Tree」加密樹。
+公私鑰加密 公私鑰加密算法是目前資訊通訊安全的基石，它保證了加密訊息不可被破解，相關的加解密原理大家可以參考這兩篇文章：
+ RSA算法原理（一）http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html RSA算法原理（二）http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html  加密與解密 公私鑰加密方法是一種非對稱式加密，透過公鑰加密過後的訊息只有私鑰可以解密，也因此只要保護好私鑰就能保證資訊的安全。
+現在假設 Alice 要傳一個訊息給 Bob，希望訊息加密過後只有 Bob 可以解密，大概會經過如下步驟：
+ Bob 傳他的公鑰給 Alice Alice 使用 Bob 的公鑰加密訊息 Alice 將加密過後的訊息傳給 Bob Bob 用他的私鑰解密訊息  我們這邊使用 openssl 來練習一下加密與解密，首先我們來產生一對公私鑰：
+// Create RSA private key $ openssl genrsa -des3 -out rsa-key.pem 2048 // Create public key $ openssl rsa -in rsa-key.pem -outform PEM -pubout -out rsa-key-pub.pem  其中 rsa-key.pem 就是私鑰，rsa-key-pub.pem 為公鑰，私鑰會要求設置密碼，請妥善記下密碼。
+我們先用 rsa-key-pub.pem 加密資料：</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-15blockchain-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9A%E7%BE%A9%E8%88%87%E5%90%8D%E8%A9%9E/">
+                <h3 class="media-heading">Ethereum 開發筆記 1–5：Blockchain 的一些定義與名詞</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">在 Ethereum 開發筆記 1–4 應該已經將 Blockchain 的技術原理說明得很清楚了，不過如果要向一般大眾簡單說明 Blockchain 是什麼，要怎麼說呢？我會說：Blockchain 就是一個分散式帳本，大家都有一樣的帳本，大家都可一起參與記帳，且記完帳大家的帳本就會自動更新到最新版本，而帳裡的紀錄都會分塊並用密碼按順序鏈結起來，用以驗證帳的正確性，如果中間有人改了資料，那後面的鏈結密碼都會發生錯誤，因此沒有人可以亂改帳，這就是 Blockchain。
+但 Blockchain 這個名詞還包含了許多概念與內涵，我們之前說過，Blockchain 是因為分散式去中心化帳本的發展而慢慢產生出來的，這樣慢慢被統稱出來的名詞裡底下也就會包含了許多內涵，很難用三言兩語來說明，所以有一些 Blockchain 相關的定義與名詞我們都可以了解一下，這樣就能更了解 Blockchain。
+交易（Transaction） 交易是 Blockchain 帳本中的原子單位，如果將交易再往下拆分就會變得沒有意義，比如下列就是一個交易：
+ A 減少了 $10 B 增加了 $9 C 增加了 $1  如果只看 1，我們就會想那減少的 $10 到哪裡去了？所以 1、2、3 一起看才算是一個交易。
+Blockchain 是一個分散式帳本（Distributed Ledger） 不像銀行依靠自己的帳本來記帳，Blockchain 提供了可靠的分散式帳本，當銀行之間要進行交易時，會需要一個受信任的第三方來進行銀行之間的交易，這也是為何你在做跨國轉帳時，需要付出高昂的手續費以及等待數天處理交易，Blockchain 可靠的分散式帳本讓跨國交易可以在幾分鐘甚至幾秒之內完成，這也是為何銀行想要應用 Blockchain 在金融交易上以降低交易成本。
+Blockchain 是一個資料結構（Data Structure） 通常 Blockchain 的資料結構如下組成：
+ 交易是原子單位 區塊是由一系列的交易組成 區塊鏈由排序良好的區塊所組成  Blockchain 會有分叉（Fork） 當有兩名礦工 A 及 B 幾乎在相同時間內算出了合法的 hash，這兩個區塊傳播到鄰近節點時，有些節點收到了 A 的區塊，有些節點收到了 B 的區塊，這兩個區塊都可以是主鏈的延伸，這時就會產生區塊鏈分叉。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-14blockchain-%E6%8A%80%E8%A1%93%E5%8E%9F%E7%90%86%E7%B0%A1%E4%BB%8B/">
+                <h3 class="media-heading">Ethereum 開發筆記 1–4：Blockchain 技術原理簡介</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">之前我們簡單地介紹過 Blockchain 了，但我們還是對 Blockchain 背後的技術原理不是那麼了解，我們知道 Blockchain 是因為一個數位貨幣帳本這樣的概念被創造出來的，而數位貨幣最擔心的是什麼問題呢？其實就是雙重支付（Double-Spending）這樣的問題。
+數位貨幣不像實體貨幣，數位資產比起實體資產容易複製，也因此如果花用數位貨幣的行為如果沒有處理好，就會產生憑空多出其他交易，這就像是偽鈔一樣，會造成通貨膨脹而導致貨幣貶值，讓人不再信任並願意持與流通。因此數位貨幣的支付通常需要一個受信任的第三方來做驗證，這樣的做法雖然簡單，卻存在單點脆弱性，只要這第三方受到攻擊或是監守自盜也一樣會讓這個數位貨幣變成一個失敗的貨幣。
+分散式去中心化帳本能解決單點脆弱性的問題，但在驗證正確性這點難度卻很高，所有的節點都有記帳的權利，要如何確定由誰來記帳、記的帳對不對？如果無法確定帳是對的，那就存在雙重支付的風險。
+為了改善單點脆弱性及雙重支付這樣的問題，許多分散式的雙重支付防範方法慢慢被提出來，中本聰提出了去中心化（以受信任第三方為中心）的方法來展示解決雙重支付問題，並實作出了 Bitcoin，使用共識機制來解決記帳及驗證的問題，這帶來去中心化數位貨幣帳本的成功。
+Bitcoin 的共識協議主要由「工作量證明」（Proof-of-Work, PoW）和「最長鏈機制」兩部分組成，Bitcoin 上的各個節點就是透過共識機制中的工作量證明來決定誰有記帳權，然後取得記帳權的節點就能將新的區塊記帳加到最長鏈上並給予該節點獎勵（新區塊獎勵及交易費收益）。
+Bitcoin 的 工作量證明大概會做以下的事情：
+ 收集還未記到帳上的交易 檢查每個交易中付款地址有沒有足夠的餘額 驗證交易是否有正確的簽名 把驗證通過的交易信息進行打包（組成 Merkle Tree） 為自己增加一個交易紀錄獲得 Bitcoin 獎勵金 計算合法的 hash 爭奪記帳權  計算合法 hash 的方式請見下方影片說明，個人覺得這個影片是目前將 Blockchain 加密機制說明得最清楚的影片。我這邊簡略說明一下，合法的 hash 公式大致看起來像這樣：hash(交易內容+交易簽名+nonce+上一個區塊的 hash)，我們要取得記帳權，就需要找出前面開頭有 N 個 0 的 hash，由於交易內容、交易簽名及上一個區塊的 hash 都是不可變的，所以每個節點就是不斷的調整 nonce 來計算得出不同的 hash，直到找到開頭 N 個 0 的 hash 為止，第一個找的節點就能獲得記帳權，而其他的節點只要計算 hash 對不對就能驗證這個帳對不對。其中 N 個 0 開頭的 hash 就代表了計算的難度，越多 0 代表越難找到這樣的 hash，也因此可以調整計算難度。就是這樣的設計解決了去中心化分散式系統驗證資料及決定記帳順序的難題，也就改善了數位貨幣單點脆弱性及雙重支付的問題。
+  以上的內容看完應該就能大體了解 Blockchain 的原理了，甚至要自己做一個 Blockchain 都沒問題！了解了 Blockchain 的技術原理之後，應該能更信任去中心化的數位貨幣的安全性，或許有天大家都信任了去中心化的數位貨幣我們就真的能廣泛使用數位貨幣，為經濟活動帶來更有效率的流通。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98%E7%B7%B4%E7%BF%92-1%E4%BD%BF%E7%94%A8-mist-%E7%99%BC%E8%A1%8C%E8%87%AA%E5%B7%B1%E7%9A%84-token/">
+                <h3 class="media-heading">Ethereum 開發筆記練習 1：使用 Mist 發行自己的 Token</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">之前說過，Blockchain 基本上是因為金流帳本這樣的問題而被創造出來的，也就是說區塊鏈非常適合運用在金流的應用上，我們也可以建立自己的 Blockchain 來搭建自己的金流系統，不過在 Ethereum 上 Smart Contract 這種設計讓我們擁有可以在 Ethereum 區塊鏈上創造自己金流系統的能力，如此我們就不需要自己建一條鏈了。
+我們使用 Smart Contract 仿造貨幣性質創造了數位資產（說穿了其實就是在 Smart Contract 上紀錄的變數而已），而這種具貨幣性質的數位資產又被稱作 Token，如此我們就可以在應用程式中使用這個去中心化的金流系統，由於 Token 的應用很普遍，大部分的功能都已經標準化了，我們只要仿造標準來實作就可以發行自己的數位貨幣了。
+在這邊我們就練習一下怎麼使用 Mist 發佈 Token Smart Contract 來發行自己的數位貨幣。（目前我們還沒有學習過如何撰寫 Smart Contract，因此這邊會先直接提供範例程式碼，實作的部分我們之後再慢慢學習）
+以下是我們的範例程式碼：
+ 請打開 Mist，如下圖點擊 Contract，然後點擊 Deploy New Contract。
+你會看到如下圖的頁面，請在 Solidity Contract Source Code 中貼上我們上面提供的範例程式碼。
+貼上範例程式碼之後，Mist 會自動編譯程式，檢查是否有語法上的錯誤，如果沒問題，右方的 Select Contract to Deploy 就會出現選項，在這邊我們選擇 Token ERC 20。
+選擇 Token ERC 20 之後，右方會出現要初始化 Contract 的參數表單，有 Initial supply、Token name、Token symbol 需要填寫。Initial supply 代表 Token 的總發行量是多少，我這邊設定成 7777777777，你可以設成你想要的數字。Token name 就是這個 Token 要叫什麼名字，這邊我設定成 7 Token，你想要取 Dog Coin 或是 Cat Coin 也都可以。Token symbol 就是這個 Token 要用什麼代號，像是美金就是用 $、Ether 是用 ETH，這邊我設定成 7token，你可以取自己覺得帥的代號。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-13%E4%BD%BF%E7%94%A8-mist/">
+                <h3 class="media-heading">Ethereum 開發筆記 1–3：使用 Mist</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Mist 跟前回介紹的 MetaMask 一樣是可以與 Ethereum 進行互動的工具，除了可以管理 Ethereum 相關密鑰之外，Mist 還包含了 Ethereum 節點以及網頁瀏覽器，方便大家瀏覽 Dapp 網頁。
+首先請到這邊安裝 Mist，請選擇適於自己的作業系統安裝。
+由於 Mist 會安裝節點在你的電腦裡，也因此會同步整個帳本下來，所以會花上不少時間同時也會佔用許多硬碟空間。我們目前僅是要使用測試鏈，所以請切換到 Ropsten 測試鏈（如下圖），這樣就不用花這麼多時間與空間了。
+在 Mist 的左下角可以觀察目前已同步到你的電腦的區塊數（如下圖），如果這個數字跟 Etherscan（Etherscan 是一個可以查看 Ethereum 區塊鏈所有交易的網站） 上的最新區塊數一致的話，那就代表已經同步完成了。
+接下來讓我們用 Mist 開一個 Ethereum 帳戶，請點擊 Add Account，並依指示輸入密碼後創建帳號，密碼請務必要記下來，將來交易時都會需要輸入你的密碼。
+學會創建 Ethereum 帳戶之後，我們要來看一下 Mist 要怎麼備份帳號，請點擊 Mist 上方選單的 File -&gt; Backup -&gt;Accounts（如下圖），這樣就會打開帳號存放的資料夾，所有的帳號都會加密存在這邊，所以只要備份這些檔案及當時設定的密碼，你就可以在別台電腦復原你的帳號。
+現在你這個 Ethereum 帳戶還沒有任何 Ether，我們仿造之前用 MetaMask 來跟水龍頭要 Ether 的步驟來取得 Ether 看看。
+我個人提供了一個水龍頭 Dapp，請前往這個網址來取得 Ether：https://blog.fukuball.com/dapp/faucet/
+由於 Mist 也是一個 Dapp 網頁瀏覽器，請在 Mist 上方的網址列輸入：https://blog.fukuball.com/dapp/faucet/
+Mist 在揭露你的 Ethereum 帳戶資訊給 Dapp 網頁時都會詢問你的同意，請先選擇要瀏覽這個 Dapp 網頁的帳號（你可能在 Mist 有多個帳號，所以就需要選擇目前要用哪個帳號瀏覽這個網頁）。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         76 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://blog.fukuball.com/images/ok.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://blog.fukuball.com/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41911929-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-41911929-4');
+</script>
+
+    
+  </body>
+</html>
+

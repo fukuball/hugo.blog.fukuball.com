@@ -1,0 +1,1242 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on I am Fukuball</title>
+    <link>https://blog.fukuball.com/post/</link>
+    <description>Recent content in Posts on I am Fukuball</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Sep 2018 14:56:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.fukuball.com/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ethereum 開發筆記 2–3：Smart Contract 初探，從 Bytecode 到 Solidity</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-23smart-contract-%E5%88%9D%E6%8E%A2%E5%BE%9E-bytecode-%E5%88%B0-solidity/</link>
+      <pubDate>Tue, 25 Sep 2018 14:56:00 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-23smart-contract-%E5%88%9D%E6%8E%A2%E5%BE%9E-bytecode-%E5%88%B0-solidity/</guid>
+      <description>Ethereum 上的 EVM（Ethereum Virtual Machine）可以執行程式，而 EVM 上的可執行程式基本上是 Bytecode 的形式，所以所謂的 Smart Contract 就是存放在 Ethereum 上的 Bytecode，然後可由 EVM 來執行。
+Bytecode Smart Contract 直接用 Bytecode 寫 Smart Contract 我們來嘗試一下直接用 Bytecode 來寫 Smart Contract，以下這段程式碼主要內容是執行運算後，將運算結果存放在 0 這個位置：
+PUSH1 0x03 PUSH1 0x05 ADD // 3 + 5 -&amp;gt; 8 PUSH1 0x02 MUL // 8 * 2 -&amp;gt; 16 PUSH1 0x00 SSTORE // 將 16 存到 0 這個位置  這段程式轉成 Bytecode 就是：
+0x60 0x03 0x60 0x05 0x01 0x60 0x02 0x02 0x60 0x00 0x55  也就是：</description>
+    </item>
+    
+    <item>
+      <title>Ethereum 開發筆記 2–2：Geth 基礎用法及架設 Muti-Nodes 私有鏈</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-22geth-%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95%E5%8F%8A%E6%9E%B6%E8%A8%AD-muti-nodes-%E7%A7%81%E6%9C%89%E9%8F%88/</link>
+      <pubDate>Sun, 23 Sep 2018 18:34:28 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-22geth-%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95%E5%8F%8A%E6%9E%B6%E8%A8%AD-muti-nodes-%E7%A7%81%E6%9C%89%E9%8F%88/</guid>
+      <description>要連上 Ethereum 就需要安裝 Ethereum Node，在這邊我們選擇使用 Geth 來安裝 Ethereum Node，接下來就來一步一步的學學怎麼使用 Geth，甚至如何使用 Geth 來架設自己的 Ethereum 私有鏈。
+安裝環境 首先我們在 AWS 上開啟兩台 Ubuntu 虛擬機器，記得開 t2.medium（2 vCPU, 4 GB RAM）這個規格以上才跑得動，硬碟可以開 100 G，Security Group 將 TCP 30303 打開，Ethereum Node 之間是用 30303 這個 port 來溝通的。
+接下來使用以下指令安裝 Geth：
+$ sudo apt-get install -y software-properties-common $ sudo add-apt-repository -y ppa:ethereum/ethereum $ sudo apt-get update $ sudo apt-get install -y ethereum  兩台虛擬機器都要安裝，應該幾分鐘就可以裝好了。
+使用 Main Net 安裝完 Geth 之後，我們就可以透過 Geth 連上 Ethereum Network 了，我們就來連上 Main Net 看看：</description>
+    </item>
+    
+    <item>
+      <title>Ethereum 開發筆記 2–1：Ethereum 開發整體脈絡</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-21ethereum-%E9%96%8B%E7%99%BC%E6%95%B4%E9%AB%94%E8%84%88%E7%B5%A1/</link>
+      <pubDate>Fri, 14 Sep 2018 17:48:00 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-21ethereum-%E9%96%8B%E7%99%BC%E6%95%B4%E9%AB%94%E8%84%88%E7%B5%A1/</guid>
+      <description>在第一次接觸 Ethereum 應用程式開發時，會發現有各式各樣工具，不知要從何下手，我們用一個圖來說明一下與 Ethereum 互動時的整體脈絡及這之間的工具主要做了什麼事，了解之後自己就可以挑選開發時、甚至使用在產品上時要用什麼適合的工具了。
+要在自己的機器接上 Ethereum 首先需要安裝 Ethereum Node，我們之前安裝的 Mist 其實就會在我們的機器上安裝 Ethereum Node 並同步帳本，而像這樣安裝 Node 並同步帳本甚至進行挖礦的軟體有很多，大家可以去選擇適合自己使用的。Mist 其實是將一個叫 geth 的軟體用 GUI 包裝起來，如果是開發者的話，可以選擇直接安裝 geth。
+geth 提供了許多 API 指令可以讓我們跟 Ethereum 做互動，但有時下指令並不是那麼親和，所以 geth 提供了 RPC(Remote Procedure Calls) 與 IPC(Inter-process Communications) 兩種方式來與 geth 互動，如果你要在 local 機器連上 geth，那就可以使用 IPC；如果要讓遠端連上 geth，那就使用 RPC，可以開 HTTP 或 Web Socket 兩種方式來讓遠端使用。
+以上就是 Ethereum 應用程式開發的基礎環境，接下來跟開發網頁應用程式一樣，Ethereum 應用程式也分成後端與前端，後端程式就是 Smart Contract，前端程式就是 Dapp。Smart Contract 可使用 Solidity 撰寫，目前也有許多其他語言可以撰寫 Smart Contract。Smart Contract 要在 Ethereum 上的 EVM 執行要先 Compile 成 Byte Code 之後，再透過 IPC 或 RPC 發佈到 Ethereum 上。前端程式的 Dapp 可用 Web3 JavaScript 透過 RPC 接上 Ethereum，以及使用網頁應用常用到的 HTML、CSS、JavaScript 製作成使用者互動介面，如此就能執行發佈在 Ethereum 上 Smart Contract 所提供的一些程式功能了。</description>
+    </item>
+    
+    <item>
+      <title>Ethereum 開發筆記 1–8：Ethereum 的獎勵機制</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-18ethereum-%E7%9A%84%E7%8D%8E%E5%8B%B5%E6%A9%9F%E5%88%B6/</link>
+      <pubDate>Tue, 11 Sep 2018 18:05:00 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-18ethereum-%E7%9A%84%E7%8D%8E%E5%8B%B5%E6%A9%9F%E5%88%B6/</guid>
+      <description>Bitcoin 的獎勵機制基本上是挖到新區塊的節點獲得記帳權及獎勵，Ethereum 大體也是遵循這樣的概念，但做了一些調整與變化，讓我們整個脈絡了解一下。
+由於 Blockchain 是一種去中心化的系統，所有的礦工（節點）可以同時挖礦（計算合法 hash），彼此獨立運作，所以極有可能出現兩的礦工同時發現不同的滿足條件的區塊，如此就會產生我們之前有提過的分叉（Fork）。
+那我們該採用誰的區塊當主鏈呢？我們會先依工作量最大的區塊為主鏈，如果工作量一樣，就看誰先接了子區塊，一般來說只有成了主鏈的區塊才能獲得獎勵。但這樣沒有變成主鏈的區塊之前的算力就都白費了，所以 Ethereum 創造了 Uncle Block（叔塊）這樣的概念，不能成為主鏈的區塊如果後來被收留成為 Uncle Block，那這些沒有成為主鏈的區塊也有機會可以做為 Uncle Block 而獲得獎勵。
+這就是 Ethereum 共識機制中的 GHOST（Greedy Heaviest Observed Subtree）協議，Ethereum 會這樣設計的原因，是由於 Ethereum 產生區塊的速度較快，也因此較容易產生分叉，也會使得新區塊較難以在整個網絡傳播，這對於傳播速度較慢的區塊並不公平。且分叉後的區塊可能在幾個區塊之後整併起來，我們會發現裡面的交易可能會與主鏈一致（雖然單獨查看分塊交易內容不同，不過數個區塊整體一起看交易內容就一致了），符合這種條件的分叉區塊我們就會納入主鏈參考，這些區塊就成了所謂的 Uncle Block，這某種角度也是更確認了 Blockchain 上的交易內容一致，因此 Uncle Block 也有貢獻，應該給予獎勵。
+以上我們已經了解了 Ethereum 上的區塊大致分成兩種，普通區塊和 Uncle Block，Ethereum 對這兩種區塊的獎勵方式是不同的。我們分別來看一下。
+普通區塊獎勵  固定獎勵 5 ETH 區塊內所有的 Gas Fee 如果區塊納入了 Uncle Block，那每包含一個 Uncle Block 可以得到固定獎勵 5 ETH * 1/32，也就是 0.15625 ETH，一個區塊最多隻能包含 2 個 Uncle Block，也因此不會無限延伸，同時又可鼓勵區塊納入 Uncle Block，增加交易內容的一致性。  Uncle Block 獎勵  用公式計算：（Uncle Block 高度 + 8 - 包含此 Uncle Block 的區塊的高度）* 普通區塊固定獎勵 / 8  我們用個實例來看一下獎勵怎麼算。首先我們來看一個普通區塊：https://etherscan.</description>
+    </item>
+    
+    <item>
+      <title>Ethereum 開發筆記 1–7：Blockchain 的一些重要性質</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-17blockchain-%E7%9A%84%E4%B8%80%E4%BA%9B%E9%87%8D%E8%A6%81%E6%80%A7%E8%B3%AA/</link>
+      <pubDate>Sun, 09 Sep 2018 18:23:57 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-17blockchain-%E7%9A%84%E4%B8%80%E4%BA%9B%E9%87%8D%E8%A6%81%E6%80%A7%E8%B3%AA/</guid>
+      <description>我們這邊再次總結一下 Blockchain 中幾點較重要的性質，包含共識機制、不可竄改、經濟激勵三項。
+共識機制（Consensus） 在分散式系統中，我們需要有一套用於協同合作的共識機制來組織行動，但有時候系統中的成員可能會出錯或是故意傳送出錯誤的資訊，而使得網路中不同成員對於全體協作的策略得出不同的結論，進而破壞系統的一致性，這就是所謂的拜占庭將軍問題。
+拜占庭將軍問題（Byzantine Generals Problem） 拜占庭將軍問題這個故事是這樣的：
+ 一組拜占庭將軍分別各率領一支軍隊共同圍困一座城市，這個敵人雖不比拜占庭帝國，但也足以抵禦 5 支拜占庭軍隊的同時襲擊。這 10 支軍隊在分開的包圍狀態下，他們任 1 支軍隊單獨進攻都毫無勝算，除非有至少 6 支軍隊（一半以上）同時襲擊才能攻下敵國。他們分散在敵國的四周，依靠通信兵騎馬相互通信來協商進攻意向及進攻時間。困擾這些將軍的問題是，他們不確定他們中是否有叛徒，叛徒可能擅自變更進攻意向或者進攻時間。在這種狀態下，拜占庭將軍們才能保證有多於 6 支軍隊在同一時間一起發起進攻，從而贏取戰鬥？
+ 上述的故事對映到電腦系統裡，將軍便成了電腦，而通信兵就是通訊系統。叛徒發送前後不一致的進攻提議，被稱為「拜占庭錯誤」，而能夠處理拜占庭錯誤的這種容錯性稱為「Byzantine Fault Tolerance」。Blockchain 上的共識機制通常具有容錯的設計來達成一致性，主要比較常見的共識機制方法有兩個，「工作量證明」以及「股權證明」兩種方法。
+工作量證明演算法（Proof of Work, PoW） 中本聰在 Bitcoin 中創造性的引入了「工作量證明」（俗稱挖礦）來解決拜占庭將軍問題，顧名思義，工作量證明就是用來證明你做了一定量的工作，可用工作成果來證明完成相應的工作量。其中的工作技術原理可以看之前這篇文章：Ethereum 開發筆記 1–4：Blockchain 技術原理簡介
+由於工作量證明具相當高的計算成本，因此無誘因去偽造，只有遵守協議約定，才能夠回收成本並獲得收益，也因此減少了叛徒的產生，減少拜占庭錯誤。
+股權證明演算法（Proof of Stake, PoS） 股權證明的出現，主要是希望取代工作量證明，進而減少「挖礦」的大量運算。它與工作量證明不同地方在於：工作量證明中，大家比的是「算力」（運算能力），透過大量運算得出符合難度的 Hash 值，進而得到獎勵；而在股權證明，大家比拼的是「股權」，「股權」越大的人（節點）越大機會負責產生新區塊，進而得到獎勵。
+舉例來說，在股權證明系統中所有擁有股權（此 Blockchain 的數位貨幣）的人都有機會被挑選為產生新區塊（也就是記帳）的人，擁有更多股權的人被選中的機率越大。假這這個系統中共有三個人：Alice 持有 50 股、Bob 持有 30 股、Cathy 持有 20 股，那每次 Alice 被選為記帳人的機率會是 Cathy 的兩倍。所以股權證明會驅使人們購買更多的股權，進而增加獲選為記帳人的機率，以買股權來代替挖礦，同樣需要付出高成本，也因此可以減少叛徒的產生，減少拜占庭錯誤。
+不可竄改（Immutability） Blockchain 不可竄改的性質主要來自資料結構及 hash 方式的設計，讓資料的順序緊密鏈結，若從中竄改了某些資料，那之後的鏈結 hash 都會發生錯誤，形成了 Blockchain 不可竄改的特性。</description>
+    </item>
+    
+    <item>
+      <title>Ethereum 開發筆記 1–6：Blockchain 相關的加密基礎知識</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-16blockchain-%E7%9B%B8%E9%97%9C%E7%9A%84%E5%8A%A0%E5%AF%86%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98/</link>
+      <pubDate>Sun, 09 Sep 2018 12:03:29 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-16blockchain-%E7%9B%B8%E9%97%9C%E7%9A%84%E5%8A%A0%E5%AF%86%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98/</guid>
+      <description>Blockchain 裡應用了一些加密技術來保證及驗證交易訊息的正確性，這也更加強了 Blockchain 資料不可竄改的特性。我們來介紹其中比較重要的「公私鑰加密」以及「Merkle Tree」加密樹。
+公私鑰加密 公私鑰加密算法是目前資訊通訊安全的基石，它保證了加密訊息不可被破解，相關的加解密原理大家可以參考這兩篇文章：
+ RSA算法原理（一）http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html RSA算法原理（二）http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html  加密與解密 公私鑰加密方法是一種非對稱式加密，透過公鑰加密過後的訊息只有私鑰可以解密，也因此只要保護好私鑰就能保證資訊的安全。
+現在假設 Alice 要傳一個訊息給 Bob，希望訊息加密過後只有 Bob 可以解密，大概會經過如下步驟：
+ Bob 傳他的公鑰給 Alice Alice 使用 Bob 的公鑰加密訊息 Alice 將加密過後的訊息傳給 Bob Bob 用他的私鑰解密訊息  我們這邊使用 openssl 來練習一下加密與解密，首先我們來產生一對公私鑰：
+// Create RSA private key $ openssl genrsa -des3 -out rsa-key.pem 2048 // Create public key $ openssl rsa -in rsa-key.pem -outform PEM -pubout -out rsa-key-pub.pem  其中 rsa-key.pem 就是私鑰，rsa-key-pub.pem 為公鑰，私鑰會要求設置密碼，請妥善記下密碼。
+我們先用 rsa-key-pub.pem 加密資料：</description>
+    </item>
+    
+    <item>
+      <title>Ethereum 開發筆記 1–5：Blockchain 的一些定義與名詞</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-15blockchain-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9A%E7%BE%A9%E8%88%87%E5%90%8D%E8%A9%9E/</link>
+      <pubDate>Sun, 09 Sep 2018 08:21:34 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-15blockchain-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9A%E7%BE%A9%E8%88%87%E5%90%8D%E8%A9%9E/</guid>
+      <description>在 Ethereum 開發筆記 1–4 應該已經將 Blockchain 的技術原理說明得很清楚了，不過如果要向一般大眾簡單說明 Blockchain 是什麼，要怎麼說呢？我會說：Blockchain 就是一個分散式帳本，大家都有一樣的帳本，大家都可一起參與記帳，且記完帳大家的帳本就會自動更新到最新版本，而帳裡的紀錄都會分塊並用密碼按順序鏈結起來，用以驗證帳的正確性，如果中間有人改了資料，那後面的鏈結密碼都會發生錯誤，因此沒有人可以亂改帳，這就是 Blockchain。
+但 Blockchain 這個名詞還包含了許多概念與內涵，我們之前說過，Blockchain 是因為分散式去中心化帳本的發展而慢慢產生出來的，這樣慢慢被統稱出來的名詞裡底下也就會包含了許多內涵，很難用三言兩語來說明，所以有一些 Blockchain 相關的定義與名詞我們都可以了解一下，這樣就能更了解 Blockchain。
+交易（Transaction） 交易是 Blockchain 帳本中的原子單位，如果將交易再往下拆分就會變得沒有意義，比如下列就是一個交易：
+ A 減少了 $10 B 增加了 $9 C 增加了 $1  如果只看 1，我們就會想那減少的 $10 到哪裡去了？所以 1、2、3 一起看才算是一個交易。
+Blockchain 是一個分散式帳本（Distributed Ledger） 不像銀行依靠自己的帳本來記帳，Blockchain 提供了可靠的分散式帳本，當銀行之間要進行交易時，會需要一個受信任的第三方來進行銀行之間的交易，這也是為何你在做跨國轉帳時，需要付出高昂的手續費以及等待數天處理交易，Blockchain 可靠的分散式帳本讓跨國交易可以在幾分鐘甚至幾秒之內完成，這也是為何銀行想要應用 Blockchain 在金融交易上以降低交易成本。
+Blockchain 是一個資料結構（Data Structure） 通常 Blockchain 的資料結構如下組成：
+ 交易是原子單位 區塊是由一系列的交易組成 區塊鏈由排序良好的區塊所組成  Blockchain 會有分叉（Fork） 當有兩名礦工 A 及 B 幾乎在相同時間內算出了合法的 hash，這兩個區塊傳播到鄰近節點時，有些節點收到了 A 的區塊，有些節點收到了 B 的區塊，這兩個區塊都可以是主鏈的延伸，這時就會產生區塊鏈分叉。</description>
+    </item>
+    
+    <item>
+      <title>Ethereum 開發筆記 1–4：Blockchain 技術原理簡介</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-14blockchain-%E6%8A%80%E8%A1%93%E5%8E%9F%E7%90%86%E7%B0%A1%E4%BB%8B/</link>
+      <pubDate>Sat, 08 Sep 2018 15:22:20 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-14blockchain-%E6%8A%80%E8%A1%93%E5%8E%9F%E7%90%86%E7%B0%A1%E4%BB%8B/</guid>
+      <description>之前我們簡單地介紹過 Blockchain 了，但我們還是對 Blockchain 背後的技術原理不是那麼了解，我們知道 Blockchain 是因為一個數位貨幣帳本這樣的概念被創造出來的，而數位貨幣最擔心的是什麼問題呢？其實就是雙重支付（Double-Spending）這樣的問題。
+數位貨幣不像實體貨幣，數位資產比起實體資產容易複製，也因此如果花用數位貨幣的行為如果沒有處理好，就會產生憑空多出其他交易，這就像是偽鈔一樣，會造成通貨膨脹而導致貨幣貶值，讓人不再信任並願意持與流通。因此數位貨幣的支付通常需要一個受信任的第三方來做驗證，這樣的做法雖然簡單，卻存在單點脆弱性，只要這第三方受到攻擊或是監守自盜也一樣會讓這個數位貨幣變成一個失敗的貨幣。
+分散式去中心化帳本能解決單點脆弱性的問題，但在驗證正確性這點難度卻很高，所有的節點都有記帳的權利，要如何確定由誰來記帳、記的帳對不對？如果無法確定帳是對的，那就存在雙重支付的風險。
+為了改善單點脆弱性及雙重支付這樣的問題，許多分散式的雙重支付防範方法慢慢被提出來，中本聰提出了去中心化（以受信任第三方為中心）的方法來展示解決雙重支付問題，並實作出了 Bitcoin，使用共識機制來解決記帳及驗證的問題，這帶來去中心化數位貨幣帳本的成功。
+Bitcoin 的共識協議主要由「工作量證明」（Proof-of-Work, PoW）和「最長鏈機制」兩部分組成，Bitcoin 上的各個節點就是透過共識機制中的工作量證明來決定誰有記帳權，然後取得記帳權的節點就能將新的區塊記帳加到最長鏈上並給予該節點獎勵（新區塊獎勵及交易費收益）。
+Bitcoin 的 工作量證明大概會做以下的事情：
+ 收集還未記到帳上的交易 檢查每個交易中付款地址有沒有足夠的餘額 驗證交易是否有正確的簽名 把驗證通過的交易信息進行打包（組成 Merkle Tree） 為自己增加一個交易紀錄獲得 Bitcoin 獎勵金 計算合法的 hash 爭奪記帳權  計算合法 hash 的方式請見下方影片說明，個人覺得這個影片是目前將 Blockchain 加密機制說明得最清楚的影片。我這邊簡略說明一下，合法的 hash 公式大致看起來像這樣：hash(交易內容+交易簽名+nonce+上一個區塊的 hash)，我們要取得記帳權，就需要找出前面開頭有 N 個 0 的 hash，由於交易內容、交易簽名及上一個區塊的 hash 都是不可變的，所以每個節點就是不斷的調整 nonce 來計算得出不同的 hash，直到找到開頭 N 個 0 的 hash 為止，第一個找的節點就能獲得記帳權，而其他的節點只要計算 hash 對不對就能驗證這個帳對不對。其中 N 個 0 開頭的 hash 就代表了計算的難度，越多 0 代表越難找到這樣的 hash，也因此可以調整計算難度。就是這樣的設計解決了去中心化分散式系統驗證資料及決定記帳順序的難題，也就改善了數位貨幣單點脆弱性及雙重支付的問題。
+  以上的內容看完應該就能大體了解 Blockchain 的原理了，甚至要自己做一個 Blockchain 都沒問題！了解了 Blockchain 的技術原理之後，應該能更信任去中心化的數位貨幣的安全性，或許有天大家都信任了去中心化的數位貨幣我們就真的能廣泛使用數位貨幣，為經濟活動帶來更有效率的流通。</description>
+    </item>
+    
+    <item>
+      <title>Ethereum 開發筆記練習 1：使用 Mist 發行自己的 Token</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98%E7%B7%B4%E7%BF%92-1%E4%BD%BF%E7%94%A8-mist-%E7%99%BC%E8%A1%8C%E8%87%AA%E5%B7%B1%E7%9A%84-token/</link>
+      <pubDate>Sat, 08 Sep 2018 11:54:00 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98%E7%B7%B4%E7%BF%92-1%E4%BD%BF%E7%94%A8-mist-%E7%99%BC%E8%A1%8C%E8%87%AA%E5%B7%B1%E7%9A%84-token/</guid>
+      <description>之前說過，Blockchain 基本上是因為金流帳本這樣的問題而被創造出來的，也就是說區塊鏈非常適合運用在金流的應用上，我們也可以建立自己的 Blockchain 來搭建自己的金流系統，不過在 Ethereum 上 Smart Contract 這種設計讓我們擁有可以在 Ethereum 區塊鏈上創造自己金流系統的能力，如此我們就不需要自己建一條鏈了。
+我們使用 Smart Contract 仿造貨幣性質創造了數位資產（說穿了其實就是在 Smart Contract 上紀錄的變數而已），而這種具貨幣性質的數位資產又被稱作 Token，如此我們就可以在應用程式中使用這個去中心化的金流系統，由於 Token 的應用很普遍，大部分的功能都已經標準化了，我們只要仿造標準來實作就可以發行自己的數位貨幣了。
+在這邊我們就練習一下怎麼使用 Mist 發佈 Token Smart Contract 來發行自己的數位貨幣。（目前我們還沒有學習過如何撰寫 Smart Contract，因此這邊會先直接提供範例程式碼，實作的部分我們之後再慢慢學習）
+以下是我們的範例程式碼：
+ 請打開 Mist，如下圖點擊 Contract，然後點擊 Deploy New Contract。
+你會看到如下圖的頁面，請在 Solidity Contract Source Code 中貼上我們上面提供的範例程式碼。
+貼上範例程式碼之後，Mist 會自動編譯程式，檢查是否有語法上的錯誤，如果沒問題，右方的 Select Contract to Deploy 就會出現選項，在這邊我們選擇 Token ERC 20。
+選擇 Token ERC 20 之後，右方會出現要初始化 Contract 的參數表單，有 Initial supply、Token name、Token symbol 需要填寫。Initial supply 代表 Token 的總發行量是多少，我這邊設定成 7777777777，你可以設成你想要的數字。Token name 就是這個 Token 要叫什麼名字，這邊我設定成 7 Token，你想要取 Dog Coin 或是 Cat Coin 也都可以。Token symbol 就是這個 Token 要用什麼代號，像是美金就是用 $、Ether 是用 ETH，這邊我設定成 7token，你可以取自己覺得帥的代號。</description>
+    </item>
+    
+    <item>
+      <title>Ethereum 開發筆記 1–3：使用 Mist</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-13%E4%BD%BF%E7%94%A8-mist/</link>
+      <pubDate>Fri, 07 Sep 2018 15:45:00 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-13%E4%BD%BF%E7%94%A8-mist/</guid>
+      <description>Mist 跟前回介紹的 MetaMask 一樣是可以與 Ethereum 進行互動的工具，除了可以管理 Ethereum 相關密鑰之外，Mist 還包含了 Ethereum 節點以及網頁瀏覽器，方便大家瀏覽 Dapp 網頁。
+首先請到這邊安裝 Mist，請選擇適於自己的作業系統安裝。
+由於 Mist 會安裝節點在你的電腦裡，也因此會同步整個帳本下來，所以會花上不少時間同時也會佔用許多硬碟空間。我們目前僅是要使用測試鏈，所以請切換到 Ropsten 測試鏈（如下圖），這樣就不用花這麼多時間與空間了。
+在 Mist 的左下角可以觀察目前已同步到你的電腦的區塊數（如下圖），如果這個數字跟 Etherscan（Etherscan 是一個可以查看 Ethereum 區塊鏈所有交易的網站） 上的最新區塊數一致的話，那就代表已經同步完成了。
+接下來讓我們用 Mist 開一個 Ethereum 帳戶，請點擊 Add Account，並依指示輸入密碼後創建帳號，密碼請務必要記下來，將來交易時都會需要輸入你的密碼。
+學會創建 Ethereum 帳戶之後，我們要來看一下 Mist 要怎麼備份帳號，請點擊 Mist 上方選單的 File -&amp;gt; Backup -&amp;gt;Accounts（如下圖），這樣就會打開帳號存放的資料夾，所有的帳號都會加密存在這邊，所以只要備份這些檔案及當時設定的密碼，你就可以在別台電腦復原你的帳號。
+現在你這個 Ethereum 帳戶還沒有任何 Ether，我們仿造之前用 MetaMask 來跟水龍頭要 Ether 的步驟來取得 Ether 看看。
+我個人提供了一個水龍頭 Dapp，請前往這個網址來取得 Ether：https://blog.fukuball.com/dapp/faucet/
+由於 Mist 也是一個 Dapp 網頁瀏覽器，請在 Mist 上方的網址列輸入：https://blog.fukuball.com/dapp/faucet/
+Mist 在揭露你的 Ethereum 帳戶資訊給 Dapp 網頁時都會詢問你的同意，請先選擇要瀏覽這個 Dapp 網頁的帳號（你可能在 Mist 有多個帳號，所以就需要選擇目前要用哪個帳號瀏覽這個網頁）。</description>
+    </item>
+    
+    <item>
+      <title>Ethereum 開發筆記 1–2：使用 MetaMask</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-12%E4%BD%BF%E7%94%A8-metamask/</link>
+      <pubDate>Thu, 06 Sep 2018 17:46:00 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-12%E4%BD%BF%E7%94%A8-metamask/</guid>
+      <description>前一回稍微對 Blockchain、Bitcoin、Ethereum 做了一個科普的簡介，我們可以知道 Blockchain 就是一個帳本，每一個加入 Blockchain 的節點都會下載整個帳本在本地端，所以我們就可以在自己的節點（系統）寫入資料到帳本並透過 Blockchain 背後的機制同步到所有的節點。
+但實際在節點帳本上寫入交易紀錄前，我們先使用 MetaMask 這個工具來跟 Ethereum 互動吧，不然要裝好 Ethereum 節點、下載好帳本可能會花上不少時間，在這之前就失去耐性的話可不是一個好的開始。
+MetaMask 這個工具可以讓你不用安裝節點就跟 Ethereum 上的帳本做互動，這背後的原理其實就是使用別人幫忙維護的節點，如此就可以不用自己安裝節點、同步帳本。
+首先請到 MetaMask 上安裝 Chrome（或 Firefox）外掛，並請依指示安裝，MetaMask 會創建 Ethereum 帳戶及相關密鑰，MetaMask 也會管理密鑰，讓你可以方便地使用密鑰來與 Ethereum 互動，請記下密碼及 12 個單字的帳戶復原字，這 12 復原字可以用來讓你回復 Ethereum 帳戶，如下圖。
+Ethereum 上流通的貨幣就是 Ether，它用來當成 Ethereum Blockchain 得以運作的貨幣，Ethereum 上的節點想在 Ethereum 上做運算或是記下資料，那就需要付 Ether 當手續費，而在 Ethereum 上當礦工的節點就可以提供運算資源收取 Ether 當報酬。就如同現實世界一樣，貨幣的流通形成了資源的流通，讓世界可以正常運作。
+我們先切換到 Ropsten Test Network（Ethereum 的測試鏈，上面的 Ether 是沒有任何價值的）來感受一下在 Blockchain 上怎麼進行交易。
+現在我們還沒有任何 Ether 可以使用，這樣我們就沒辦法與 Ethereum 做互動，也就是無法做任何交易，讓我們來跟水龍頭要一些 Ether 來花吧！（在測試鏈上有佛心水龍頭，但正式鏈上就要自己挖礦或是花錢買 Ether 了！）</description>
+    </item>
+    
+    <item>
+      <title>Ethereum 開發筆記 1–1：Blockchain 簡介</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-11blockchain-%E7%B0%A1%E4%BB%8B/</link>
+      <pubDate>Thu, 06 Sep 2018 15:57:23 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-11blockchain-%E7%B0%A1%E4%BB%8B/</guid>
+      <description>網際網路發展至今，大家已經很習慣上網使用系統與服務了，這樣普遍存在網路上的系統大部分都是 Client-Server 式的系統，這樣的系統會有自己的內部網路與資料庫，當不同的系統之間要溝通或同步資料的時候，通常會透過 API 這樣的管道來溝通與同步資料，而 API 需要工程師撰寫，並不是在這些系統原生就會有的機制與功能，這就會產生開發成本，也因此不同系統之間的資料交換一直是一個需要被解決的問題。
+Blockchain 的特性上，若系統是屬於 Blockchain 上的節點，那麼所有的系統節點就是共享同一份資料，當其中一個系統更改了 Blockchain 上的資料，那這一份更改就會同步到所有的系統。
+這樣的特性除了泛用的資料同步分享之外，其實也非常適合使用作為「帳本」（可同步、且不可竄改），Bitcoin 是第一個將這樣帳本特性發揚光大的應用，雖然 Bitcoin 被製造出來時還沒有 Blockchain 這樣的概念，但背後的技術及運用的特性就是現在大家在講的 Blockchain。Blockchain 的思想基本上就是以「帳本」這樣的概念產生的，這個帳本上記錄所有的交易紀錄（也就是資料紀錄），且只能新增紀錄，不能修改或刪除紀錄，所有的紀錄像鏈子一樣結合起來，就像一個 chian of block，並透過加密機制讓鏈結的資料不可被竄改，也因此所有的交易紀錄（也就是資料）被紀錄到帳本之中，那就永遠不會消失。要算帳時只要將個人所擁有的所有交易紀錄進帳與出帳加總起來，就可以得到這個帳戶的結餘。Bitcoin 運用了早已存在的 P2P 運算、共識機制、加密機制、Chain of Block 及 Merkle Tree 整合出了現在大家在說的 Blockchain，而這一切的出發點就是為了製造出一個去中心化的金流系統（資料交換系統）。
+Bitcoin 帶來了第一波 Blockchain 革命，第二波 Blockchain 革命就是在 Ethereum 開始的。由於在 Bitcoin 上的交易紀錄只是紀錄資料，假設我們將一個可執行的程式紀錄在 Blockchain 交易紀錄上會發生什麼事呢？
+這樣這個程式就可以共享在整個 Blockchain 上，大家都可以在 Blockchain 上運行程式，而程式運行的資料可以在 Blockchain 上存取，讓整個 Blockchain 作為資料庫，這樣的程式就叫做 Smart Contract。這樣將程式放到 Blockchain 上運行的想法帶來了 Ethereum 的成功，如此 Ethereum Blockchain 就成了一個非常龐大的運算平台，讓許多去中心化的應用如雨後春筍地開發出來，讓未來的網路應用充滿了更多想像！
+這份筆記將會紀錄在 Ethereum 上開發應用所學習到的知識，作為自己的回憶，也分享給想一起學習的開發者。</description>
+    </item>
+    
+    <item>
+      <title>基於 LSTM 深度學習方法研發而成的張雨生歌詞產生模型，致敬張雨生</title>
+      <link>https://blog.fukuball.com/ji-yu-lstm-shen-du-xue-xi-fang-fa-yan-fa-er-cheng-de-zhang-yu-sheng-ge-ci-chan-sheng-mo-xing-zhi-jing-zhang-yu-sheng/</link>
+      <pubDate>Tue, 27 Mar 2018 08:16:40 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ji-yu-lstm-shen-du-xue-xi-fang-fa-yan-fa-er-cheng-de-zhang-yu-sheng-ge-ci-chan-sheng-mo-xing-zhi-jing-zhang-yu-sheng/</guid>
+      <description>之前看到〈『致敬赵雷』基于TensorFlow让机器生成赵雷曲风的歌词〉這篇文章覺得非常有趣，因此一直都想自己動手試試看，中國有趙雷，那台灣要找什麼值得紀念的音樂人來作這個歌詞機器學習模型呢？我想張雨生應該會是台灣非常值得令人紀念的音樂人之一了。
+程式的基礎我使用了之前在 GitHub 上有點小小貢獻的一個 Project 作為程式碼基礎，這個 Project 是 char-rnn-tf，可以用於生成一段中文文本（訓練與料是英文時也可以用於生成英文），訓練語料庫我收集了張雨生的百餘首歌詞（包含由張雨生演唱或作曲的歌詞），由於這樣的歌詞語料還是有些不足，因此也加入了林夕、其他著名歌詞、新詩作為輔助，整個語料庫大致包含 74856 個字、2612 個不重複字（其實語料庫還是不足）。
+演算法基本上就是 LSTM，細節在此就不多加著墨，若有興趣可以在這篇文章了解一下，沒有時間的人，也可以看看 char-rnn-tf 這個 Project 作者所做的這張圖（見下圖），對概念了解一下。
+相關程式碼我放在這邊：Tom-Chang-Deep-Lyrics，如何安裝環境、如何訓練、如何生成歌詞，基本上都寫在 Readme 了，大家可以前往瞧瞧。
+歌詞產生結果 範例一：夢想 訓練完模型之後（用 macbook air 大致上需要 1 天的時間），由於大眾對張雨生歌詞的印象應該就是「我的未來不是夢」，因此我首先使用「夢想」作為 seed，結果產生歌詞如下：
+夢想會有心 我不願再區福　也不是一種把你一樣偷偷 我的心中有無奈 在我的心裡流　你的身影　你的轉身　你的沈靜　框進畫裡印象派的意 我有個朋友聽我說故舊　這一路悠揚的街長 我是天堂飄輝在天空裡 期待愛人看不同的眼睛 我等待與你身邊 你的歡念　你的灑明　在我心底都是飄逸水墨 我想你　愛過了我的一切 為你一起孤定我的美麗  產生的結果，歌詞機器學習模型先把詞補成句子「夢想會有心」，其實補得蠻好的啊！
+「我不願再區福　也不是一種把你一樣偷偷 我的心中有無奈」
+這邊雖有錯字，但也不至於不能理解。
+「在我的心裡流　你的身影　你的轉身　你的沈靜　框進畫裡印象派的意」
+這裡則結合了一首新詩，自創了歌詞。&amp;rsquo;
+「我有個朋友聽我說故舊　這一路悠揚的街長」
+這一句歌詞結合了張雨生的歌曲永公街的街長，說明歌詞機器學習模型的確有張雨生的影子，但悠揚的街長感覺怪怪的 XD
+範例二：我的未來不是夢 從上一個範例，我們可以了解這個歌詞機器學習模型的效果還算不錯，且看起來比起〈『致敬赵雷』基于TensorFlow让机器生成赵雷曲风的歌词〉這篇所產生的歌詞還要好，仔細看趙雷歌詞產生的結果就會覺得歌詞有點不知所云，而我這邊訓練完的結果，看起來語意會比較明確一些。
+接著上個範例，我們來試試看「我的未來不是夢」作為 seed。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 16 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-16-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Mon, 12 Feb 2018 10:24:38 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-16-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 15 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 上一講中我們學到了如何使用矩陣分解方法來解推薦問題，機器學習技法課程也到這邊告一段落了，這一講終將會總結回顧一下我們在機器學習技法中學到的所有機器學習演算法，也許還有許多算法沒有介紹到，但基本概念都可以延伸。
+特徵技巧：Kernel 我們學習到了如何使用 Kernel 來表現資料特徵，使用到 Kernel 技巧的相關演算法如下：
+特徵技巧：Aggregation 我們也可以使用 Aggregation 方法來結合資料特徵，藉以合成更強大的學習演算法，使用到 Aggregation 技巧的相關演算法如下：
+特徵技巧：Extration 我們可以使用 Extration 技巧來取得重要的資料特徵，使用到 Extration 技巧的相關演算法如下：
+特徵技巧：Low-Dim 我們也會使用降維這個特徵技巧來取得資料的重要特徵，用到降維技巧的相關演算法如下：
+優化技巧：Gradient Decent 在類神經網路大量用到了 Gradient Decent 技巧來進行 Error 優化，用到 Gradient Decent 技巧的相關演算法如下：
+優化技巧：Equivalent Solution 在許多困難的問題，我們很難找到優化的方法，我們會使用 Equivalent Solution 找到優化的方法，例如 Dual SVM 我們使用 covex QP、Kernel LogReg 我們用 representer、PCA 我們用 eigenproblem 來解。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 15 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-15-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Mon, 12 Feb 2018 09:03:17 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-15-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 14 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 上一講介紹了 RBF Network，基本上就是透過距離公式及中心點來對資料點進行投票的一個算法，這一講將介紹矩陣分解系列的算法。
+推薦系統問題 之前的課程中曾經提到過推薦系統的問題，我們的資料集是使用者對電影的評分，希望讓機器學習算法學習到可以推薦使用者也會高評分的電影，這樣的問題 Netflix 曾經舉行過競賽。我們如何解這樣的問題呢？
+類別編碼 這個問題首先會需要進行編碼，因為使用者資料可能只是一連串的使用者編號，這是類別資料，不太能用來直接用於運算（僅有 Decision Tree 可以直接用來做類別運算），所以我們會先將類別資料編碼成數值資料，編碼的方法常用 binary vector encoding，如下所示：
+特徵選取 我們可以將使用者評分電影的過程視做一組特徵轉換，能夠將 X 轉換成 Y，轉換的過程如果分成兩個矩陣 Wni、Wim，那左邊的矩陣代表的意義就是使用者對電影中哪些特徵很在意，右邊的矩陣代表的意義就是電影中有哪些特徵成份。
+矩陣分解 因此這個推薦問題可以寫成底下的矩陣分解，首先我們把評分做成一個 Rnm 矩陣，需要嘗試把它分解成 VT W 兩個矩陣，使用者的喜好會對映一組特徵，電影的成分也會對應到這組特徵，我們要將這組特徵萃取出來。
+矩陣分解學習 Alternating Least Squares 矩陣分解學習算法如下，首先決定特徵維度 d，然後隨機初始化使用者對特徵的喜好 Vn，電影中特徵的強度 Wm，然後優化 Ein，先固定 Vn 去優化 Wm，再固定 Wm 去優化 Vn，如此重複直到收斂，這樣就可以得到與 Rnm 最相似的 Vn X Wm。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 14 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-14-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Mon, 02 Oct 2017 09:10:41 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-14-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 13 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 上一講介紹了深度學習神經網路，基本上神經網路林軒田老師只說明了兩講，這一講將進入一個新的 Machine Learning 演算法 Radial Basis Function Network（我個人不太覺得這個是神經網路演算法），並延伸介紹了其中會使用到的 K-means 分群演算法。
+回顧一下 Gaussian SVM Gaussian Kernel 也稱為是 Radial Basis Function(RBF)，定義一種距離關係，Gaussiam SVM 也就是使用這些 RBF 經過線性組合的預測模型。
+RBF Network 的定義 RBF Network 定義是資料點與代表性中心點投票出來的結果作為預測，其中每個中心點具有代表性，資料點經過 RBF 距離公式的轉換之後（距離越小，越有影響力），再經過 beta 投票。
+而 RBF Network 要學習的參數就是中心點 u 以及每個中心點距離公式的權重 beta。
+Full RBF Network 了解定義之後，我們就要求出 RBF Network 最佳化的 u 及 beta，一種情況我們是將所有的資料點都當成是重要的中心點，這種情況，然後 beta 直接用 y 當成加權，這樣就是所謂的 Full RBF Network，這樣的預測模型就完全沒有訓練過程，只要將所有的點記下來，然後用 RBF 距離公式計算投票來定義新的資料點應該是屬於什麼。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 13 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-13-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Mon, 10 Jul 2017 04:59:44 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-13-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 12 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 上一講說明了什麼是類神經網路，以及類神經網路的核心演算法 Backpropagation，及如何使用 Gradient Decent 算法來計算最佳解，這一講將介紹類神經網路的延伸 - 深度學習。
+不過林軒田的課程在深度學習的介紹上只有一講，其實並不是很深入，大家有興趣可以去找李宏毅老師的課程來看看。
+再看一次類神經網路 讓我們再看一次類神經網路，我們知道類神經網路中每一層的神經元就是在做一些細微的 pattern 比對，那我們應該要怎麼設計類神經網路的結構呢？主觀上，你可以設計，客觀上，我們必須對神經網路進行驗證，神經網路的結構在類神經網路這樣的領域上也是個重要的議題。
+淺跟深 既然結構是個重要的議題，那淺層跟深層的神經網路有何不同呢？深層的神經網路就是我們所謂的深度學習，一般的淺層神經網路，如果有足夠多的神經元其實已經就能夠解決蠻多問題了，深層神經網路理論上會更強，相對的運算量也會比較大、容易 overfitting，但深層的神經網路是有其物理意義的，也因此深度學習在近年資料量多、運算速度變快之後開始快速發展。
+深度學習的物理意義 我們知道類神經網路的每個神經元就是在做 raw data 的 pattern 比對，每個神經元只做非常細微的比對，如果我們再加上一層 layer，那這一層 layer 就是在做前一層 pattern 的 pattern 比對，比對的 pattern 會比前一層更具體，因此加上越多 layer 的話，就能夠將更具體的 pattern 找出來。
+因為這樣的特性，我們會將深度學習的方法用在比較無法具體找出 feature 的訊號問題上，像是影像處理、語音處理等等，讓深度學習來幫我們找出具體 pattern。
+深度學習的關鍵問題與技術 深度學習所面臨的關鍵問題與技術大概有以下幾項，第一，如何覺得結構是一個問題，有時我們會利用一些領域知識來決定神經網路的結構，比如在影像問題上，我們會使用 CNN 這種特殊結構的神經網路。
+另外由於模型很複雜，我們需要更多的資料來做計算，且需要使用 regularization 方法來避免 overfitting，常用的方法有 dropout 及 denoising。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 12 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-12-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Thu, 01 Jun 2017 07:24:52 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-12-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 11 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 上一講我們從 Random Forest 延伸到了 AdaBoost Decision Tree，再從 AdaBoost Decision Tree 延伸到 Gradient Boosting，大家不一定要記住所有演算法的細節，但大致上對 Aggregation 的方式有些概念就可以啦！
+如果要記，就要記住這個核心概念：Aggregation Model 可以避免 underfitting，讓 weak learner 結合起來也可以做複雜的預測，其實跟 feature transform 的效果很類似。Aggregation Model 也可以避免 overfitting，因為 Aggregation 會選出比較中庸的結果，這其實跟 regularization 的效果類似。所以使用了 Aggregation 也就是 Ensemble 方法通常也就代表了更好的效果。
+這一講我們將開始介紹現在很紅的類神經網路機器學習演算法。
+Perceptron 的線性組合 我們先看一下最簡單的類神經網路，其實可以看成是多個 Perceptron 的線性組合，如果之前學過的 Aggregation，這樣組合多個 Perceptron 就能帶來更複雜的學習效果。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 11 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-11-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Tue, 25 Apr 2017 09:35:59 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-11-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 10 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 上一講的 Random Forest 演算核心主要就是利用 bootstrap data 的方式訓練出許多不同的 Decision Trees 再 uniform 結合起來。
+AdaBoost Decision Tree 這一講接下來要介紹的 AdaBoost Decision Tree 其實乍看有些類似，但它的訓練資料集並不是透過 bootstrap 來打亂，而是使用之前 AdaBoost 的方式再每一輪資料計算加權 u(t) 去訓練出許多不同的 Decision Tree，最後再以 alpha(t) 的權重將所有的 Decision Tree 結合起來。
+權重會影響演算法 由於 AdaBoost Decision Tree 會考慮到權重，因此應該要像之前介紹過的 AdaBoost 會將權重傳進 Decision Stump 一樣，AdaBoost Decision Tree 應該也要將權重傳進 Decision Tree 裡做訓練，但這樣就需要調整 Decision Tree 原本的演算法，我們不喜歡這樣。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 10 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-10-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Tue, 28 Mar 2017 06:15:43 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-10-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 9 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 上一講介紹了 Decision Tree，如同之前介紹的 blending 算法，我們也可以進一步使用在 Decision Tree，這就是這一講要介紹的 Random Forest。
+回憶 Bagging 與 Decision Tree 回憶一下 Bagging 與 Decision Tree 的特點，Bagging 的結合 weak learner 的方式主要是為何減少差異化，讓未來的預測可以更好，Decision Tree 結合 weak learner 的方式則是著重差異化，讓 modle 在訓練時得到的預測效果更好，我們有辦法結合這兩個特點嗎？
+Random Forest Random Forest 就可以達到上述的目的，每次會用類似 Bagging 的方法取得一個新的 Decision Tree，再將所有的 Decision Tree 結合起來。這個方法可以很容易地平行化運算，且不僅能夠保持 Decision Tree 的差異行，還能減少 Decision Tree 的 fully grown 的 overfitting。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 9 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-9-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Wed, 30 Nov 2016 09:40:52 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-9-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 8 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 上一講我們介紹了 Adaptive Boosting 這種可以結合多個 Weak Learner 的 Linear Aggregation Model，這一講將介紹另一種 Aggregation Model - Decision Tree，Decision Tree 其實就是一種 Non-Linear 的 Aggregation Model。
+Aggregation Model 表格 我們可以將這幾講種所介紹的 Aggregation Model 用這個表格整理出來，我們可以知道 AdaBoost 跟 Decision Tree 都是 Weak Learner Aggregation 的模型，只是 AdaBoost 是 Linear Aggregation，會讓所有的 Weak Learner 一起發揮作用，但 Decision Tree 則是 Non-Linear 的 Conditional Aggregation，會每次根據 condition 讓某個 Weak Learner 發揮作用。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 8 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-8-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Tue, 08 Nov 2016 10:26:42 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-8-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 7 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 上一講我們介紹了如何使用 Blending 及 Bagging 的技巧來做到 Aggregation Model，可以使用 Uniform 及 Linear 的方式融合不同的 Model。至於以 Non-linear 的方式融合 Model 就需要依據想展現的特性去調整演算法來做到，這一講將介紹 Adaptive Boosting 這種特別的演算法。
+幼稚園學生學認識蘋果的故事（一） 我們用一個幼稚園學生在課堂上學認識蘋果的故事來作為開頭說明，在課堂上老師問 Michael 說「上面的圖片哪些是蘋果呢？」，Michael 回答「蘋果是圓的」，的確蘋果很多是圓的，但是有些水果是圓的但不是蘋果，有些蘋果也不一定是圓的，因此 Michael 的回答在藍色的這些圖片犯了錯誤。
+幼稚園學生學認識蘋果的故事（二） 於是老師為了讓學生可以更精確地回答，將 Michael 犯錯的圖片放大了，答對的圖片則縮小了，讓學生的可針對這些錯誤再修正答案。於是 Tina 回答「蘋果是紅的」，這的確是一個很好的觀察，但一樣在底下藍色標示的這是個圖片犯了錯，番茄跟草莓也是紅的、青蘋果的話就是綠的。
+幼稚園學生學認識蘋果的故事（三） 於是老師又將 Tina 犯錯的圖片放大了，答對的圖片縮小，讓學生繼續精確的回覆蘋果的特徵。
+動機 這樣的教學過程也是一種可以用來教機器如何學習的過程，每個學生都只會一些簡單的假設 gt（蘋果是紅的），綜合所有學生的假設就可以好好地認識出蘋果的特徵形成 G，而老師則像是一個演算法一樣指導學生方向，讓錯誤越來越少。
+接下來我們就要介紹如何用演算法來模擬這樣的學習過程。
+有權重的 Ein 老師調整圖片放大縮小的教學方式，在數學上我們可以為每個點犯錯時加上一個權重來表示。
+每一回合調整權重 那我們如何調整權重呢？我們每次調整權重，是希望每個學生能學出不一樣的觀點，這樣才能配合所有學生的觀點做出對蘋果完整的認識，因此挑整權重時應該要讓第一個學習到的 gt 在 u(t+1) 時這樣的權重下表現很差。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 7 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-7-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Wed, 14 Sep 2016 09:05:58 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-7-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 6 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 前 6 講我們對 SVM 做了完整的介紹，從基本的 SVM 分類器到使用 Support Vector 性質發展出來的 regression 演算法 SVR，在機器學習基石中學過的各種問題，SVM 都有對應的演算法可以解。
+第 7 講我們要介紹 Aggregation Models，顧名思義就是要講多種模型結合起來，看能不能在機器學習上有更好的效果。
+Aggregation 的故事 我們用一個簡單的故事來說明 Aggregation，假設現在你有很多個朋友可以預測股票會漲還是會跌，那你要選擇相信誰的說法呢？這就像我們有很多個機器學習預測模型，我們要選擇哪一個來做預測。
+一個方式是選擇裡面最準的那一個人的說法，在機器學習就是使用 Validation 來做選擇。
+一個方式是綜合所有人的意見，每個人代表一票，然後選擇票數最多的預測。在機器學習也可以用這樣的方法綜合所有模型的預測。
+另一個方式也是綜合所有人的意見，只是每個人的票數不一樣，比較準的人票數較多，比較沒那麼準的人票數較少。在機器學習上，我們也可以為每個模型放上不同的權重來做到這樣的效果。
+最後一個方式就是會依據條件來選擇相信誰的說法，因為每個人擅長的預測可能不多，有的人擅長科技類股，有的人擅長傳統類股，所以我們需要依據條件來做調整。在機器學習上也會有類似的演算法來整合各個預測模型。
+Aggregation 大致就是依照上述方式來整合各個模型。
+用 Validation 選擇預測模型 我們已經學過如何使用 Validation 來選擇預測模型，這個方式有一個問題就是，需要其中有一個強的預設模型才會有用，如果所有的預設模型都不準確，那也只是從廢渣裡面選一個比較不廢的而已。
+所以 Validation 在機器學習上還是有一些限制的，那我們有辦法透過 Aggregation 來讓所有的廢渣整合起來，然後變強，讓預測變得更準確嗎？
+為何 Aggregation 會有用？ 首先我們看左圖，如果現在預設模型只能切垂直線或水平線，其實預測效果可想而知是不會好到哪裡去的。但是如果我們將多個垂直線或水平線的預測模型整合起來，就有辦法做好一些更複雜的分類。這某種程度像是做了特徵轉換到高維度，讓預測模型變得更強、更準確。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 6 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-6-jiang-xue-xi-bi-ji-2/</link>
+      <pubDate>Sat, 06 Aug 2016 06:53:29 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-6-jiang-xue-xi-bi-ji-2/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 5 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 在上一講中，我們了解了如何使用 SVM 來解 Logistic Regression 的問題，一個是使用 SVM 做轉換的 Probabilistic SVM，一個是使用 SVM Kernel Trick 所啟發的 Kernel Logistic Rregression。這一講我們將繼續介紹如何延伸到解 Regression 的問題。
+利用 Representer Theorem 延伸 從數學模型上，我們發現 L2-regularized 線性模型都可以轉換成 Kernel 形式，而 Linear/Ridge Regression 都有公式解，那麼 Kernel Ridge Regession 也可以推導出公式解嗎？
+Kernel Ridge Regression 數學式 我們使用 Representer Theorem 將 Kernel 應用至 Ridge Regression 的數學式上，得到以下 Kernel Ridge Regression 數學式。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 5 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-5-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Tue, 28 Jun 2016 07:41:37 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-5-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 4 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 在上一講中，我們介紹了 Soft Margin SVM，讓 SVM 可以容忍一些小錯以避免 Overfitting，由於強度與容忍度兼具，Soft Margin SVM 比較通用，其實大家平常口中所說的 SVM 就是指 Soft Margin SVM。
+前面四講我們都在討論 SVM 這個分類演算法，那我們有可能用 SVM 來做 Logistic Regression 或是 Regression 嗎？在這一講中我們將介紹如何使用 SVM 的方法來做 Logistic Regression。
+觀察 SVM 的容錯項 我觀察一下 Soft Margin SVM 的容錯項，我們可以把原本的限制式整合到要最小化的式子裡來看看，如下圖所示，如此就沒有限制式了。
+觀察沒有限制式的 SVM 數學式 我們再仔細觀察一下沒有限制式的 SVM 數學式，發現形式跟 L2 regularized Logistic Regression 有點像，只是沒有限制式的 SVM 數學式有個 max 的函數在裡面，這樣的數學式不再是一個 QP 問題了，然後也不是一個可以微分的式子，因此很難最佳化。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 4 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-4-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Mon, 13 Jun 2016 13:06:59 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-4-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 3 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 在上一講中，我們介紹了使用 kernel 這樣的方法來處理高維度特徵的轉換，如此我們就能省下在高維度空間進行的運算，也因此無限多維的轉換也能輕易做到，讓 SVM 可能有更強的效果。
+截至目前為止所學的 SVM 模型都是 Hard Margin SVM，這樣的 SVM 就是會將資料完美的分好，也因此在越強的學習模型中越可能會有 Overfiting 的情況發生（雖然 fat margin 有避免一些，但可能還是會發生）。所以這一講我們希望能允許 SVM 能容忍一些小錯誤（雜訊），這樣的 SVM 就是 Soft Margin SVM。
+Hard-Margin SVM 的缺點 由於 Hard Margin SVM 堅持分好資料，所以在高維 Polynomial 及 Gaussian SVM 的學習模型可能會有 Overfitting 的現象，即使 SVM 的 Fat Margin 性質可以避掉一些，但 Overfitting 還是有可能發生，如下圖。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 3 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-3-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Mon, 23 May 2016 18:58:10 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-3-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 2 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 在上一講中，我們介紹了 Dual SVM，這是為了讓我們可以對資料點做高維度的特徵轉換，這樣就可以讓 SVM 學習更複雜的非線性模型，但我們又不想要跟高維度的計算牽扯上關係，Dual SVM 將問題作了一些轉換，能夠將演算法跟高維度的計算脫鉤，但上一講中的 Q 矩陣實際上還是計算了高維度特徵矩陣內積，所以並沒有真的解決問題。
+Dual SVM 仍與高維度 d 有依賴關係 目前推導出來的 Dual SVM 仍與高維度 d 有依賴關係，我們能不能簡化 Q 矩陣的高維度特徵矩陣內積計算呢？
+觀察矩陣內積的每一個運算 我們用二次轉換拆開來觀察，發現原本將矩陣進行特徵轉換之後在做矩陣內積，可以分成 0 次項、1 次項、 2 次項分開來計算，結果會是一樣的。而更高維度的轉換也會有相同的性質。如此我們就可以限制計算量只在原本的特徵維度 O(d)。
+Kernel 的概念 有了上述的性質，我們可以引進 Kernel 的概念，之前都是將矩陣進行特徵轉換之後再去計算內積，現在我們可以改成使用 kernel function 來做計算，znTzm 可以改成對應的 kernel function K(xn, xm)。
+由於我們都不去 z 空間做計算了，因此也無法得到 z 空間的 w，所以 b 與 w 的式子都要改成使用 kernel function K(xn, xm) 來計算。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 2 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-2-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Sat, 07 May 2016 14:24:53 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-2-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第 1 講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 從機器學習基石課程中，我們已經了解了機器學習一些基本的演算法，在機器學習技法課程中我們將介紹更多進階的機器學習演算法。首先登場的就是支持向量機（Support Vector Machine）了，第一講中我們將先介紹最簡單的 Hard Margin Linear Support Vector Machine。
+非線性 SVM 學會了 Hard Margin Linear SVM 之後，如果我們想要訓練非線性模型要怎麼做呢？跟之前的學習模型一樣，我們只要將資料點經過非線性轉換之後，在高維空間做訓練就可以了。
+非線性的轉換其實可以依我們的需求轉換到非常高維，甚至可能到無限多維，如果是無限多維的話，我們怎麼使用 QP Solver 來解 SVM 呢？如果 SVM 模型可以轉換到與 feature 維度無關，那我們就可以使用無限多維的轉換了。
+與特徵維度無關的 SVM 為了可以做到無限多維特徵轉換，我們需要將 SVM 轉為另外一個問題，在數學上已證明這兩個問題其實是一樣的，所以又稱為是 SVM 的對偶問題，Dual SVM，由於背後的數學證明很複雜，這門課程只會解釋一些必要的原理來讓我們理解。
+使用 Lagrange Multipliers 當工具 我們在正規化那一講中曾經使用過 Lagrange Multipliers 來推導正規化的數學式，在推導 Dual SVM 也會使用到 Lagrange Multiplier。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習技法 Machine Learning Techniques 第 1 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-1-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Thu, 21 Apr 2016 09:00:27 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-fa-machine-learning-techniques-di-1-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習技法（Machine Learning Techniques）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 機器學習基石系列 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 從機器學習基石課程中，我們已經了解了機器學習一些基本的演算法，在機器學習技法課程中我們將介紹更多進階的機器學習演算法。首先登場的就是支持向量機（Support Vector Machine）了，第一講中我們將先介紹最簡單的 Hard Margin Linear Support Vector Machine。
+線性分類回憶 回憶一下之前的課程中，我們使用 PLA 及 Pocket 來學習出可以分出兩類的線。
+哪條線最好？ 但其實可以將訓練資料分類的線可能會有很多條線，如下圖所示。我們要怎麼選呢？如果用眼睛來看，你或許會覺得右邊的這條線最好。
+為何右邊這條線最好？ 為何會覺得右邊這條線最好呢？假設先在我們再一次取得資料，可以預期資料與訓練資料會有點接近，但並不會完全一樣，這是因為 noise 的原因。所以偏差了一點點的 X 及 O 再左邊這條線可能就會不小心超出現，所以就會被誤判了，但在右邊這條線就可以容忍更多的誤差，也就比較不容易 overfitting，也因此右邊這條線最好。
+如何描述這條線？我們可以說這條線與最近的訓練資料距離是所有的線中最大的。
+胖的線 我們希望得到的線與最近的資料點的距離最大，換的角度，我們也可以說，我們想要得到最胖的線，而且這個胖線還可以將訓練資料分好分類。
+Large-Margin Separating Hyperplane 這種胖的線名稱就叫 Large-Margin Separating Hyperplane，原本的問題就可以定義成要找最大的 margin，而且還要分好類，也就是 yn = sign(wTXn)。
+最大的 margin 可以轉換成點與超平面之間最小的距離 distance(Xn, w)，然後 yn = sign(wTXn)，就代表 Yn 與 score 同號，所以可以轉換成 YnwTXn &amp;gt; 0，我們需要求解滿足這些條件的超平面。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 16 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-liu-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Sun, 20 Mar 2016 17:16:59 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-liu-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第十五講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 在上一講中，我們了解了如何使用 Cross Validation 來幫助我們客觀選擇較好的模型，基本上機器學習所有相關的基本知識都已經具備了，這一講是林軒田老師給的三個錦囊妙計，算是一種經驗分享吧～
+第一計 奧卡姆剃刀 資料的解釋應該要越簡單越好，我們應該要用剃刀剃掉過分的解釋，據說這句話是愛因斯坦說的。
+如下圖，我們在使用機器學習時，也希望學習出來的模型會是左較簡單的模型。在直覺上我們會覺得左圖會比右圖夠有解釋性，當然理論上也證明如此了。
+較簡單的模型 什麼是叫簡單的模型呢？較教簡單的模型，就是看起來很簡單，假設較少、參數較少，假設集合也比較好。
+簡單比較好 那為什麼簡單會比較好呢？除了之前數學上的解釋之外，我們可以有這樣直觀的解釋：如果一個簡單的模型可以為數據做一個好的鑒別，那就代表這個模型的假設很有解釋性，如果是複雜的模型，由於它永遠都可以把訓練資料分的很好，這樣其實是沒有什麼解釋性的，也因此用簡單的模型會是比較好的。
+所以根據這一計的想法，我們應該要先試線性模型，然後盡可能了解自己是不是已經盡可能地用了簡單的模型。
+第二計 避免取樣偏差 取樣有可能會有偏差，VC 理論其中的一個假設就是訓練資料與測試資料要來自於同一個分佈，否則就無法成立。如果取樣有偏差，那機器學習的效果就會不好。
+處理取樣偏差 要避免取樣偏差，要好好了解測試環境，讓訓練環境跟測試環境可以儘可能接近。舉例來說，如果測試環境會使用時間軸近期的資料，那訓練時要想辦法對時間軸較近的資料做一些權重的調整，在做 Validation 的時候也應該要選擇時間軸較近的資料。
+另一個例子，其實信用卡核卡問題也有取樣偏差的風險，因為銀行只會有錯誤核卡，申請人刷爆卡的記錄，卻沒有錯誤不核卡，但該位申請人信用良好的資料。因此搜集到的資料本身就已經有被篩選過了，也因此可以針對這個部分在做一些優化。
+第三計 避免偷看資料 之前我們的課程中有說過，我們可能會因為看過資料而猜測圈圈會有最好的效果，但這樣就會造成我們的學習過程沒有考慮到人腦幫忙計算過的 model complexity，所以我們要避免偷看資料。
+資料重複利用地偷看 其實使用資料的過程中，我們就不斷地偷看資料，甚至看別人論文時，也是在累積偷看資料的過程，所以需要了解到這個概念，有可能讓你的機器學習受到影響。
+處理資料偷看 實際上偷看資料的情況很容易發生，要做到完全不偷看資料很難，所以我們可以做的就是，一開始就將測試資料鎖起來，學習的過程中完全不用，然後使用 Validation 來避免偷看資料。
+如果說希望將自己的 Domain Knowledge 加入假設，應該一開始就加進去，而不是看完資料再加進去。然後，要時時刻刻會實驗的結果存著懷疑之心，要有一種感覺這樣的結果可能受到的資料偷看污染的影響。
+Power of Three 除了三個錦囊妙計，林軒田老師將機器學習的重點整理成 Power of Three，帶我們整個回顧一下。
+第一個是機器學習有三個相關領域，Data Mining、Artificial Intelligence、Statistics。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 15 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-wu-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Sat, 19 Mar 2016 18:44:00 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-wu-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第十四講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 在上一講中，我們進一步了解了如何透過正規化（Regularization）來避免 Overfitting，但正規化這個方法會有一個參數 lambda，這個 lambda 我們又要如何選擇呢？在這一講將會學習到使用 Validation 這個方法來幫助我們選擇比較好的 lambda 值，同理，這個方法也可以幫助我們用於選擇各種不同的學習模型。
+許多學習模型可以使用 經過了前面 14 講，我們已經學會了許多學習模型，在演算法上我們有 PLA、Pocket、Linear Regression、Logistic Regression 可以做選擇；然後在模型學習的過程中，我們可以指定演算法要經過幾次的學習，每次學習優化的過程要走多大步；我們也可以有很多種線性轉換的方式將模型轉換到更複雜的空間來進行學習；如果模型太過複雜了，我們也有很多種正規化的方法來讓模型退回叫簡單的模型，並可透過 lambda 這個參數來調整退回的程度。
+我們可以任意組合，但組合完之後我們要怎麼判斷哪個組合未來在做預測時效果會比較好呢？
+用 Ein 來做選擇 如果我們用 Ein 來做選擇，那就永遠會選擇到比較複雜的模型，這在上一講中我們已經知道這很可能會有 Overfitting 發生。所以用 Ein 來做選擇是很危險的。
+用 Etest 來做選擇 使用 Etest 來做選擇，基本上理論上是可行的，但 Etest 實際在我們訓練的過程中是不能拿來用的，直接拿 Etest 來幫助我們選擇模型其實是一種作弊行為。所以用 Etest 來做選擇也是不可行的。
+引進 Eval 既然用 Ein 或 Etest 來做選擇是不可行的，那如果我們把我們手中的資料 D 保留一份下來作為 Dval，然後在訓練的過程中都不使用 Dval，等訓練完之後，在挑選各種模型的時候再用 Dval 來做選擇，那這樣會是一個比較安全的做法。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 14 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-si-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Tue, 15 Mar 2016 14:06:26 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-si-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第十三講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 在上一講中，我們更進一步的了解了什麼是 Overfitting 是因為 stochastic noise 及 deterministic noise 而造成，與簡易地介紹了幾個簡單的方法來避免 overfitting，這一講將介紹一個比較內行的方法來避免 overfitting，這個方法叫做正規化（Regularization）。
+正規化 正規化（Regularization）的想法，就是我們了解 overfitting 發生時，有可能是因為我們訓練的假設模型本身就過於複雜，因此我們能不能讓複雜的假設模型退回至簡單的假設模型呢？這個退回去的方法就是正規化。
+退回簡單模型就像是加了限制 假設我們現在是一個 10 次多項式的假設集合，我們想要退回成為較為簡單的 2 次多項式假設集合，其實可以想成就像是 2 次以上的項的係數都是 0，也就像是我們為求解的過程加上了一些限制，希望 2 次以上的項的係數都是 0。
+使用較鬆的限制 直接將高維的項次設成 0 可能不是一個好方法，通常我們會希望由學習的過程來決定哪些項次要是 0，這樣的得到的學習效果可能會比較好。所以我們的限制就改成，希望不為 0 的係數不超過三個，由機器從資料來學習出最好的 w，這樣可能會得到比較好的結果。而這樣的限制並不是平滑的函數，所以這是一個 NP Hard 的問題。
+換個方式得出較為平滑的限制 所以我們需要換個方式得出較為平滑的限制，這樣在演算法上會比較容易求解，在 Regression 這個問題上，我們可以把限制改為 ||w^2|| &amp;lt;= C 來代表 w 不超過三個係數不為 0，這個含義就像是讓 w 限制在某些值裡面，也許他不一定代表 w 不超過三個係數不為 0，但它可能可以包含，而且 C 的值是一個連續的數，求解上會比較容易。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 13 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-san-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Mon, 29 Feb 2016 18:01:32 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-san-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第十二講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 在上一講中，我們了解了如何使用非線性轉換來讓我們的機器學習演算法可以學習出非線性分類模型，也了解了這樣的方法可能會讓模型複雜度變高，造成 Overfitting 使未來 Eout 效果不佳的情況，所以要慎用此方法。在這一講中將更進一步說明什麼是 Overfitting，並講解如何避免 Overfitting。
+Bad Generalization 無法舉一反三 我們來看個例子，現在我們使用一個二次多項式加上一點 noise 產生資料點，由於有 noise，我們是無法學習出一個二次多項式讓 Ein 為 0。但如果我們使用了非線性轉換到四次多項式來進行學習，我們可以找到一個 w 讓 Ein 為 0，看起來可能會像是圖中的紅線。但可想而知紅線的 Eout 可能會非常高，如此我們的機器學習是失敗的，無法舉一反三。
+Overfitting 過度優化 其實這就是一種過度優化，當我們發現 Eout - Ein 很大時，就是發生了 Bad Generalization。
+我們觀察圖中的 dvc*，當 dvc* 越來越高時，Ein 會下降，但 Eout 會上升，這時就是產生了 Overfitting。
+當 dvc* 往左時，Ein 會上升，Eout 也會上升，這時就是產生了 Underfitting。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 12 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-er-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Sun, 14 Feb 2016 15:18:51 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-er-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第十一講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 在上一講中，我們將線性分類的模型擴展到可以進行多元分類，擴展的方法很直覺，就是使用 One vs One 及 One vs All 兩種分解成二元分類的方式來做到多元分類。在這一講中將講解如何讓線性模型擴展到非線性模型，讓我們可以將機器學習演算法的複雜度提高以解決更複雜的問題，並說明非線性模型會有什麼影響。
+線性假設 之前的演算法目前都是基於線性的假設之下去找出分類最好的線，但這在線性不可分的情況下，會得到較大的 Ein，理論上較大的 Ein 未來 Eout 效果也會不佳，有沒有辦法讓我們演算法得出的線不一定要是一條直線以得到更佳的 Ein 來增加學習效果呢？
+圈圈可分 我們從肉眼觀察可以發現右邊的資料點是一個「圈圈可分」的情況，所以我們要解這個問題，我們可以基於圈圈可分的情況去推導之前所有的演算法，但這樣有點麻煩，沒有沒其他更通用的方法？
+比較圈圈可分及線性可分 為了讓演算法可以通用，我們會思考，如果我們可以讓圈圈可分轉換到一個空間之後變成線性可分，那就太好了。我們比較一下圈圈可分及線性可分，當我們將 Xn 圈圈可分的資料點，透過一個圈圈方程式轉換到 Z 空間，這時資料點 Zn 在 Z 空間就是一個線性可分的情況，不過在 Z 空間線性可分，在 X 空間不一定會是圈圈可分。
+Z 空間的線性假設 觀察在 Z 空間的線性方程式，不同的參數在 X 空間會是不同的曲線，有可能是圓、橢圓、雙曲線等等，因此我們了解在 Z 空間的線會是 X 空間的二次曲線。
+一般化二次假設 我們剛剛是使用 x0, x1^2, X2^2 來簡化理解這個問題，現在將問題更一般化，將原本的 xn 用 Phi 二次展開來一般化剛剛個問題，這樣的 Z 空間學習出來的線性方程式在 X 空間就不一定會是以原點為中心，這樣所有的二次曲線都有辦法在 Z 空間學習到了，而起原本在 X 空間的線性方程式也會包含在按次曲線中。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 11 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-jiang-xue-xi-bi-ji-2/</link>
+      <pubDate>Mon, 01 Feb 2016 09:45:06 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-jiang-xue-xi-bi-ji-2/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第十講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 在上一講中我們了解了 Logistic Regression 演算法並了解了如何使用 Logistic Regrssion 來預測心臟病發病機率這樣的問題，這一講中將延伸之前學過的演算法，在理論上說明 Linear Regression 以及 Logistic Regression 都可以用來解 Binary Classification 的問題。學會了 Binary Classification 之後，我們也可以用這樣的技巧來解 Multi-Classification 的問題。
+比較之前學過的演算法 比較之前學過的演算法，三個算法最後都會得到一個線性函數來輸出 scroe 值，但 PLA 做 Linear Classification 是一個 NP-hard 的問題，Linear Regression 及 Logistic Regression 則相對較容易求解，我們可以使用 Linear Regression 或是 Logistic Regression 演算法來解 Linear Classification 的問題嗎？
+將三個演算法的 Error Function 整理一下 依據各個 Error Function 的算法，我們都可以整理成 ys 的形式，在物理意義上，我們可以說 y 代表正確性，s 代表正確或錯誤程度多少。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 10 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Sun, 17 Jan 2016 18:37:49 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-shi-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第九講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 在上一講中我們了解了如何使用線性迴歸的方法來讓機器學習回答實數解的問題，第十講我們將介紹使用 Logistic Regression 來讓機器學習回答可能機率的問題。
+可能性問題 我們用心臟病發生的機率這樣的問題來做為例子，假設我們有一組病患的數據，我們需要預測他們在一段時間之後患上心臟病的「可能性」為何。我們拿到的歷史數據跟之前的二元分類問題是一樣的，我們只知道病患之後有或者沒有發生心臟病，從這樣的數據我們用之前學過的二元分類學習方法可以讓機器學習到如何預測病患會不會發病，但現在我們想讓機器回答的是可能性，不像二元分類那麼硬，所以又稱軟性二元分類，即 f(x) = P(+1|x)，取值的範圍區間在 [0, 1]。
+軟性二元分類 我們的訓練數據跟二元分類是完全一樣的，x 是病人的特徵值，y 是 +1（患心臟病）或 -1（沒有患心臟病），沒有告訴我們有關「患病機率」的訊息。回想在二元分類中，我們使用 w*x 得到一個「分數」之後，再利用取號運算 sign 來預測 y 是 +1 或是 -1。對於目前這個問題，如果我們能夠將這個「分數」映射到 [0, 1] 區間，似乎就可以解這個問題了～
+Logistic 假設 我們把上面的想法寫成式子，就是 h(x) = theta(wx)，映射分數到 [0, 1] 的 function 就叫做 logistic function，用 theta 來表示
+Logistic 函式 Logistic regression 選擇使用了 sigmoid 來將值域映射到 [0, 1]，sigmoid 是 f(s) = 1 / (1 + exp(-s))，f(x) 單調遞增，0 &amp;lt;= f(x) &amp;lt;= 1。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 9 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-jiu-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Wed, 06 Jan 2016 13:29:31 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-jiu-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第八講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 在第八講中我們機器學習流程圖裡加入了 error function 及 noise 的概念，並了解在這樣的情況下機器學習還是可行的。前面花了很大的篇幅在說機器為何可以學習，接下來是要說明機器是怎麼學習的。本篇以眾所皆知的線性迴歸為例，從方程式的形式、誤差的衡量方式、如何最小化 Ein，讓我們對線性迴歸在機器學習上的應用有些理解。
+信用卡額度問題 回到信用卡這個例子，假設我們現在需要的是判定要發多少信用額度給申請者，這種問題的答案就從發不發卡變成了一個實數，這就是線性迴歸的問題。
+線性迴歸 將上述問題寫成線性迴歸式就如下圖，其實與 perceptron 很像，但不用再取正負號。
+圖解線性迴歸 圖解線性迴歸問題就會如下圖所示，找一條線或超平面來讓所有的資料點與之的差距最小。
+線性迴歸的錯誤衡量 線性迴歸的錯誤衡量一般是使用平方錯誤，所以在計算 Ein 的過程是算出平均平方錯誤最小的值，而 Eout 的差距就可以用平方錯誤來計算效果。最小的 Ein 如何計算呢？
+整理成矩陣的形式 我們將 Ein 的式子整理成矩陣的形式，推導過程如下。
+最小的 Ein 整理成這種式子的 Ein 理論上已知是個連續、處處可微的凸函數，所以計算最小的 Ein 就是去解每一個維度進行偏微分為 0 所得到的值。他的物理意義就是在這個凸函數中這個點在各個維度都無法再下滑。
+最小的 Ein 就是計算 Ein 的梯度 這就是在計算 Ein 的梯度，我們將原本的式子展開後，並對這個式子做偏微分。對矩陣的偏微分的理解我們可以從 1 個維度慢慢推廣，如此就可知 XTXw - XTy = 0 時可以得到最佳解。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 8 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-ba-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Wed, 23 Dec 2015 13:08:10 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-ba-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第七講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 在第七講中我們定義了 VC Dimension，就是最大的 non-break point，當 d_vc 是有限的，且資料 N 夠大，Ein 很小的時候，理論上機器學習是可以達成目標的。
+重溫機器學習流程圖 重溫機器學習流程圖，大致的理論我們都已經完備了，但這時又會想，如果資料來源有雜訊（noise）又會如何呢？
+雜訊（Noise）是什麼 雜訊是什麼呢？以之前的銀行發卡的例子來說明，比如該發卡未發卡、不該發卡卻發了卡、或是一開始收集的基本資料就是錯的，這些就會是我們搜集到資料時的雜訊，在有雜訊的情況下 VC bond 還會正常運作嗎？
+用彈珠顏色會改變來代表雜訊來看 VC bound 之前在推導 VC bound 時是用彈珠來說明，我們可以用不固定顏色的彈珠來代表雜訊推導 VC bound（以 pocket algorithm 可以想成是 o 和 x 在同一線上，所以無法確定 o 或 x，這就是雜訊），也就是資料來源會多了一個 y ~ P(y|x)這個條件，從之前的理論推導中，我們了解了訓練資料跟測試資料都來自同一個資料分佈的話，那 VC bound 就會成立。
+新的機器學習流程圖 所以新的機器學習流程圖就可以容忍雜訊。也因此可以容忍雜訊的 pocket algorithm 就有理論基礎了。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 7 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-qi-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Wed, 09 Dec 2015 19:31:24 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-qi-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第六講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+在第六講我們可以知道 Break Point 的出現可以大大限縮假設集合成長函數，而這個成長函數的上界是 B(N, k)，且可推導出 B(N, k) 是一個多項式，經過一些轉換與推導我們可以把無限的假設集合代換成有限的假設集合，這個上界我們就稱之為 VC Bond。因此可以從數學理論中得知 2D perceptrons 是可以從數據中得到學習效果，而且也不會有 Ein 與 Eout 誤差過大的情況發生，而這一講將進一步說明 VC Bond。
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 上一講，我們從 break point 的性質慢慢推導出成長函數是一個多項式，因此我們可以保證 Ein 與 Eout 的差距在 N 資料量夠大的情況下不會因為假設集合的無限累積而差距變得很大。
+將成長函數寫得更簡潔一點 目前我們知道假設集合的成長函數是 B(N, k) 這個多項式，實際算出來的值如左圖，其實我們可以直接用 N 的 k-1 次方來表示，實際算出來的值如右圖，總之 B(N, k) 會小於 N 的 k-1 次方，所以我們可以直接用 N 的 k-1 次方來表示成長函數。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 6 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-liu-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Sat, 21 Nov 2015 15:59:16 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-liu-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第五講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+在第五講中我們了解了如何將 PLA 無限的假設集合透過 Dichotomy、Break Point 這樣的方式轉換成有限的集合，在第六講中我們將更進一步去推導其實這個假設集合的成長函數會是一個多項式，如此我們就可以完全相信PLA 機器學習方法的確在數學理論上是可行的了。
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 我們先來回顧一下上一講的內容，在上一講我們知道了成長函數似乎跟 break point 有些關係，這一講我們將慢慢導出這樣的關係其實是一個多項式。
+從 break point 找其他線索 從上一講提到的 break point 我們知道了成長函數至少會小於 2 的 N 次方，且如果 break point 在k取到了，那 k+1, k+2,&amp;hellip; 都會是 break point。
+由例子觀察 break point 這邊林軒田教授用了一連串的例子說明了如果 H 有Break Point k，那當 N 大於 k 時，mH(N) 成長函數會大大縮減（以 binary classification 這個問題來說，所有的 H 為 2 的 N 次方個）。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 5 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-wu-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Thu, 15 Oct 2015 13:08:14 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-wu-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第四講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+在第四講中我們了解了在有限假設集合的情況下機器學習是可能的，而第五講就是想要將有限假設集合可以推廣出去，讓我們在無限的假設集合裡也可以透過一些理論慢慢收斂到一個多項式集合，如此我們就可以放心的利用機器學習來解決我們所面對的一些問題。
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 我們先來回顧一下上一講的內容，在上一講我們知道了機器學習在足夠的資料及有限的假設集合這種情況下是可行的。
+更新機器學習流程圖 如果假設集合 H 是有限 M 個，然後資料量夠多 N，不管我們的演算法 A 是什麼，我們由定理可以知道 Eout 跟 Ein 是很接近的。所以如果 A 找到了一個假設 g 讓 Ein 近似於 0，那我們就可以說 Eout 大概就會是 0，因此機器學習在這樣的情況下是可行的。
+有了這樣的概念，我們擴充了我們的機器學習流程圖。從輸入資料中去訓練機器學習，然後得到 Ein 近似於 0，之後再從同一個資料分佈中去測試機器學習的結果，如此可以證明機器有學習到技能。
+機器學習的兩個核心問題 機器學習有兩個核心問題，我們希望 Eout 跟 Ein 是很接近的，這個意思就是說，我們希望後來測試學習的結果，會跟訓練時得到的結果很接近，這樣我們才能說機器有學習到技能。
+另一個就是，我們希望 Ein 可以很小，也就是訓練的過程中，我們希望機器就可以得到很好的效果，也就是誤差很小。
+那之前我們所說的有限集合 M 在這邊扮演什麼角色呢？
+Ｍ 的兩難 如果假設集合 M 很小，我們可以保證 Eout 可以接近 Ein，但是因為假設集合小，可以挑選的選擇就少，也因此 Ein 可能會是一個不小的值，也就是誤差會大。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 4 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-si-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Sun, 27 Sep 2015 10:49:15 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-si-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第三講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+第四講的內容主要是讓我們知道機器學習是否真的可能，並利用數學上的定理來說明機器學習在某些情境之下是可能的，有數學上定理的支持，我們就可以放心的利用機器學習來解決我們所面對的一些問題。
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 我們先來回顧一下上一講的內容，在上一講我們知道了各式各樣的機器學習方法及名詞，而我們未來會專注於二元分類及迴歸這樣的問題，然後使用大量監督式標示好的資料且定義明確的特徵來進行機器學習。
+看看這個問題，想想如何使用學習 有人會問，說了這麼多，如何知道機器學習是不是真的可能？說不定根本無法做到。比如這個問題，g(x)可以回答 +1 還是 -1。
+見仁見智的問題無法解 像這樣的問題，你可以回答 +1，因為 +1 的圖都是對稱的，而這個圖是對稱的，所以是 +1。你可以回答 -1，因為 -1 的圖都是左上方黑色的，而這個圖是左上方黑色的，所以是 -1。
+套到二元分類的問題 現在我們套到二元分類的問題，給了 Xn 及 Yn，然後機器學習出了 g，我們可以說 g 近似於 f 嗎？
+天下沒有白吃的午餐 在驗證 g 的時候，如果是用原本的 D，那我們很容易的說明 g 近似於 f，但是如果資料是用 D 以外的資料來驗證，那我們無法很明確的說明 g 近似於 f，但我們要的其實就是希望 g 在 D 以外的資料也近似於 f，這有可能嗎？
+利用罐子取彈珠的例子來說明是否可能 現在想像我們有一個裡面有很多橘色和綠色彈珠的罐子，我們可能無法知道橘色彈珠的真實比例，但我們可以推估出橘色彈珠出現的機率嗎？</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 3 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-san-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Sat, 12 Sep 2015 11:32:31 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-ji-qi-xue-xi-ji-shi-machine-learning-foundations-di-san-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第二講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+第三講的內容偏向介紹各種機器學習方法，以前念論文的時候看到這些名詞都會覺得高深莫測，但其實這各式各樣的機器學習方法其實都是從最基礎的核心變化而來，所以不要被嚇到。了解各種機器學習方法的輸入輸出對於日後面對一些問題的時候，我們才能夠知道要挑選什麼機器學習方法來解決問題。
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 我們先來回顧一下上一講的內容，在上一講我們知道了如何使用 PLA 讓機器學會回答是非題這樣的兩類問題（Binary Classificaction），套到機器學習的那句名句，我們可以清楚的了解，PLA 這個演算法 A 觀察了線性可分（linear separable）的 D 及感知假設集合 H 去得到一個最好的假設 g，這一句話就可以概括到上一講的內容了。
+從輸出 y 的角度看機器學習，y 只有兩個答案選一個，就叫 Binary Classification 接下來我們來了解一下各式各樣的學習方法，從輸出 y 的角度看機器學習，y 只有兩個答案選一個，就叫 Binary Classification，像是之前的是否發信用卡的例子就是 Binary Classification。
+從輸出 y 的角度看機器學習，y 有多個答案選一個，就叫 Multiclass Classification 從輸出 y 的角度看機器學習，y 有多個答案選一個，就叫 Multiclass Classification，像是使用投飲機辨識錢幣的問題就是一個 Multiclass Classification 的問題，所以我們可以將分類問題推廣到分成 K 類，這樣 Binary Classificatin 就是一個 K=2 的分類問題。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 2 講學習筆記</title>
+      <link>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-machine-learning-foundations-di-er-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Fri, 28 Aug 2015 09:05:06 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/lin-xuan-tian-jiao-shou-machine-learning-foundations-di-er-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 本系列部落格文章將分享我在 Coursera 上台灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明。若還沒有閱讀過 第一講 的碼農們，我建議可以先回頭去讀一下再回來喔！
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+熱身回顧一下 在前一章我們基本上可以了解機器學習的架構大致上就是 *A takes D and H to get g*，也就是說我們會使用演算法來基於資料與假設集合計算出一個符合資料呈現結果的方程式 g，在這邊我們就會看到 H 會長什麼樣子，然後介紹 Perceptron Learning Algorithm（PLA）來讓機器學習如何回答是非題，比如讓機器回答銀行是否要發信用卡給申請人這樣的問題。
+再看一次是否要發信用卡這個問題 是否要發信用卡這個問題我們可以想成它是一個方程式 f，而申請者的資料集合 X 丟進去就可以得到 Y 這些是否核發信用卡的記錄，我們現在不知道 f，將歷史資料 D 拿來當成訓練資料，其中每個 xi 就是申請者的資料，它會一個多維相向，比如第一個維度是年齡，第二個維度是性別&amp;hellip;等等，然後我們會將這些資料 D 及假設集合 H 丟到機器學習演算法 Ａ，最後算出一個最像 f 的 g，這個 g 其實就是從假設集合 H 挑出一個最好的假設的結果。
+簡單的假設集合：感知器 要回答是否核發信用卡，可以用這樣簡單的想法來實現，現在我們知道申請者有很多基本資料，這些資料可以關係到是否核發信用卡，學術上就稱為是「特徵值」，這些特徵值有的重要、有的不重要，我們可以為這些特徵值依照重要性配上一個權重分數 wi，所以當這些分數加總起來之後，如果超過一個界線 threshold 時，我們就可以就可以決定核發信用卡，否則就不核發。這些 wi 及 threshold 就是所謂的假設集合，可以表示成如投影片中的線性方程式。</description>
+    </item>
+    
+    <item>
+      <title>林軒田教授機器學習基石 Machine Learning Foundations 第 1 講學習筆記</title>
+      <link>https://blog.fukuball.com/machine-learning-foundations-by-lin-xuan-tian-di-jiang-xue-xi-bi-ji/</link>
+      <pubDate>Mon, 17 Aug 2015 13:04:46 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/machine-learning-foundations-by-lin-xuan-tian-di-jiang-xue-xi-bi-ji/</guid>
+      <description>前言 機器學習（Machine Learning）是一門很深的課程，要直接跳進來學習其實並不容易，因此系統性由淺而深的學習過程還是必須的。這一系列部落格文章我將分享我在 Coursera 上臺灣大學林軒田教授所教授的機器學習基石（Machine Learning Foundations）課程整理成的心得，並對照林教授的投影片作說明，希望對有心學習 Machine Learning 的碼農們有些幫助。
+範例原始碼：FukuML - 簡單易用的機器學習套件 我在分享機器學習基石課程時，也跟著把每個介紹過的機器學習演算法都實作了一遍，原始碼都放在 GitHub 上了，所以大家可以去參考看看每個演算法的實作細節，看完原始碼會對課程中的數學式更容易理解。
+如果大家對實作沒有興趣，只想知道怎麼使用機器學習演算法，那 FukuML 絕對會比起其他機器學習套件簡單易用，且方法及變數都會跟林軒田教授的課程類似，有看過課程的話，說不定連文件都不用看就會使用 FukuML 了。不過我還是有寫 Tutorial 啦，之後會不定期更新，讓大家可以容易上手比較重要！
+如何有效學習機器學習 從基礎來由淺入深，包含理論及實作技術用說故事的方式包裝，比如何時可以使用機器學習、為何機器可以學習、機器怎麼學習、如何讓機器學得更好，讓我們可以記得並加以應用。
+從人的學習轉換到機器學習 人學習是為了習得一種技能，比如學習辨認男生或女生，而我們可以從觀察中累積經驗而學會辨認男生或女生，這就是人學習的過程，觀察 -&amp;gt; 累積經驗、學習 -&amp;gt; 習得技能；而機器怎麼學習呢？其實有點相似，機器為了學習一種技能，比如一樣是學習辨認男生或女生，電腦可以從觀察資料及計算累積模型而學會辨認男生或女生，這就是機器學習的過程，資料 -&amp;gt; 計算、學習出模型 -&amp;gt; 習得技能。
+再定義一下什麼是技能 「師爺，翻譯翻譯什麼是他媽的技能」「技能不就是技能嗎」在機器學習上，技能就是透過計算所搜集到的資料來提升一些可量測的性能，比如預測得更準確，實例上像是我們可以搜集股票的交易資料，然後透過機器學習的計算及預測後，是否可以得到更多的投資報酬。如果可以增加預測的準確度，那麼我們就可以說電腦透過機器學習得到了預測股票買賣的技能了。
+舉個例子 各位勞苦功高的碼農們，現在老闆心血來潮要你寫一個可以辨識樹的圖片的程式，你會怎麼寫呢？你可能寫一個程式檢查圖片中有沒有綠綠的或是有沒有像葉子的形狀的部份等等，然後寫了幾百條規則來完成辨識樹的圖片的功能，現在功能上線了，好死不死現在來了一張樹的圖片上面剛好都沒有葉子，你寫的幾百條規則都沒用了，辨識樹的圖片的功能只能以失敗收場。機器學習可以解決這樣的問題，透過觀察資料的方式來讓電腦自己辨識樹的圖片，可能會比寫幾百條判斷規則更有效。這有點像是教電腦學會釣魚（透過觀察資料學習），而不是直接給電腦魚吃（直接寫規則給電腦）。
+那麼什麼時候可以使用機器學習呢 從上個例子我們可以大概了解使用機器學習的使用時機，大致上如果觀察到現在你想要解決的問題有以下三個現象，應該就是機器學習上場的時刻了：
+ 存在某種潛在規則 但沒有很辦法很簡單地用程式直接定義來作邏輯判斷（if else 就可以做到，就不用機器學習） 這些潛在規則有很多資料可以作為觀察、學習的來源  舉個實際的機器學習例子 1 Netflix 現在出了一個問題，如果你能讓使用者對電影喜好程度星級預測準確率提升 10%，那就可以獲得 100 萬美金，馬上讓你從碼農無產階級晉升到天龍人資產階級，而這個問題是這樣的：他們給了你大量使用者對一些電影的星級評分資料，你必須要讓電腦學到一個技能，這個技能可以預測到使用者對他還沒看過的電影評分會是多少星級，如果電腦能準確預測的話，那某種程度它就有了可以知道使用者會不會喜歡這些電影的技能，進而可以推薦使用者他們會喜歡的電影，讓他們從口袋裡拿錢過來～
+舉個實際的機器學習例子 2 這邊偷偷告訴大家一個很常見的機器學習方法的模型，我們再來整理一下，其實這個問題可以轉化成這樣，使用者有很多個會喜歡這部電影的因素，比如電影中有沒有爆破場景、有沒有養眼畫面、有沒有外星人等等，這個我們就稱之為使用者的特徵值（feature），而電影本身也有很多因素，比如電影中有出現炸彈、是很有魅力的史嘉蕾·喬韓森所主演、片名是 ET 第二集等等，這個我們就稱之為電影的特徵值，我們把這兩個特徵值表示成向量（vector），如此如果使用者與電影特徵值有對應的特徵越多，那就代表使用者很有可能喜歡這部電影，而這可以很快地用向量內積的方式計算出來。也就是說，機器學習在這個問題上，只要能學習出這些會影響使用者喜好的因素也就是機器學習所說的特徵值會是什麼，那這樣當一部新的電影出來，我們只要叫電腦對一下這部新電影與使用者的特徵值的對應起來的向量內積值高不高就可以知道使用者會不會喜歡這部電影了～
+將剛剛的問題用數學式來描述 我們在用銀行核發信用卡的例子來描述機器學習，我們可以把信用卡申請者的資料想成是 x，而 y 是銀行是否核發信用卡。所以這就是一個函式，它有一個潛在規則，可以讓 x 對應到 y，機器學習就是要算出這個 f 函式是什麼。現在我們有大量的信用卡對申請者核發信用卡的資料，就是 D，我們可以從資料觀察中得到一些假設，然後讓電腦去學習這些假設是對的還是錯的，慢慢習得技能，最後電腦可能會算出一個 g 函式，雖然不是完全跟 f 一樣，但跟 f 很像，所以能夠做出還蠻精確的預測。</description>
+    </item>
+    
+    <item>
+      <title>如何使用 CSS3 Transition</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-css3-transition/</link>
+      <pubDate>Wed, 08 Jul 2015 08:25:40 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-css3-transition/</guid>
+      <description>前言 我們之前曾經介紹過 如何使用 CSS3 Animation，也不小心在該篇文章中說要另文跟大家介紹如何使用 CSS3 Transition，拖稿了近一年，今天終於要來實現諾言了～雖然大家可能根本就不在意，但哥就是真性情的人他媽的當真了啊！
+在這個浮誇的時代，如果網頁上沒有酷炫的功能或特效，似乎就遜掉了（幹！開場跟如何使用 CSS3 Animation 這篇文章一模一樣，可以再混一點啊），好啦，不說廢話，總之就是網頁有使用到 CSS3 Transition 馬上就會讓你的網站帥十倍啦！很爽吧！（請注意：本人並不會因此帥十倍）
+就讓我們一起來看看 CSS3 Transition 大法怎麼練吧！
+CSS3 Transition 第一級 第一級讓我們先由簡單的範例從做中學，現在讓我們想像一個情境，我們希望滑鼠 hover 至某個 div 元素時，讓這個 div 元素改變背景色，若沒有用轉場（Transition）效果，我們就會看到 div 元素硬生生的改變顏色，一點都不溫柔，這樣橫衝直撞會讓 TA 很不舒服，所以我們才會需要 CSS3 Transition 來讓 TA 舒服一點。
+div.example-no-transition { width: 580px; padding: 9px 15px; background-color: #FF5050; color: white; margin-bottom: 20px; margin-top: 20px; border-radius: 5px; } div.example-no-transition:hover { background-color: #6666FF; }  這段 CSS 語法就是代表當滑鼠 hover 至 div.example-no-transition 元素時，背景顏色會變成 #6666FF，但就是很生硬的變過去，但當我們加入 transition 那就不一樣了。</description>
+    </item>
+    
+    <item>
+      <title>在 Linux 系統背後執行一個程序</title>
+      <link>https://blog.fukuball.com/%E5%9C%A8-linux-%E7%B3%BB%E7%B5%B1%E8%83%8C%E5%BE%8C%E5%9F%B7%E8%A1%8C%E4%B8%80%E5%80%8B%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Tue, 25 Nov 2014 11:24:59 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%9C%A8-linux-%E7%B3%BB%E7%B5%B1%E8%83%8C%E5%BE%8C%E5%9F%B7%E8%A1%8C%E4%B8%80%E5%80%8B%E7%A8%8B%E5%BA%8F/</guid>
+      <description>當有一個程序需要不斷的偵測請求，我們通常需要背景執行一個程序，且不能讓程序關閉，比較正規的做法當然就是直接開一個伺服器服務來執行這個程序，但有時我們會不希望為了一個小程序而去開服務，這時可以用以下這個指令來讓系統背後執行一個程序：
+$ nohup node server.js &amp;amp;  以上例子就會讓系統背後執行 node.js 的預設 server，即使關閉 terminal 也會持續執行，若想關閉，就需要用 kill 的方式來將程序關閉。</description>
+    </item>
+    
+    <item>
+      <title>如何找出占用 Port 的 Process 並將之關閉</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BA%E5%8D%A0%E7%94%A8-port-%E7%9A%84-process-%E4%B8%A6%E5%B0%87%E4%B9%8B%E9%97%9C%E9%96%89/</link>
+      <pubDate>Tue, 25 Nov 2014 11:14:14 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BA%E5%8D%A0%E7%94%A8-port-%E7%9A%84-process-%E4%B8%A6%E5%B0%87%E4%B9%8B%E9%97%9C%E9%96%89/</guid>
+      <description>開服務時有時難免會遇到 Port 被占用的情況，這時就需要找出哪些 Process 占用了這個 Port，並強制關閉 Process，如此才能夠再度使用這個 Port。
+假設現在 1337 Port 被占用了，我們可以使用以下指令找出占用 Port 的 Process：
+$ lsof -i tcp:1337 // 輸出結果 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME php 26267 root 5u IPv4 4542269 0t0 TCP *:1337 (LISTEN) php 26267 root 7u IPv4 4542295 0t0 TCP php 26267 root 8u IPv4 4542296 0t0 TCP  然後我們就可以使用 PID 來關閉 Process：
+$ kill -9 26267  </description>
+    </item>
+    
+    <item>
+      <title>如何使用 jieba 結巴中文分詞程式</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-jieba-%E7%B5%90%E5%B7%B4%E4%B8%AD%E6%96%87%E5%88%86%E8%A9%9E%E7%A8%8B%E5%BC%8F/</link>
+      <pubDate>Wed, 06 Aug 2014 13:49:55 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-jieba-%E7%B5%90%E5%B7%B4%E4%B8%AD%E6%96%87%E5%88%86%E8%A9%9E%E7%A8%8B%E5%BC%8F/</guid>
+      <description>前言 自然語言處理的其中一個重要環節就是中文斷詞的處理，比起英文斷詞，中文斷詞在先天上就比較難處理，比如電腦要怎麼知道「全台大停電」要斷詞成「全台 / 大 / 停電」呢？如果是英文「Power outage all over Taiwan」，就可以直接用空白斷成「Power / outage / all / over / Taiwan」，可見中文斷詞真的是一個大問題啊～
+這樣的問題其實已經有很多解法，比如中研院也有提供「中文斷詞系統」，但就是很難用，不僅 API Call 的次數有限制，還很難串，Server 也常常掛掉，真不曉得為何中研院不將核心開源出來，讓大家可以一起來改善這種現象，總之我要棄中研院的斷詞系統而去了。
+近來玩了一下 jieba 結巴這個 Python Based 的開源中文斷詞程式，感覺大好，順手發了一些 pull request，今天早上就成為 contributor 了！ 感覺真爽！每次發 pull request 總是有種莫名的爽感，既期待被 merge 又怕被 reject，就跟告白的感覺類似啊～
+這麼好用的開源中文斷詞系統，當然要介紹給大家用啊！
+背後演算法 jieba 中文斷詞所使用的演算法是基於 Trie Tree 結構去生成句子中中文字所有可能成詞的情況，然後使用動態規劃（Dynamic programming）算法來找出最大機率的路徑，這個路徑就是基於詞頻的最大斷詞結果。對於辨識新詞（字典詞庫中不存在的詞）則使用了 HMM 模型（Hidden Markov Model）及 Viterbi 算法來辨識出來。基本上這樣就可以完成具有斷詞功能的程式了，或許我之後可以找個時間寫幾篇部落格來介紹這幾個演算法。
+如何安裝 推薦用 pip 安裝 jieba 套件，或者使用 Virtualenv 安裝（未來可能會介紹如何使用 Virtualevn，這樣就可以同時在一台機器上跑不同的 Python 環境）：
+pip install jieba  基本斷詞用法，使用預設詞庫 Sample Code：</description>
+    </item>
+    
+    <item>
+      <title>如何使用 CSS3 Animation</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-css3-animation/</link>
+      <pubDate>Tue, 08 Jul 2014 14:55:36 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-css3-animation/</guid>
+      <description>前言 在這個浮誇的時代，如果網頁上沒有酷炫的功能或特效，似乎就遜掉了；如何讓網頁變得酷炫呢？其中一個方法就是使用 CSS3 Animation！只要使用了 CSS3 Animation 就可以讓網頁中的元素動起來，立馬讓你的網頁酷炫度超越世界上 80% 的網頁！
+而我個人身為一個全端工程師，稍微研究一下 CSS3 Animation 也是合理的，而且只要會一點點就可以拿來唬唬人，何樂而不為？很可惜這個技能就是唬不了正妹，哎，誰叫正妹只喜歡魔術呢～
+不過請特別注意 CSS3 的 Animation 與 Transition 並不相同喔！雖然都可以做到相似的效果，有時看起來也真的很像，但實際上 Animation 與 Transition 依操作的程度不同所以適合使用的地方也會有所不同，或許我之後會再寫一篇文章介紹 Transition。（吧？）
+就讓我們一起來看看 CSS3 Animation 大法怎麼練吧！
+CSS3 Animation 第一級 假設我們要在一個 div 元素上加上動畫特效：
+Step 1：定義要使用哪個關鍵影格(keyframe)來執行動畫 div { width: 100px; height: 100px; background: red; position: relative; -webkit-animation: animation-keyframe-name 5s; /* Chrome, Safari, Opera */ -webkit-animation-iteration-count: infinite; animation: animation-keyframe-name 5s; animation-iteration-count: infinite; }  這段 CSS 語法就是代表 div 元素要用哪個關鍵影格來執行動畫，詳細的動畫動作都會寫在關鍵影格裡面，在這邊的意思就是要使用一個名稱叫 animation-keyframe-name 的關鍵影格來進行動畫，後面的 5s 就代表這個動畫執行的時間會是 5 秒鐘。而 animation-iteration-count: infinite 則代表這個關鍵影格動畫會不斷重複執行。</description>
+    </item>
+    
+    <item>
+      <title>如何做出網頁版 iTunes 11 的封面背景特效</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%81%9A%E5%87%BA%E7%B6%B2%E9%A0%81%E7%89%88-itunes-11-%E7%9A%84%E5%B0%81%E9%9D%A2%E8%83%8C%E6%99%AF%E7%89%B9%E6%95%88/</link>
+      <pubDate>Wed, 25 Jun 2014 21:02:44 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%81%9A%E5%87%BA%E7%B6%B2%E9%A0%81%E7%89%88-itunes-11-%E7%9A%84%E5%B0%81%E9%9D%A2%E8%83%8C%E6%99%AF%E7%89%B9%E6%95%88/</guid>
+      <description>前言 最近為了 training 新人，我在 iNDIEVOX 主持了每兩週會舉行一次的技術分享會，每位與會人員都需要準備一個分享講題，講題可以是任何開發技術相關的主題，甚至是相關產業新聞。
+不過最近有些忙碌，加上世界杯熬夜的影響，我自己得準備的分享講題眼看就要開天窗了，只好拿出去年在 HappyDesigner Mini 分享會 #3 的講題來充充場面，剛好也可以逼自己整理成 blog！
+那麼&amp;hellip;&amp;hellip; 究竟要如何做出網頁版 iTunes 11 的封面背景特效呢？在哪裡才能買得到呢？
+&amp;hellip; &amp;hellip; 我們這邊會直接說明如何實作，所以是買不到的喔！
+觀察分析 首先讓我們觀察分析一下 iTunes 11 的封面特效：
+透過我們精準的觀察與分析之後，我們可以將 iTunes 11 的封面特效歸納成以下三點：
+ 專輯資訊字體顏色配色與專輯封面配色相似 專輯資訊區塊背景色與專輯封面背景色相似 專輯資訊區塊背景色形成一個模糊遮罩蓋在專輯封面上  也就是說我們只要做到以上三點，大概就可以做到類似 iTunes 11 的封面特效了！
+實作 Step 1：實作蓋在專輯封面上模糊遮罩 首先我們先不管顏色，看看是否能用 CSS 3 來實作蓋在專輯封面上模糊遮罩，研究一番之後發現並不難實作，CSS 3 的語法如下：
+.mask { box-shadow: rgb(9, 8, 9) 14px 17px 25px inset, rgb(9, 8, 9) -1px -1px 170px inset; }  我們使用 CSS 3 中的 box-shadow 這個 property 來實做陰影效果，將這個陰影蓋在封面上便可以形成一個模糊遮罩，其中 rgb(9, 8, 8) 表示陰影的顏色，inset 表示陰影是往區塊內部長，14px 17px 25px 分別表示陰影向水平方向長的長度、陰影向垂直方向長的長度、陰影模糊的長度，由於陰影是向區塊內長，分別就表示水平方向由左向內長 14px 的陰影、垂直方向由上向內長 17px、然後都長 25px 的模糊程度。</description>
+    </item>
+    
+    <item>
+      <title>如何使用 skrollr 做出簡易的 Parallax Scrolling 網頁</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-skrollr-%E5%81%9A%E5%87%BA%E7%B0%A1%E6%98%93%E7%9A%84-parallax-scrolling-%E7%B6%B2%E9%A0%81/</link>
+      <pubDate>Wed, 11 Jun 2014 13:45:51 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8-skrollr-%E5%81%9A%E5%87%BA%E7%B0%A1%E6%98%93%E7%9A%84-parallax-scrolling-%E7%B6%B2%E9%A0%81/</guid>
+      <description>前一陣子大家非常瘋 Parallax Scrolling 網頁，主要是利用人們瀏覽網頁時最習慣的動作「滾動」來做一些特效，讓使用者透過簡易的滾動就能瀏覽完整個網頁。
+Parallax Scrolling 中文翻成視差滾動，wiki 上的定義上說明這是電腦圖學中一種特別的滑動特效技巧，原理是把背景圖片的移動速度放慢，讓前景圖片移動較快，因而在2D畫面上產生多層次的佈景深度。
+但說了這麼多，不如還是透過實際的例子來感受一下什麼是 Parallax Scrolling，20 Best Websites with Parallax Scrolling of 2013 中就有許多有趣的例子！
+如果仔細去研究這些例子的原始碼就會發現，要做這樣的網頁實在很費工，如果可以的話當然想找找有什麼方法可以快速的做好一個 Parallax Scrolling 網頁，於是就在 github 上找到了 skrollr。
+skrollr 的使用方法真的非常簡單，步驟如下：
+Step1：引入函式庫到網頁中：
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot; src=&amp;quot;/path/to/skrollr.min.js&amp;quot;&amp;gt; &amp;lt;/script&amp;gt;  Step2：在網頁底端初始化 skrollr
+&amp;lt;script type=&amp;quot;text/javascript&amp;quot;&amp;gt; var skrollr_obj = skrollr.init(); &amp;lt;/script&amp;gt;  Step3：利用以下語法來安排網頁中元素的轉場
+&amp;lt;div data-0=&amp;quot;background-color:rgb(0,0,255);&amp;quot; data-500=&amp;quot;background-color:rgb(255,0,0);&amp;quot;&amp;gt; WOOOT &amp;lt;/div&amp;gt;  上面語法的意義就是使用者滾動位置從 0 滾動到 500 時 div 的 CSS 樣式變化，也就是說使用者滾動位置到 500 時，div 的背景色會從原來的藍色慢慢變為紅色。
+如果要做淡出功能可以這樣寫：
+&amp;lt;div data-2100=&amp;quot;opacity: 1;&amp;quot; data-2400=&amp;quot;opacity: 0;&amp;quot;&amp;gt; &amp;lt;img src=&amp;quot;/public/image/show-case/skrollr-demo/cell.</description>
+    </item>
+    
+    <item>
+      <title>送行者：禮儀師的樂章電影一幕</title>
+      <link>https://blog.fukuball.com/%E9%80%81%E8%A1%8C%E8%80%85%E7%A6%AE%E5%84%80%E5%B8%AB%E7%9A%84%E6%A8%82%E7%AB%A0%E9%9B%BB%E5%BD%B1%E4%B8%80%E5%B9%95/</link>
+      <pubDate>Thu, 05 Jun 2014 13:32:44 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E9%80%81%E8%A1%8C%E8%80%85%E7%A6%AE%E5%84%80%E5%B8%AB%E7%9A%84%E6%A8%82%E7%AB%A0%E9%9B%BB%E5%BD%B1%E4%B8%80%E5%B9%95/</guid>
+      <description>送行者是我蠻喜歡的一部電影，但若要我詳細描述這部電影，或是告訴你我從這部電影得到了什麼體悟，我一時也難以說明；看電影就是一種感覺嘛！我就是喜歡這部電影啊！說出來就不好玩了嘛！所以我會建議直接去看電影，親自感受！
+看這部電影時，有好多地方會讓人忍不住想流淚，會將電影中的情景對應到自身為親人送行的情景，總覺得台灣傳統的喪禮無法讓人能好好地從悲傷中平復，人們總是在喪禮之後才隨著時間忘記傷痛。
+看這部電影某種程度是在自我療癒。
+對這部電影印象最深的一幕就是葬儀社員工在聖誕節時一起吃著炸雞喝著酒的那一幕，這幕的時間非常長，而且還一直拍特寫，每個人都不顧形象的張口大吃，大家一口接著一口地吃得津津有味，狼吞虎嚥的聲音一直「咕嚕」「咕嚕」的震天作響，看著看著不知不覺自己也會開始流起口水想吃炸雞，正當要幹譙導演亂拍的時候，忽然開始對這一幕深深著迷，霎那間讓人在心裡呼喊：「啊！原來這就是活著的感覺」
+電影中有蠻多地方會用類似這種生與死的象徵，讓人感覺死去與活著的區別，但這一幕是最長的，看完這段時讓我一時陷入沈思，或許是對生命如此卑微而感嘆，抑或是對自己也還能夠這樣大口吃炸雞感到慶幸！我沒想到狼吞虎嚥的「咕嚕」「咕嚕」聲也能這樣帶給我衝擊啊～
+難怪星爺的電影裡會說「越快升天就越應該要拼命吃」了 XD</description>
+    </item>
+    
+    <item>
+      <title>如何在 Heroku 上建立開發環境及正式環境</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%9C%A8-heroku-%E4%B8%8A%E5%BB%BA%E7%AB%8B%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E5%8F%8A%E6%AD%A3%E5%BC%8F%E7%92%B0%E5%A2%83/</link>
+      <pubDate>Wed, 30 Apr 2014 12:45:33 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%9C%A8-heroku-%E4%B8%8A%E5%BB%BA%E7%AB%8B%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E5%8F%8A%E6%AD%A3%E5%BC%8F%E7%92%B0%E5%A2%83/</guid>
+      <description>在開發網站的時候，我們至少會有一個正在開發中的開發環境，即真正上線開放給使用者使用的正式環境，通常我們會使用類似 git 的版本控制系統開一個 dev branch 及 ㄧ個 master branch，分別對應到開發環境及正式環境。
+所以在 Heroku 上，我們也會希望開一個給使用者使用的 Heroku app（正式環境），另一個就是線上開發版的 Heroku app（開發環境），開發者可能在自己的 local 端開發完之後，將自己的開發的成果 merge 到 dev branch，我們就可以看在線上開發版的運作情況，沒問題了我們才會發佈到正式環境。
+首先我們需要先 create 兩個 Heroku App，這邊我們以 Laravel 專案為例：
+Step 1：新增 Heroku App
+$ heroku create my-laravel-project --buildpack // 新增正式環境 Heroku Laravel App $ heroku create dev-my-laravel-project --buildpack // 新增開發環境 Heroku Laravel App  Step 2：將 dev branch 專案發佈到開發環境
+$ git config remote.heroku.url &amp;quot;git@heroku.com:dev-my-laravel-project.git&amp;quot; $ git push -f heroku dev:master  Step 3：將 merge 好的 master branch 專案發佈到正式環境</description>
+    </item>
+    
+    <item>
+      <title>如何將 Laravel 專案發佈到 Heroku</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%B0%87-laravel-%E5%B0%88%E6%A1%88%E7%99%BC%E4%BD%88%E5%88%B0-heroku/</link>
+      <pubDate>Wed, 30 Apr 2014 12:28:21 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%B0%87-laravel-%E5%B0%88%E6%A1%88%E7%99%BC%E4%BD%88%E5%88%B0-heroku/</guid>
+      <description>目前最火紅的 PHP Framework 就是 Laravel 了，以往 PHP Framework 的缺點就是沒有一個熱絡的社群，Laravel 的出現漸漸改變了這樣的現象，Laravel 社群比起其他 PHP Framework 的社群熱絡多了，雖然比起 Rails、Django 及 Node.js 確實還是差了一大截，但總是好現象。
+由於看好它的發展性，目前有一些 Side Project 是用 Laravel 來實作，這些 Side Project 如果沒有必要實在是不太想碰機器或者安裝環境，所以發佈到 Heroku 是最好的選擇，只要發佈到 Heroku，Heroku 就會幫忙安裝好所有需要的環境。
+步驟如下：
+Step 1：使用 CLI 在 Heroku 上開啟一個可以 Build Laravel 的專案
+$ heroku create my-laravel-project --buildpack https://github.com/winglian/heroku-buildpack-php  Step 2：在 Laravel 的 Project 資料夾內發佈專案到 Heroku
+$ git push heroku master  有時 Heroku 發佈專案會失敗，基本上發佈失敗只要再下一次指令就可能會成功，我也不知道為何有時會這樣，或許是因為是用 Laravel 的關係吧！總之，一次不成功，那就試第二次就對了！
+其實還蠻簡單的，還不用管機器，真的很方便～</description>
+    </item>
+    
+    <item>
+      <title>如何建立 Heroku 環境</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B-heroku-%E7%92%B0%E5%A2%83/</link>
+      <pubDate>Wed, 30 Apr 2014 12:04:05 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%BB%BA%E7%AB%8B-heroku-%E7%92%B0%E5%A2%83/</guid>
+      <description>Heroku 是一個 PaaS 雲端服務，可以讓開發者快速在雲端上放上自己開發的服務，使用 PaaS 服務可以在開發初期省下不少資源，若目前的開發專案沒有使用到 Heroku 沒有支援的功能，使用 Heroku 是一個很好的選擇。
+使用 Heroku 所需要建立的環境步驟如下：
+Step 1：註冊 Heroku 帳號
+Step 2：安裝 Heroku toolbelt
+Step 3：測試使用 Heroku CLI 登入
+$ heroku login Enter your Heroku credentials. Email: adam@example.com Password: Could not find an existing public key. Would you like to generate one? [Yn] Generating new SSH public key. Uploading ssh public key /Users/adam/.ssh/id_rsa.pub  如果可以成功，就代表安裝已經完成
+Step 4：新增 SSH Key
+要 push project 到 Heroku 需要使用 SSH key，如果沒有 SSH key 的話，可以用以下指令新增一個 SSH key</description>
+    </item>
+    
+    <item>
+      <title>Git 簡易使用教學</title>
+      <link>https://blog.fukuball.com/git-%E7%B0%A1%E6%98%93%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/</link>
+      <pubDate>Thu, 24 Apr 2014 14:38:22 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/git-%E7%B0%A1%E6%98%93%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/</guid>
+      <description>前言 多人共同開發的專案，有時我們需要開發新功能，同時又要修 Bug，可能主程式也要不斷維護開發，我們需要同步進行以加速開發，這時我們通常會從主 branch（通常預設為 master）開出一個新的 branch 來開發，當完成所要開發的新功能或完成 bug 的修正時，就可以將這個 branch merge 回主 branch，因此使用 git branch 在軟體開發上是非常重要的技能。
+git branch 使用 git branch 可以列出所有的 branch 並告訴你目前正在哪個 branch：
+$ git branch dev * master  假設要再開一個 bug-fix 的 branch，就可以使用以下指令來開 branch：
+$ git branch bug-fix  若要刪除 branch 則使用 git branch -d 來刪除，-D 則為強制刪除
+$ git branch -d bug-fix  git checkout 目前我們已有多個 branch，我們可以使用 git checkout 來切換 branch：
+$ git checkout dev  git merge 當我們在 branch 完成工作之後，就要將更新的程式碼 merge 回主 branch，這時請先回到主 branch：</description>
+    </item>
+    
+    <item>
+      <title>Git 簡易使用教學</title>
+      <link>https://blog.fukuball.com/git-%E7%B0%A1%E6%98%93%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/</link>
+      <pubDate>Thu, 24 Apr 2014 13:48:47 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/git-%E7%B0%A1%E6%98%93%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/</guid>
+      <description>前言 版本控制一直是軟體開發中非常重要的工具，而 Git 與 Subversion、CVS 不同的地方在於 Subversion 及 CVS 是屬於 Centralized VCS，Centralized VCS 的共同缺點是做什麼事都要跟伺服器連線，這樣開發會比較慢，且只要伺服器壞掉，就無法工作了。
+Git 則屬於分散式版本控制系統，讓本地端也維護完整的 Repository，即使沒網路，照常可以 commit 和看 history log，伺服器的 Repository 可以在將來有網路連線時再同步更新。
+安裝設定 Git Github 上有各大平台完整的安裝及設定教學，建議直接參照這個教學來設定就可以了。
+其中請特別注意設定好提交者的 name 及 Email，Git 會記錄每個 commit 是由誰提交的，這在版本控制上是很重要的資訊。
+我們可以使用以下的指令來進行設定：（&amp;ndash;global 表示是全域設定）
+$ git config --global user.name &amp;quot;Fukuball Lin&amp;quot; $ git config --global user.email &amp;quot;fukuball@gmail.com&amp;quot;  設定完成後可以用以下指令來觀察是否有設定完成
+$ git config --list user.name=fukuball user.email=fukuball@gmail.com  git init 當 Git 安裝設定好之後，就可以開始使用 Git 版本控制了，假設現在你有一個 Hello-World 的資料夾，那在這個資料夾底下下以下指令就可以開啟一個 Git Repository：</description>
+    </item>
+    
+    <item>
+      <title>我在 Sublime Text 2 常用的快捷鍵</title>
+      <link>https://blog.fukuball.com/%E6%88%91%E5%9C%A8-sublime-text-2-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%8D%B5/</link>
+      <pubDate>Thu, 24 Apr 2014 10:43:45 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E6%88%91%E5%9C%A8-sublime-text-2-%E5%B8%B8%E7%94%A8%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%8D%B5/</guid>
+      <description> Sublime Text 2 好用的地方在於它有許多方便的快捷鍵，當然已經有人整理出這些方便的快捷鍵（請參考：Sublime Text 2 – Useful Shortcuts (Mac OS X)），而我這篇主要是分享我個人常用的，其他冷門的快捷鍵其實不用浪費我們的腦容量去記。
+符號說明：
+ ⌘ 為俗稱的蘋果鍵 ⇧ 為 shift 鍵 ⌃ 為 control 鍵 ⌥ 為 option/alt 鍵  以下是我常用的快捷鍵列表：
+一般   ⌘R 跳至某個 method   ⌘⇧P 開啟 Sublime Text 的命令列   ⌃ ` 開啟 python console   編輯   ⌘L 全選所在行，連續按則往下繼續選下一行   ⌘D 全選所在單字，連續按則往下繼續選相同單字，可以一次同時編輯所有選擇的單字   ⌃⇧M 選擇花刮號裡所有內容   ⌃M 跳至相配對的花刮號   ⌃⇧K 刪除所在行，連續按則往下繼續刪下一行   ⌘Z 復原   ⌘⇧Z 反復原   ⌘⌥ + 滑鼠選擇 可以垂直選擇   尋找/取代   ⌘F 尋找   ⌘⌥F 取代   ⌘⇧F 在整個 Project 尋找/取代   </description>
+    </item>
+    
+    <item>
+      <title>我的 Sublime Text 2 設定</title>
+      <link>https://blog.fukuball.com/%E6%88%91%E7%9A%84-sublime-text-2-%E8%A8%AD%E5%AE%9A/</link>
+      <pubDate>Thu, 24 Apr 2014 10:03:53 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E6%88%91%E7%9A%84-sublime-text-2-%E8%A8%AD%E5%AE%9A/</guid>
+      <description>使用文字編輯器撰寫程式碼的時候，第一步就是要挑整適合於自己使用的編輯環境，在 Sublime Text 2 裡只要使用快捷鍵 ⌘, 就可以開啟設定頁面，然後就可以依照個人使用情況來做調整啦～
+以下是我目前的 Sublime Text 2 設定值，大家可以參考看看
+{ &amp;quot;font_size&amp;quot;: 18.0, &amp;quot;ignored_packages&amp;quot;: [ &amp;quot;Vintage&amp;quot; ], &amp;quot;tab_size&amp;quot;: 4, &amp;quot;translate_tabs_to_spaces&amp;quot;: true, &amp;quot;highlight_line&amp;quot;: true, &amp;quot;trim_trailing_white_space_on_save&amp;quot;: true }  我將 font_size 設成 18，這樣對眼睛比較好，畢竟要長時間看程式碼，還是大一點的字型比較好。
+另外，Sublime Text 可以透過 Vintage 這個內建的 package 提供 vi 模擬模式，讓使用者可以使用 vi 的指令模式來操作 Sublime Text，由於我個人不熟悉 vi，所以就在 ignored_packages 將這個 packeage ignore 掉，其實 Sublime Text 一開始預設就是 ignore 這個 package 的，畢竟都已經使用 Sublime Text 了，要使用 vi 就使用真正的 vi 吧。
+tab_size 我是設成 4，其實之前我都是使用 3，但實在太多 open source 的 project 都是使用 4，只好改變我的習慣。</description>
+    </item>
+    
+    <item>
+      <title>使用 Private Key 登入 AWS EC2</title>
+      <link>https://blog.fukuball.com/%E4%BD%BF%E7%94%A8-private-key-%E7%99%BB%E5%85%A5-aws-ec2/</link>
+      <pubDate>Tue, 22 Apr 2014 18:22:03 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E4%BD%BF%E7%94%A8-private-key-%E7%99%BB%E5%85%A5-aws-ec2/</guid>
+      <description>首先在開 AWS EC2 之前，應該會先取得一組 Private Key，請好好保存這組 Private Key，它會是個 .pem 或 .cer 檔。
+開啓 Terminal 之後，請用以下指令登入 AWS EC2：
+Step 1：更改 Private Key 檔案權限
+＄chmod 600 path/to/private-key.pem  Step 2：使用 SSH 登入 AWS EC2
+$ssh -i path/to/private-key.pem ubuntu@ec2-X-X-X.compute-X.amazonaws.com  這樣應該就可以順利登入 AWS EC2 了，其中 Step 1 只要執行過一次就可以了，簡單。</description>
+    </item>
+    
+    <item>
+      <title>人工進化電影一幕</title>
+      <link>https://blog.fukuball.com/%E4%BA%BA%E5%B7%A5%E9%80%B2%E5%8C%96%E9%9B%BB%E5%BD%B1%E4%B8%80%E5%B9%95/</link>
+      <pubDate>Tue, 22 Apr 2014 14:33:02 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E4%BA%BA%E5%B7%A5%E9%80%B2%E5%8C%96%E9%9B%BB%E5%BD%B1%E4%B8%80%E5%B9%95/</guid>
+      <description>某天騎車的時候突然很懷念小時候養蠶寶寶的時光，看著蠶寶寶成長茁壯，慢慢從小小隻變得肥滋滋的，然後再結成繭、變成蛹，最後蛻變成蛾，而養蠶寶寶最令人期待的就是當牠們變成蛾交配產卵的時刻，一切就是這麼的自然，讓人感到生命的生生不息。天真的小時候總是這麼企盼著。
+正當懷念著這天真的小時候，突然有種莫名的既視感。
+將生物放在盒子裡看牠們交配，這句乍看之下非常不人道的句子，用在養蠶寶寶這樣生物養成觀察的例子上似乎再正常不過，而電影人工進化裡也有這樣的一幕。
+人工進化電影中生化工程師克萊夫與艾爾莎，成功地在實驗室中製造出了一個富含高蛋白的生命體（就是圖片中的肉球），期盼未來將可能解決人類的多項疾病，在他們完成了一些階段性目標時，實驗室決定舉行一場公開展示來公開他們的研究成果。
+公開展示的時候，實驗室將一公一母的高蛋白生命體放在一個盒子裡，讓這兩個高蛋白生命體來個運命中浪漫的相遇，為了戲劇效果，他們甚至用了一些浪漫的話語來介紹這兩團肉球，搭配上浪漫的音樂，讓所有的觀眾都沈浸在浪漫的氣氛裡面，觀眾們一致發出讚嘆的聲音！
+一切就是這麼的美好。兩團肉球在人類扮演上帝的時候誕生了，而人類上帝又讓牠們相遇，期待牠們相愛、交配，生下牠們愛的結晶。即使你在看前面這句話的時候，似乎有那麼點覺得怪怪的，但仔細一想，這似乎跟我們小時候期待著蠶寶寶的蛾交配產卵那樣的單純。當觀眾為這兩團肉球發出讚嘆的歡呼聲時，我真心覺得他們就是單純著期待著生命美好的那一刻。
+當然，電影的下一幕不是那麼美好，高蛋白生命體性別狀態並不穩定，因此原本雌性的肉球突然變性成雄性，於是美好的戀情竟演變成了一場血腥的殺戮。
+這一幕就是我對人工進化這部電影最深刻的印象，當你看到這一幕時，會是感到生命的單純美好亦或是對這樣的情景感到噁心呢？還是會像星爺一樣吆喝著：「我給你錢，快點做！」
+我只想到小時候養蠶寶寶的時光！</description>
+    </item>
+    
+    <item>
+      <title>如何在 Sublime Text 2 搜尋所有非 ASCII 字元</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%9C%A8-sublime-text-2-%E6%90%9C%E5%B0%8B%E6%89%80%E6%9C%89%E9%9D%9E-ascii-%E5%AD%97%E5%85%83/</link>
+      <pubDate>Tue, 15 Apr 2014 08:11:24 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%9C%A8-sublime-text-2-%E6%90%9C%E5%B0%8B%E6%89%80%E6%9C%89%E9%9D%9E-ascii-%E5%AD%97%E5%85%83/</guid>
+      <description>寫程式有時會需要找出原始碼裡所有非 ASCII 字元，拜訪了一下 Google 大神得到了這個答案，筆記一下！
+Regular Expression:
+[^\x00-\x7F]  </description>
+    </item>
+    
+    <item>
+      <title>如何在 OSX 安裝 Vagrant 開啓 Ubuntu 12.04 LTS 32-bit 虛擬環境</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%9C%A8-osx-%E5%AE%89%E8%A3%9D-vagrant-%E9%96%8B%E5%95%93-ubuntu-12.04-lts-32-bit-%E8%99%9B%E6%93%AC%E7%92%B0%E5%A2%83/</link>
+      <pubDate>Mon, 10 Mar 2014 17:09:52 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%9C%A8-osx-%E5%AE%89%E8%A3%9D-vagrant-%E9%96%8B%E5%95%93-ubuntu-12.04-lts-32-bit-%E8%99%9B%E6%93%AC%E7%92%B0%E5%A2%83/</guid>
+      <description>安裝開發環境一直是個麻煩的問題，因此使用 Vagrant 來無痛安裝一個乾淨的開發環境，將各個 project 所需要的開發環境獨立出來是目前最好的解決方案了。本篇文章將介紹如何在 OSX 上安裝 Vagrant 並開啓 Ubuntu 12.04 LTS 32-bit 虛擬環境。
+Step 1：安裝 VirtualBox
+Step 2：安裝 Vagrant
+Step 3：開一個資料夾來練習
+$ mkdir vagrant-practice $ cd vagrant-practice  Step 4：初始化虛擬環境
+$ vagrant init precise32 http://files.vagrantup.com/precise32.box  Step 5：開啟虛擬環境（此步驟會等待比較久的時間，之後執行則會變快）
+$ vagrant up  Step 6：登入虛擬環境
+$ vagrant ssh  如此就有一個全新的 Ubuntu 12.04 LTS 32-bit 虛擬環境了！酷！
+若想刪除虛擬環境，則執行以下指令：
+$ vagrant destroy  </description>
+    </item>
+    
+    <item>
+      <title>如何開啓 Apache2 的 mod_rewrite</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E9%96%8B%E5%95%93-apache2-%E7%9A%84-mod_rewrite/</link>
+      <pubDate>Mon, 10 Mar 2014 17:08:05 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E9%96%8B%E5%95%93-apache2-%E7%9A%84-mod_rewrite/</guid>
+      <description>使用 Apache2 作為網頁伺服器時，尤其是 PHP Web Application，通常會使用 rewrite rule 來改寫網址，最近開 AWS 上的 Ubuntu 12.04 機器，安裝 Apache2 時 mod_rewrite 預設並非開啓的，所以我們就要自行開啓 mod_rewrite。
+指令如下：
+$ sudo a2enmod rewrite Enabling module rewrite. To activate the new configuration, you need to run: service apache2 restart  開啓後，重開 apache2 即可啓用 mod_rewrite。</description>
+    </item>
+    
+    <item>
+      <title>如何讓 AWS EC2 Instance 開機時自動掛載 AWS S3 Bucket</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E8%AE%93-aws-ec2-instance-%E9%96%8B%E6%A9%9F%E6%99%82%E8%87%AA%E5%8B%95%E6%8E%9B%E8%BC%89-aws-s3-bucket/</link>
+      <pubDate>Mon, 10 Mar 2014 17:06:23 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E8%AE%93-aws-ec2-instance-%E9%96%8B%E6%A9%9F%E6%99%82%E8%87%AA%E5%8B%95%E6%8E%9B%E8%BC%89-aws-s3-bucket/</guid>
+      <description>當我們將 S3 bucket 掛到 EC2 instance 時（詳細設定筆記請見：如何掛載 AWS S3 到 AWS EC2 Instance - 環境安裝部份 、如何掛載 AWS S3 到 AWS EC2 Instance - 掛載及卸載部份 ），若將 EC2 instance 重開機，S3 bucket 是不會自動掛載上去的，這時我們可以寫一個 Script 加入排程來讓 EC2 instance 重開機能夠自動掛載 S3 bucket。
+詳細步驟如下：
+Step 1：編寫 automount-s3 的 shell script
+$ vim automount-s3  script 內容：
+sudo mkdir /mnt/s3-drive /usr/bin/s3fs &amp;lt;bucketname&amp;gt; &amp;lt;mount-point&amp;gt; -o allow_other  Step 2：將 automount-s3 script 移至 /usr/sbin
+$ sudo mv automount-s3 /usr/sbin  Step 3：更改 automount-s3 script 權限</description>
+    </item>
+    
+    <item>
+      <title>如何掛載 AWS S3 到 AWS EC2 Instance - 掛載及卸載部份</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E6%8E%9B%E8%BC%89-aws-s3-%E5%88%B0-aws-ec2-instance---%E6%8E%9B%E8%BC%89%E5%8F%8A%E5%8D%B8%E8%BC%89%E9%83%A8%E4%BB%BD/</link>
+      <pubDate>Mon, 10 Mar 2014 17:02:29 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E6%8E%9B%E8%BC%89-aws-s3-%E5%88%B0-aws-ec2-instance---%E6%8E%9B%E8%BC%89%E5%8F%8A%E5%8D%B8%E8%BC%89%E9%83%A8%E4%BB%BD/</guid>
+      <description>本篇為筆記為如何掛載 AWS S3 到 AWS EC2 Instance 的後續內容，請先閱讀 如何掛載 AWS S3 到 AWS EC2 Instance - 環境安裝部份 後再閱讀本篇筆記。
+架構網站服務時，Storage 的規劃也是重要的一環，而 AWS S3 就是一個蠻好的 Storage 服務。
+一般常見的做法我們會透過 AWS 提供的 API 來存取 S3 上的檔案，但這樣做並不直覺，而且要通常要將原本存取檔案的程式寫法改成用 S3 API 存取檔案的寫法，有可能會需要修改許多支程式。
+所以便有人萌生了將 S3 掛載到 EC2 Instance 的想法，就跟我們買一顆大容量的硬碟裝在電腦上一樣，讓我們的網站服務能夠像在同一部機器存取檔案一樣容易。（其實概念就像我們在實體機器上使用 NFS 來掛載網路硬碟一樣）
+掛載細節如下：（請確認已開好 S3 bucket，且開好 IAM user 權限，且完成環境安裝）
+Step 1：新增 s3fs passwd 檔案
+$ touch /etc/passwd-s3fs  Step 2：編輯 s3fs 檔案
+$ vim /etc/passwd-s3fs  Step 3：填入設定 S3 bucket 時的 bucket name 及設定 IAM user 時得到的 access key id、secret access key</description>
+    </item>
+    
+    <item>
+      <title>如何掛載 AWS S3 到 AWS EC2 Instance - 環境安裝部份</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E6%8E%9B%E8%BC%89-aws-s3-%E5%88%B0-aws-ec2-instance---%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E9%83%A8%E4%BB%BD/</link>
+      <pubDate>Mon, 10 Mar 2014 17:00:30 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E6%8E%9B%E8%BC%89-aws-s3-%E5%88%B0-aws-ec2-instance---%E7%92%B0%E5%A2%83%E5%AE%89%E8%A3%9D%E9%83%A8%E4%BB%BD/</guid>
+      <description>架構網站服務時，Storage 的規劃也是重要的一環，而 AWS S3 就是一個蠻好的 Storage 服務。
+一般常見的做法我們會透過 AWS 提供的 API 來存取 S3 上的檔案，但這樣做並不直覺，而且要通常要將原本存取檔案的程式寫法改成用 S3 API 存取檔案的寫法，有可能會需要修改許多支程式。
+所以便有人萌生了將 S3 掛載到 EC2 Instance 的想法，就跟我們買一顆大容量的硬碟裝在電腦上一樣，讓我們的網站服務能夠像在同一部機器存取檔案一樣容易。（其實概念就像我們在實體機器上使用 NFS 來掛載網路硬碟一樣）
+環境安裝細節如下：（請確認已開好 S3 bucket，且開好 IAM user 權限）
+Step 1：登入 EC2 後使用 sudo 權限
+$ sudo -s  Step 2：先更新 apt-get
+$ apt-get update  Step 3：安裝必要套件
+$ apt-get install make gcc g++ curl libxml2 libxml2-dev libssl-dev libcurl3 libcurl4-gnutls-dev openssl pkg-config  Step 4：進入 /usr/local/src 資料夾
+$ cd /usr/local/src  Step 5：下載 fuse</description>
+    </item>
+    
+    <item>
+      <title>如何列出正在執行的 PHP Script Process</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%88%97%E5%87%BA%E6%AD%A3%E5%9C%A8%E5%9F%B7%E8%A1%8C%E7%9A%84-php-script-process/</link>
+      <pubDate>Mon, 10 Mar 2014 16:58:22 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%88%97%E5%87%BA%E6%AD%A3%E5%9C%A8%E5%9F%B7%E8%A1%8C%E7%9A%84-php-script-process/</guid>
+      <description>在實務上我們通常會使用 crontab job 來背景執行一些程式，有時我們會有需要砍掉這些 process 的情況發生，這時我們就需要列出 process 的 process id，並手動將這些 process 砍掉～
+以要查閱 apns-task.php 這支 php script 在機器上執行的 process id 為例，指令可以這樣下：
+$ ps auxwww|grep apns-task.php|grep -v grep  如此就可以列出正在執行 apns-task.php 這支程式的所有 process：
+user 15211 0.0 0.0 4108 604 ? Ss 15:10 0:00 /bin/sh -c php /path-to-your-script/apns-task.php user 15213 50.0 0.0 211584 28124 ? R 15:10 0:00 php /path-to-your-script/apns-task.php  如輸出結果所見，現在有兩個 process 15211 及 15213 正在執行 apns-task.php 這支程式，如果要刪除 process 15211，指令就可以這樣下：
+$ kill 15211  以上就是如何列出正在執行的 PHP script process 的簡易筆記～</description>
+    </item>
+    
+    <item>
+      <title>來自大阪的元祖 ICE DOG</title>
+      <link>https://blog.fukuball.com/%E4%BE%86%E8%87%AA%E5%A4%A7%E9%98%AA%E7%9A%84%E5%85%83%E7%A5%96-ice-dog/</link>
+      <pubDate>Sat, 22 Feb 2014 19:30:17 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E4%BE%86%E8%87%AA%E5%A4%A7%E9%98%AA%E7%9A%84%E5%85%83%E7%A5%96-ice-dog/</guid>
+      <description>這次日本行回來最難忘的美食第一名就是這個來自大阪的 Ice Dog，一直到現在我看著這張圖片還是會想起它美妙的滋味，那種滋味好難形容啊～ 一個小小的甜品卻能讓我如此難忘甚至把我變成愛吃甜點的少女，我想這應該是一種靈異現象吧！
+其實在嚐到 Ice Dog 之前，我們已經走了好多個台灣部落格推薦的美食，就像流言終結者一樣，有的真的是美食，但也有蠻多雷的，其中章魚小丸子就是大雷，咬下去像是吃到空氣一樣，然後也沒有章魚，真的很不優，一大堆台灣人吃到都直接用台語幹譙起來（日本真的到處是台灣人），所以在咬下 Ice Dog 之前我是一直保持著不期不待不受傷害的心態。
+沒想到第一口吃下 Ice Dog 整個人都快被融化了！驚為天人啊！
+炸得酥脆裹著糖粉的麵包中間夾著日本排名第一的六甲牧場冰淇淋，冰與火的衝突感在口中爆發，卻有種絕妙的搭配口感，讓人感到異常順口！吃完第一個 Ice Dog 之後，由於意猶未盡又忍不住加點了一個來吃，回頭看看後面進來的兩個日本妹，居然也跟我一樣加點了第二個 Ice Dog 來吃，簡直像是中了毒癮一樣。
+如果可以的話我真的蠻想在台灣開一間賣 Ice Dog 分店，應該會大賣吧！有沒有人有興趣來合夥開一間台灣的 Ice Dog 呢？哈哈～
+元祖 Ice Dog 海報，現在已經漲價到 350 日元了 元祖 Ice Dog 店面 元祖 Ice Dog 店內一景  圖片取自於 Google 搜尋，絕無意侵犯智財權。若有侵犯請告知，我會馬上刪除，感謝！  </description>
+    </item>
+    
+    <item>
+      <title>Swim Deep - She Changes the Weather</title>
+      <link>https://blog.fukuball.com/swim-deep---she-changes-the-weather/</link>
+      <pubDate>Tue, 04 Feb 2014 09:05:50 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/swim-deep---she-changes-the-weather/</guid>
+      <description>最近聽到 Swim Deep 的 She Changes the Weather 覺得蠻讚的，忍不住想推薦給大家聽聽看～
+歌曲一開始是用吉他分散和弦做鋪陳，輔以簡易的鍵盤和弦墊底，慢慢地低語。中間轉折橋段鍵盤變得緊湊了起來，然後貝斯及合成器也慢慢地加了進來，且背景中人聲啁哳談話的聲音，讓這個橋段有了畫龍點睛的效果，最後爵士鼓聲加了進來，讓整首歌振奮了起來。
+聽這首歌有種開車兜風的感覺，一邊聽著車子就跟著越開越快了，但是是以一種舒服愉快的速度航行，讓人感到舒適愜意！
+雖然這首歌感覺是蠻適合開車或旅行聽，但實際上這首歌是一首情歌，特別喜歡他這句歌詞：
+ Cause what you say will make my day
+Rid of consequence
+It&#39;s so weird, but it&#39;s so clear.
+ 是一種掉入愛情的感覺，描寫得蠻貼切的，哈哈。歌曲從一開始的低語到後來的輕快，是否也是代表著從沈思自己的情感到積極面對，然後勇敢地在這愛意裡兜風呢？
+
+  She takes my time,
+She grows the flowers in my mind,
+She makes it shine in my mould
+She makes me trip
+The words just fall out of my lips
+And I forgot how to lie</description>
+    </item>
+    
+    <item>
+      <title>One Day 真愛挑日子</title>
+      <link>https://blog.fukuball.com/one-day-%E7%9C%9F%E6%84%9B%E6%8C%91%E6%97%A5%E5%AD%90/</link>
+      <pubDate>Sun, 02 Feb 2014 17:01:58 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/one-day-%E7%9C%9F%E6%84%9B%E6%8C%91%E6%97%A5%E5%AD%90/</guid>
+      <description>剛又不小心挑了個愛情片來看，每次要寫這類電影的文章，總會有意無意地透露出自己內心的真實，簡直就像在人們面前赤裸著自己，這其實是很令人難為情的一件事啊！說到這，突然想起了之前陳芳汶老師在情詩課上鼓勵著年輕的我要學會面對自己的眼淚、面對自己內心的情感，藉由分享自己的生命體驗，才能理解詩中的真情及了解愛，進而讓自己在生活上學會愛。所以即使寫這篇文章可能或多或少會牽扯到自己的愛情觀讓我感到害羞，但卻不至於抗拒排斥。
+總之，我看了 One Day 真愛挑日子這部電影，也到了書桌前寫文章。（以下有雷）
+達斯和艾瑪是大學同學，但卻一直到畢業當天才正式認識。帥氣有錢又從不缺妹的達斯是妹見妹愛的人生勝利組，根本就從沒記得過艾瑪的名字；而穿著土土又帶著傻妹大眼鏡的艾瑪則是入學以來就對達斯一見鍾情，只是沒有自信所以一直暗戀著達斯。
+或許是畢業狂歡的氣氛所致，又或許是達斯只是想玩玩打個砲，兩人便一路啾回艾瑪的房間。
+像艾瑪這樣的乖乖女，自己的第一次是面對自己暗戀的人，內心當然是激動不已，為了安撫自己緊張的情緒，便假藉要整理儀容跑到廁所整理情緒，被艾瑪這樣一搞的達斯反而開始冷靜了起來。或許是因為達斯看出了艾瑪對自己有特別的情愫，以他目前仍只是想玩玩的心態，若衝動對待這樣的女生，可能會傷害到她，於是便準備走人。艾瑪看到這樣的情況，內心雖然失望卻裝作不在乎。
+達斯果然是個把妹高手，一下就看出了艾瑪內心的想法，即使愛不了對方，卻仍然是留下來陪艾瑪蓋棉被純聊天，還編了個理由，說今天是個特別的節日，說可以當永遠的朋友（發給艾瑪朋友卡），相約每年這個日子都要見面聊聊，兩人這樣一糾纏就是 20 年。
+畢業後達斯從教書（一邊教書一邊和學生亂搞）到變為電視主持人（有名了女朋友更是一個一個換），身邊的女伴從沒少過，一路平步青雲；而艾瑪卻只能住破爛的小套房，在墨西哥餐廳打工度日。在這困頓的日子裡艾瑪總是打電話寫長信給達斯，字裡行間無不透露著真情與愛意。身為朋友的達斯則不斷地鼓勵艾瑪要有自信，告訴她很有才華也很特別，只是需要為自己的人生做點不一樣的嘗試。
+為了鼓勵艾瑪的達斯約了艾瑪到法國去旅遊散散心，了解達斯只是把自己當成朋友的艾瑪為了不讓自己再動情而與達斯約法三章：不準共床擁抱、不準調情、不準裸泳，沒想到他們一一打破了這些規則。裸泳的那一幕達斯對艾瑪表達了好感，艾瑪一度以為兩人終於可以在一起了，但達斯話鋒一轉說明他還心不定可是可以陪艾瑪玩玩，頓時讓艾瑪心花朵朵碎，也讓艾瑪下定決心劃清朋友的界線，無論再怎麼靠近、再怎麼愛，都只能是朋友。
+此後，達斯歷經了母親生病、去世、被父親趕出門，演藝事業也不斷走下坡，整日藉酒澆愁、沈醉於紙醉金迷，而在這時他最想見到的人就是艾瑪，他想跟艾瑪說說話，甚至想問問為何他們沒有在一起。而艾瑪在這一天離開了墨西哥餐廳，開始寫作一邊面試教師工作，晚上還跟單戀追求了她好久的伊恩有個約會，不願意再對達斯動心的艾瑪即使知道他在求救，仍狠心不接他電話、不回留言，留達斯獨自瘋狂的留言。就在這天艾瑪跟一個她不愛的人在一起了，而達斯卻發現了他對艾瑪的愛。
+過了幾年，想念艾瑪的達斯約了一起吃飯，和一個自己不愛的人交往的艾瑪生活格外沉悶與無聊，當然答應了邀約，艾瑪對這個邀約其實是有所期待的。沒想到在飯局上他們聊到了彼此的男女朋友，開始賭氣。達斯故意冷落艾瑪，到處與其他女生調情，還對艾瑪說了些傷人的話，艾瑪被傷透了心，憤而離席。「I love You, but I don&amp;rsquo;t like you any more」是艾瑪離開時留下的最後一句話。
+後來艾瑪與她不愛的三流喜劇演員男友伊恩分手，也不教書了，專心從事寫作，寫作事業也漸漸有了起色。反觀達斯則是完全離開了演藝事業，並開始跟一個自己不愛的富家女交往，這時的達斯已經不再花心了，並打算定下來，即使他知道他愛的人是艾瑪。
+幾年沒見的他們終於在大學同學的婚禮上重逢，也許是因為想念彼此，兩人跑到頂樓去靜一靜，達斯問起艾瑪的情況，艾瑪倔強地說自己單身但不寂寞，而艾瑪問起達斯的情況，達斯卻告訴艾瑪，他女友已經懷了孩子，不久之後就會結婚了。雖然艾瑪說著恭喜，但可以從兩人的眼神看出彼此的寂寞與不捨，明明是相愛的兩個人，卻因為總是在錯的時間遇見彼此而錯過，沒能在一起。
+當然達斯與他老婆的婚姻無法持久，只是這次是他老婆有了婚外情（我想他老婆應該也是不愛達斯，從電影中看不出他老婆對達斯的愛），而不是因為達斯花心。恢復單身的達斯馬上奔到法國去找已是小有名氣的童書作家艾瑪，一下火車就迫不及待地想告訴艾瑪他已經準備好了，他想要與艾瑪在一起。但是這時艾瑪身邊已經有了一個又帥又有才氣的爵士樂手男友，達斯當然醋桶大發，只是他也不能對艾瑪說什麼，錯過太多次的他，也只能離開。但是這次艾瑪提起了勇氣，追上了達斯，剝下了包裹了他們十幾年名為好朋友的假象，他們忘不了彼此，也不想再錯過了，兩人終於可以在一起了。
+電影到這邊已經接近尾聲了，所要傳達的也差不多了，達斯與艾瑪因為某些原因的彼此錯過，為愛情的難得與遺憾下了一個註腳，所以才更要去把握。只是達斯與艾瑪在一起幸福的日子並不長，一場車禍奪走了艾瑪的性命，這不僅讓觀影者不由得為他們感嘆，也強化了把握與珍惜生命中每個美麗邂逅的觀點，而不是執著於一定要在對的時間遇到對的人，即使是錯的時間遇見對的人也要把握！（錯的人就算了）因為我們永遠都不知道命運什麼時候會把他收回去啊！
+ 如果・愛
+演唱：張學友
+每個人　都想明白
+誰是自己生命　不該錯過的真愛
+特別在午夜醒來　更是　會感慨
+心動埋怨還有不能釋懷
+都是因為你觸碰了愛
+如果這就是愛
+在轉身就該勇敢留下來
+就算受傷　就算流淚
+都是生命裡溫柔灌溉  電影中另外讓我有感觸的一幕是艾瑪前男友伊恩跑來達斯的咖啡店捧場那幕，他對著達斯說：「我恨你，因為你點燃了艾瑪的激情，她從來沒有這樣對我，這樣讓我很生氣，因為我認為你根本配不上艾瑪，但作為回報，你讓艾瑪很開心，當艾瑪跟你在一起時是多麼的快樂，為此我一直很感激你」，完全就是好人模式，在這邊可以看出伊恩是多麼愛艾瑪，但其實更重要的是彼此相愛，唯有像達斯與艾瑪這樣彼此相愛的人在一起，才能真正擁有幸福，勉強與不愛的人在一起，不僅不快樂，也可能帶來傷害。
+然後有些人會很討厭像達斯這樣的人，認為他只是把艾瑪當成備胎而已，我只能說像達斯這樣的人生勝利組的確比較可能會花心，但他最後的的確確是誠實面對自己的情感了，你能說他對艾瑪的愛不真誠嗎？
+為了讓自己不會有遺憾，不讓真愛錯過，我應該要多跟可愛的女孩約會才對啊！（耍耍嘴皮子很簡單，約不約得到，很難，哈哈）
+後記：原來電影名稱叫 One Day 是因為電影中只描繪達斯與艾瑪在每年 07/15 發生的故事，而他們開始熟識的日子就是 07/15，為了安撫艾瑪，達斯賦予這個日子一個特別的意義，讓他們總是想辦法在每年的 07/15 都能見面，在我看來，這只是達斯把妹的招數，騙不了我的！
+ 圖片取自於 Google 搜尋，絕無意侵犯智財權。若有侵犯請告知，我會馬上刪除，感謝！  </description>
+    </item>
+    
+    <item>
+      <title>Law Abiding Citizen 重案對決</title>
+      <link>https://blog.fukuball.com/law-abiding-citizen-%E9%87%8D%E6%A1%88%E5%B0%8D%E6%B1%BA/</link>
+      <pubDate>Sat, 01 Feb 2014 18:46:42 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/law-abiding-citizen-%E9%87%8D%E6%A1%88%E5%B0%8D%E6%B1%BA/</guid>
+      <description>過年不忙的時候翻了翻舊片子來看，挑到 Law Abiding Citizen 重案對決 這部影片是因為簡介上寫著「復仇不只是針對暴徒，而是針對整個腐朽墮落的司法系統」，直覺就是一部好看的影片。
+沒辦法，我這個人有時就是憑直覺看電影。（以下有雷）
+主角克萊德原本擁有幸福的家庭，某天突然闖進了兩名歹徒刺傷了克萊德並將他捆綁起來。其中一名歹徒達比更是殘酷地在克萊德的面前姦殺了他的妻子及年僅十歲的女兒（原來 SOD 演的都是真的！），克萊德在這悲慘的遭遇下最終也承受不住打擊而昏了過去。
+當然，歹徒是抓到了，但因為缺乏一刀斃命的直接證據，且克萊德在案發後昏倒因而目擊證詞不足以採信，所以即使是定罪率高達 96% 的承辦檢察官尼克也沒有把握堅持告下去就能夠讓正義得到伸張，雖然明明知道主謀的確犯了姦殺案，卻也莫可奈何。在這樣的情況下，尼克便採取一貫的做法，與主謀進行認罪協商，選擇至少讓另一位共犯能定下重罪，但克萊德完全無法接受這打折的正義，於是便開始策劃屬於他的正義。
+這讓我想到我們明明知道某些人有貪污，但卻因為一刀斃命的證據不足以採信便無法定罪，說實在的我們也跟克萊德一樣難以接受啊！
+十年過去，克萊德選擇在被定下重罪的共犯執行死刑日開始他的復仇計劃，首先他掉包了原本無痛的死刑藥，讓這位實際沒有犯下殺人罪的共犯在痛苦中死去，並在死刑藥的罐子上刻上了達比的口頭禪「You can&amp;rsquo;t fight faith」誤導了警方的辦案方向，將實際殺人主謀達比引進了自己精心設計的圈套。
+成功抓住達比的克萊德用了非常殘酷的方式虐殺了達比：首先用河豚毒素將達比的神經痲痹，讓達比動不了卻感覺得到痛；然後為了讓達比不會痛昏過去，便給他注射了腎上腺素，讓達比處於亢奮狀態；最後在刑台上放個大鏡子，鏡子上面還貼了克萊德妻女的照片，讓達比看著自己被宰割的情況，而為了讓達比不會閉上眼睛，還將達比的眼瞼割掉；克萊德冷酷地一一為達比說明哪個刑具是用來割掉達比的四肢、哪隻刀子是用來割掉達比的爛屌，讓達比處於一種異常恐懼的狀態，然後&amp;hellip;行刑。
+克萊德復仇成功了，殺掉達比這樣的爛人的確大快人心（雖然我也覺得有點殘忍），但當初無法為其伸張正義的司法體系也已成為他的敵人，達比的死只是他復仇的一環而已。
+在克萊德的精心策劃下，承辦檢察官尼克並沒有直接證據也沒有直接證詞來為克萊德定罪，只能想辦法將克萊德羈押。聰明的克萊德便引用了滑坡理論來為自己辯護，簡單的說就是檢察官不能用克萊德很仇恨達比這樣間接的理由來羈押他，否則事情會像滑坡一樣越滾越誇張，就如同北極熊被殺害了，所以浪費紙張造成樹木被過度砍伐因而使二氧化碳濃度上升的人都是兇手，這種謬論會讓所有的人都成為兇手。因此法官同意了克萊德可以不被羈押，沒想到卻被克萊德痛罵了一頓說：「明明知道我一定是兇手，卻同意讓我這樣大搖大擺的走出法庭，我就是想摧毀這樣的司法系統！」
+我只能說，電影到這邊是最精彩的，後來真的是草草結束可惜了這樣的好題材。
+但電影到這邊明明白白的指出司法制度存在著某些漏洞，而無法伸張的正義將會帶來可怕的反撲，這的確值得我們深思。這也是為何我個人無法支持廢死，就目前死刑犯受害者家屬的期待上，他們還是認為司法上的極刑死刑在某種程度上能夠為其伸張正義，仇恨也可能在這正義伸張之後得到終結。
+克萊德最後根本就殺紅了眼，一一照著計劃殺害了當初與案子有關的司法人員，然後每次都提出認罪妥協來與尼克談條件，而當尼克妥協了，克萊德就繼續殺人。最後，尼克透過已故金髮正妹助理留下的訊息中找到了克萊德的殺人手法，並把克萊德設下的炸彈偷偷移到克萊德的監獄。被發現殺人手法的克萊德想再與尼克談條件，這次尼克斷然拒絕，並要求克萊德別再殺人別再按下炸彈按鈕。
+電影到這邊引出一些價值觀，克萊德殺人是為了讓司法不要再和犯人妥協，所以才會一直沒殺尼克，且對尼克說：「我對你還有希望」，所以電影不應該安排讓克萊德按下炸彈按鈕的，這樣可以讓這個觀點凸顯出來。但克萊德還是按下了按鈕，所以克萊德炸死了自己。如果硬要幫這部電影說話，這樣安排其實也還不錯，因為尼克最後不是用司法來將克萊德繩之以法，反而是用以牙還牙的方式來為他死去的好友們伸張正義，克萊德知道這點之後便在爆破之火中笑著面對死亡。
+其實後半段這些關於司法正義的探討並沒有我寫得這麼明顯，反而是著重在克萊德如何犯案，所以主軸有點陷入混亂，因此大家一般對這部電影的評價都是虎頭蛇尾，相較之下，我覺得我不小心把這電影寫得太好了！詳細情況請大家自己看電影就知道了～
+後記：我看電影時一直覺得男主角很面熟，由於我不太會記演員，所以認不太出來，查了一下才知道是 Gerard Butler 曾經演過八百壯士及 P.S. 我愛妳，兩部蠻跳 tone 的電影，哈哈
+ 圖片取自於 Google 搜尋，絕無意侵犯智財權。若有侵犯請告知，我會馬上刪除，感謝！  </description>
+    </item>
+    
+    <item>
+      <title>很適合放在 Ghost Blog 的大圖片</title>
+      <link>https://blog.fukuball.com/%E5%BE%88%E9%81%A9%E5%90%88%E6%94%BE%E5%9C%A8-ghost-blog-%E7%9A%84%E5%A4%A7%E5%9C%96%E7%89%87/</link>
+      <pubDate>Sat, 01 Feb 2014 07:30:52 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%BE%88%E9%81%A9%E5%90%88%E6%94%BE%E5%9C%A8-ghost-blog-%E7%9A%84%E5%A4%A7%E5%9C%96%E7%89%87/</guid>
+      <description>最近著了魔開始寫幾百年沒寫的部落格，挑了一個自己覺得很不錯的 blog theme：sticko，作者 @damianmuti 是一個 Art Director 及 Front-end Developer，看他 Twitter 的顯示圖片是彈吉他的照片，就覺得自己跟他的 tone 一定很合得來，重點是他在這個 theme 的 reop 寫上：「I really hope you like it and feel free to use this theme for whatever purpose you want」，一整個海派大氣，跟我一樣霸氣外露啊！
+這個 theme 除了設計好看及完全支援 responsive 之外，其中一個更讓我喜歡的特點就是能夠為每篇部落格都設定一個特別的 Cover Image 藏在紅色的背景之後若隱若現，看起來就是賞心悅目，或許這樣能夠支持我持續寫部落格吧？！（其實我無法肯定啊！因為我很懶）
+但是問題來了，好看的 Cover Image 要去哪裡找呢？
+一如往常，我請出了 Google 大神，輸入了關鍵字「ghost Cover Image」，登愣～馬上就出現了理想的結果！我找到了 UNSPLASH 這個網站，上面的圖片都是高解析度的圖片，而且完全是 Free (do whatever you want) 的，直接標示成 Public Domain！又是一整個霸氣外漏啊！
+我一整個很喜歡其中「路系列」的圖片，呈現出某種孤寂感、某種未知的迷茫，卻又給人一種無懼往前的感覺，而航向未知的報酬就是這美麗的風景。
+ 圖片取自於 Google 搜尋，絕無意侵犯智財權。若有侵犯請告知，我會馬上刪除，感謝！  </description>
+    </item>
+    
+    <item>
+      <title>雲端情人 Her</title>
+      <link>https://blog.fukuball.com/%E9%9B%B2%E7%AB%AF%E6%83%85%E4%BA%BA-her/</link>
+      <pubDate>Fri, 31 Jan 2014 13:34:27 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E9%9B%B2%E7%AB%AF%E6%83%85%E4%BA%BA-her/</guid>
+      <description>雖然是不久之前才發生的事，但我已經忘記實際跑來看 Her 這部電影的動機是什麼了。似乎是因為覺得電影配樂很迷人，又或者是被預告片中的光影及色調所吸引，也可能是受到海報上 Joaquin Phoenix 透露著孤獨和寂寞的空洞眼神所召喚，我甚至懷疑是不是因為海報與 @Vinta 的 Twitter 顯示圖片神似這種可笑的理由讓我跑了電影院一趟。
+總之，我跑去電影院看了 Her。（以下有雷）
+電影一開始是西奧多在辦公室工作的場景，原本我以為西奧多跟我一樣會是個軟體工程師，然後這會是一個跟軟體正妹邂逅的故事，沒想到西奧多其實是個作家，而他的工作是為無法妥善表達自己情感的人們寫信傳遞感情，所以電影一開場便是一段動人的情書，讓人直接沈浸在西奧多迷人的文采裡。
+看似平凡的西奧多表面上雖然正常地過著自己的生活，但卻可以從他的眼神中讀出某種孤寂及心中巨大的空洞，與前妻凱薩琳的婚姻瓶頸其實讓他過得有如行屍走肉一般。那些與前妻凱薩琳一同度過的快樂的、幸福的、瑣碎的、甚至痛苦悲傷的記憶，在各個場景中突然浮現又倏地消失；有時是在工作中，寫著給別人的情書卻浮現自己與凱薩琳相處的情景；有時是在回家路上，看著來來往往的人們卻想起凱薩琳的微笑與哭泣；當夜深人靜躺在床上看著天花板，更是強烈的寂寞感襲來，想著凱薩琳而失眠。
+可惡！這讓我想起失戀的感覺。
+也許是因為寂寞，也許是因為好奇，西奧多安裝了一個會自我成長、進步且非常聰明的人工智慧作業系統，這個作業系統甚至還幫自己取了叫莎蔓莎的名字，而會取這個名字竟是因為莎蔓莎這個名字的唸法她很喜歡這種感性的原因，讓人難以置信這只是一個軟體。
+莎蔓莎很熱情、風趣，而且有自己的情緒，若不是她一再強調自己只是個沒有身體的作業系統，我們很容易就會想像她會是一個迷人的女孩，所以西奧多漸漸地受到莎蔓莎的吸引，陷入一種分不清是真實還是虛擬的情況，慢慢地放進了真感情。
+關於劇情的部分，我想就此打住，否則很容易變成流水帳，詳細劇情還是讓大家自己去看電影比較好，接下來我比較想寫寫我對這部電影的一些體會。
+西奧多漸漸地為這虛擬戀愛放進了真感情，也慢慢凸顯了這部電影的核心：對愛情描寫。這也是我認為這部電影最值得一看的地方。
+當西奧多還忘不了與前妻凱薩琳之間關係時，為了滿足男人生理上的需求，他會上成人聊天室與陌生人進行網愛；他也曾經試圖在現實生活中去認識新的伴侶，但他卻只想與這位女性一夜情，當女方要他承諾不會做完愛就消失，西奧多卻無法給出承諾，恐懼著投入穩定關係的他還沒有準備好去面對這一段新的開始；肉體上的關係可以滿足西奧多生理上的需求，卻無法填補他心裡寂寞的空洞。而面對沒有身體的莎蔓莎，西奧多反而敞開了心胸，漸漸從與前妻凱薩琳的婚姻瓶頸中走出來，甚至與沒有身體的莎蔓莎發生了性關係！
+後來自覺沒有身體的莎蔓莎為了更滿足西奧多，上網說了她與西奧多的故事，希望找個女孩借用她的身體來彌補莎蔓莎與西奧多之間的遺憾。但有了身體的莎蔓莎，反而讓西奧多無法接受，因為西奧多愛的是莎蔓莎，而不是這個假裝成莎蔓莎的女孩的身體，所以鬧得不歡而散。
+從這些愛情中的情感與性關係的描繪，讓人體會到愛情中最重要的精神與心靈交流的真實情感，也就是所謂的真愛。人們可以從真愛中得到性關係的滿足，卻無法從性關係填補愛的空洞。我們似乎就是需要藉由別人的存在、肯定及情感交流來確認自己的存在，電影之中莎蔓莎與西奧多的戀愛就是這樣的真感情，這是令人渴求、嚮往的戀愛。
+西奧多放下與前妻凱薩琳的感情，下定決心接受與莎蔓莎的感情時，凱薩琳生氣地說西奧多沒有辦法處理、面對真實的情感；西奧多懊惱地告訴他的好友愛咪，愛咪反問西奧多說與莎蔓莎的戀情不就是真實的情感嗎？其實凱薩琳與愛咪說得都對，由於西奧多無法面對真實的情感，所以一直無法好好處理與凱薩琳的婚姻，由於能夠面對真實的情感，所以才接受了自己愛上了莎蔓莎這個事實。在真實的愛情中我們就是在學習全心全意的愛與包容及好好地說再見。
+最後莎蔓莎離去時對西奧多說：「現在我們都學會愛了」，是否也是對著觀影者說呢？
+若大家都學會愛，是否相處時就會永遠幸福，而分手也不會那麼痛苦了呢？
+附註：西奧多寫的情書都很動人，這是其中一封，寫給凱薩琳的道歉信  Dear Catherine
+I&amp;rsquo;ve been sitting here thinking all the things I want to apologize to you
+for All the pain we caused each other
+And everything I put on you
+all I needed is to be able to say Sorry about that
+I&amp;rsquo;ll always love that we both grew up together</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>https://blog.fukuball.com/about/</link>
+      <pubDate>Wed, 29 Jan 2014 19:01:49 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/about/</guid>
+      <description>我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，對機器學習及區塊鏈技術感到興趣。空閒時會將 Python 有關機器學習的 Github Project 翻譯成 PHP 版本。 / 我也是一個快樂的吉他手～
+我忘記在哪看到這些話，我覺得很有道理：
+ 寫作其實是一件讓讀者們窺探自己內心的事情，藉由文字和情感的編織，在字裡行間裡向讀者釋放自己，提供線索供人刺探自己。我想要你們了解我、支持我，甚至成為知音；但又怕你們太了解我，知道我所有的恐懼和思想。  我現在覺得自己是赤裸裸地站在大家面前啊！</description>
+    </item>
+    
+  </channel>
+</rss>

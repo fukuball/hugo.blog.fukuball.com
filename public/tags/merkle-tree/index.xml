@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Merkle Tree on I am Fukuball</title>
+    <link>https://blog.fukuball.com/tags/merkle-tree/</link>
+    <description>Recent content in Merkle Tree on I am Fukuball</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 09 Sep 2018 12:03:29 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.fukuball.com/tags/merkle-tree/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ethereum 開發筆記 1–6：Blockchain 相關的加密基礎知識</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-16blockchain-%E7%9B%B8%E9%97%9C%E7%9A%84%E5%8A%A0%E5%AF%86%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98/</link>
+      <pubDate>Sun, 09 Sep 2018 12:03:29 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-16blockchain-%E7%9B%B8%E9%97%9C%E7%9A%84%E5%8A%A0%E5%AF%86%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98/</guid>
+      <description>Blockchain 裡應用了一些加密技術來保證及驗證交易訊息的正確性，這也更加強了 Blockchain 資料不可竄改的特性。我們來介紹其中比較重要的「公私鑰加密」以及「Merkle Tree」加密樹。
+公私鑰加密 公私鑰加密算法是目前資訊通訊安全的基石，它保證了加密訊息不可被破解，相關的加解密原理大家可以參考這兩篇文章：
+ RSA算法原理（一）http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html RSA算法原理（二）http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html  加密與解密 公私鑰加密方法是一種非對稱式加密，透過公鑰加密過後的訊息只有私鑰可以解密，也因此只要保護好私鑰就能保證資訊的安全。
+現在假設 Alice 要傳一個訊息給 Bob，希望訊息加密過後只有 Bob 可以解密，大概會經過如下步驟：
+ Bob 傳他的公鑰給 Alice Alice 使用 Bob 的公鑰加密訊息 Alice 將加密過後的訊息傳給 Bob Bob 用他的私鑰解密訊息  我們這邊使用 openssl 來練習一下加密與解密，首先我們來產生一對公私鑰：
+// Create RSA private key $ openssl genrsa -des3 -out rsa-key.pem 2048 // Create public key $ openssl rsa -in rsa-key.pem -outform PEM -pubout -out rsa-key-pub.pem  其中 rsa-key.pem 就是私鑰，rsa-key-pub.pem 為公鑰，私鑰會要求設置密碼，請妥善記下密碼。
+我們先用 rsa-key-pub.pem 加密資料：</description>
+    </item>
+    
+  </channel>
+</rss>

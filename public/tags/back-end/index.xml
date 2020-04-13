@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Back End on I am Fukuball</title>
+    <link>https://blog.fukuball.com/tags/back-end/</link>
+    <description>Recent content in Back End on I am Fukuball</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 25 Nov 2014 11:24:59 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.fukuball.com/tags/back-end/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>在 Linux 系統背後執行一個程序</title>
+      <link>https://blog.fukuball.com/%E5%9C%A8-linux-%E7%B3%BB%E7%B5%B1%E8%83%8C%E5%BE%8C%E5%9F%B7%E8%A1%8C%E4%B8%80%E5%80%8B%E7%A8%8B%E5%BA%8F/</link>
+      <pubDate>Tue, 25 Nov 2014 11:24:59 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%9C%A8-linux-%E7%B3%BB%E7%B5%B1%E8%83%8C%E5%BE%8C%E5%9F%B7%E8%A1%8C%E4%B8%80%E5%80%8B%E7%A8%8B%E5%BA%8F/</guid>
+      <description>當有一個程序需要不斷的偵測請求，我們通常需要背景執行一個程序，且不能讓程序關閉，比較正規的做法當然就是直接開一個伺服器服務來執行這個程序，但有時我們會不希望為了一個小程序而去開服務，這時可以用以下這個指令來讓系統背後執行一個程序：
+$ nohup node server.js &amp;amp;  以上例子就會讓系統背後執行 node.js 的預設 server，即使關閉 terminal 也會持續執行，若想關閉，就需要用 kill 的方式來將程序關閉。</description>
+    </item>
+    
+    <item>
+      <title>如何找出占用 Port 的 Process 並將之關閉</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BA%E5%8D%A0%E7%94%A8-port-%E7%9A%84-process-%E4%B8%A6%E5%B0%87%E4%B9%8B%E9%97%9C%E9%96%89/</link>
+      <pubDate>Tue, 25 Nov 2014 11:14:14 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E6%89%BE%E5%87%BA%E5%8D%A0%E7%94%A8-port-%E7%9A%84-process-%E4%B8%A6%E5%B0%87%E4%B9%8B%E9%97%9C%E9%96%89/</guid>
+      <description>開服務時有時難免會遇到 Port 被占用的情況，這時就需要找出哪些 Process 占用了這個 Port，並強制關閉 Process，如此才能夠再度使用這個 Port。
+假設現在 1337 Port 被占用了，我們可以使用以下指令找出占用 Port 的 Process：
+$ lsof -i tcp:1337 // 輸出結果 COMMAND PID USER FD TYPE DEVICE SIZE/OFF NODE NAME php 26267 root 5u IPv4 4542269 0t0 TCP *:1337 (LISTEN) php 26267 root 7u IPv4 4542295 0t0 TCP php 26267 root 8u IPv4 4542296 0t0 TCP  然後我們就可以使用 PID 來關閉 Process：
+$ kill -9 26267  </description>
+    </item>
+    
+    <item>
+      <title>使用 Private Key 登入 AWS EC2</title>
+      <link>https://blog.fukuball.com/%E4%BD%BF%E7%94%A8-private-key-%E7%99%BB%E5%85%A5-aws-ec2/</link>
+      <pubDate>Tue, 22 Apr 2014 18:22:03 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E4%BD%BF%E7%94%A8-private-key-%E7%99%BB%E5%85%A5-aws-ec2/</guid>
+      <description>首先在開 AWS EC2 之前，應該會先取得一組 Private Key，請好好保存這組 Private Key，它會是個 .pem 或 .cer 檔。
+開啓 Terminal 之後，請用以下指令登入 AWS EC2：
+Step 1：更改 Private Key 檔案權限
+＄chmod 600 path/to/private-key.pem  Step 2：使用 SSH 登入 AWS EC2
+$ssh -i path/to/private-key.pem ubuntu@ec2-X-X-X.compute-X.amazonaws.com  這樣應該就可以順利登入 AWS EC2 了，其中 Step 1 只要執行過一次就可以了，簡單。</description>
+    </item>
+    
+    <item>
+      <title>如何在 OSX 安裝 Vagrant 開啓 Ubuntu 12.04 LTS 32-bit 虛擬環境</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%9C%A8-osx-%E5%AE%89%E8%A3%9D-vagrant-%E9%96%8B%E5%95%93-ubuntu-12.04-lts-32-bit-%E8%99%9B%E6%93%AC%E7%92%B0%E5%A2%83/</link>
+      <pubDate>Mon, 10 Mar 2014 17:09:52 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%9C%A8-osx-%E5%AE%89%E8%A3%9D-vagrant-%E9%96%8B%E5%95%93-ubuntu-12.04-lts-32-bit-%E8%99%9B%E6%93%AC%E7%92%B0%E5%A2%83/</guid>
+      <description>安裝開發環境一直是個麻煩的問題，因此使用 Vagrant 來無痛安裝一個乾淨的開發環境，將各個 project 所需要的開發環境獨立出來是目前最好的解決方案了。本篇文章將介紹如何在 OSX 上安裝 Vagrant 並開啓 Ubuntu 12.04 LTS 32-bit 虛擬環境。
+Step 1：安裝 VirtualBox
+Step 2：安裝 Vagrant
+Step 3：開一個資料夾來練習
+$ mkdir vagrant-practice $ cd vagrant-practice  Step 4：初始化虛擬環境
+$ vagrant init precise32 http://files.vagrantup.com/precise32.box  Step 5：開啟虛擬環境（此步驟會等待比較久的時間，之後執行則會變快）
+$ vagrant up  Step 6：登入虛擬環境
+$ vagrant ssh  如此就有一個全新的 Ubuntu 12.04 LTS 32-bit 虛擬環境了！酷！
+若想刪除虛擬環境，則執行以下指令：
+$ vagrant destroy  </description>
+    </item>
+    
+    <item>
+      <title>如何開啓 Apache2 的 mod_rewrite</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E9%96%8B%E5%95%93-apache2-%E7%9A%84-mod_rewrite/</link>
+      <pubDate>Mon, 10 Mar 2014 17:08:05 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E9%96%8B%E5%95%93-apache2-%E7%9A%84-mod_rewrite/</guid>
+      <description>使用 Apache2 作為網頁伺服器時，尤其是 PHP Web Application，通常會使用 rewrite rule 來改寫網址，最近開 AWS 上的 Ubuntu 12.04 機器，安裝 Apache2 時 mod_rewrite 預設並非開啓的，所以我們就要自行開啓 mod_rewrite。
+指令如下：
+$ sudo a2enmod rewrite Enabling module rewrite. To activate the new configuration, you need to run: service apache2 restart  開啓後，重開 apache2 即可啓用 mod_rewrite。</description>
+    </item>
+    
+    <item>
+      <title>如何列出正在執行的 PHP Script Process</title>
+      <link>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%88%97%E5%87%BA%E6%AD%A3%E5%9C%A8%E5%9F%B7%E8%A1%8C%E7%9A%84-php-script-process/</link>
+      <pubDate>Mon, 10 Mar 2014 16:58:22 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/%E5%A6%82%E4%BD%95%E5%88%97%E5%87%BA%E6%AD%A3%E5%9C%A8%E5%9F%B7%E8%A1%8C%E7%9A%84-php-script-process/</guid>
+      <description>在實務上我們通常會使用 crontab job 來背景執行一些程式，有時我們會有需要砍掉這些 process 的情況發生，這時我們就需要列出 process 的 process id，並手動將這些 process 砍掉～
+以要查閱 apns-task.php 這支 php script 在機器上執行的 process id 為例，指令可以這樣下：
+$ ps auxwww|grep apns-task.php|grep -v grep  如此就可以列出正在執行 apns-task.php 這支程式的所有 process：
+user 15211 0.0 0.0 4108 604 ? Ss 15:10 0:00 /bin/sh -c php /path-to-your-script/apns-task.php user 15213 50.0 0.0 211584 28124 ? R 15:10 0:00 php /path-to-your-script/apns-task.php  如輸出結果所見，現在有兩個 process 15211 及 15213 正在執行 apns-task.php 這支程式，如果要刪除 process 15211，指令就可以這樣下：
+$ kill 15211  以上就是如何列出正在執行的 PHP script process 的簡易筆記～</description>
+    </item>
+    
+  </channel>
+</rss>

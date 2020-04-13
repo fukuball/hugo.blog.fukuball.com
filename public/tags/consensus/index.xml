@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Consensus on I am Fukuball</title>
+    <link>https://blog.fukuball.com/tags/consensus/</link>
+    <description>Recent content in Consensus on I am Fukuball</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 09 Sep 2018 18:23:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://blog.fukuball.com/tags/consensus/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ethereum 開發筆記 1–7：Blockchain 的一些重要性質</title>
+      <link>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-17blockchain-%E7%9A%84%E4%B8%80%E4%BA%9B%E9%87%8D%E8%A6%81%E6%80%A7%E8%B3%AA/</link>
+      <pubDate>Sun, 09 Sep 2018 18:23:57 +0800</pubDate>
+      
+      <guid>https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-17blockchain-%E7%9A%84%E4%B8%80%E4%BA%9B%E9%87%8D%E8%A6%81%E6%80%A7%E8%B3%AA/</guid>
+      <description>我們這邊再次總結一下 Blockchain 中幾點較重要的性質，包含共識機制、不可竄改、經濟激勵三項。
+共識機制（Consensus） 在分散式系統中，我們需要有一套用於協同合作的共識機制來組織行動，但有時候系統中的成員可能會出錯或是故意傳送出錯誤的資訊，而使得網路中不同成員對於全體協作的策略得出不同的結論，進而破壞系統的一致性，這就是所謂的拜占庭將軍問題。
+拜占庭將軍問題（Byzantine Generals Problem） 拜占庭將軍問題這個故事是這樣的：
+ 一組拜占庭將軍分別各率領一支軍隊共同圍困一座城市，這個敵人雖不比拜占庭帝國，但也足以抵禦 5 支拜占庭軍隊的同時襲擊。這 10 支軍隊在分開的包圍狀態下，他們任 1 支軍隊單獨進攻都毫無勝算，除非有至少 6 支軍隊（一半以上）同時襲擊才能攻下敵國。他們分散在敵國的四周，依靠通信兵騎馬相互通信來協商進攻意向及進攻時間。困擾這些將軍的問題是，他們不確定他們中是否有叛徒，叛徒可能擅自變更進攻意向或者進攻時間。在這種狀態下，拜占庭將軍們才能保證有多於 6 支軍隊在同一時間一起發起進攻，從而贏取戰鬥？
+ 上述的故事對映到電腦系統裡，將軍便成了電腦，而通信兵就是通訊系統。叛徒發送前後不一致的進攻提議，被稱為「拜占庭錯誤」，而能夠處理拜占庭錯誤的這種容錯性稱為「Byzantine Fault Tolerance」。Blockchain 上的共識機制通常具有容錯的設計來達成一致性，主要比較常見的共識機制方法有兩個，「工作量證明」以及「股權證明」兩種方法。
+工作量證明演算法（Proof of Work, PoW） 中本聰在 Bitcoin 中創造性的引入了「工作量證明」（俗稱挖礦）來解決拜占庭將軍問題，顧名思義，工作量證明就是用來證明你做了一定量的工作，可用工作成果來證明完成相應的工作量。其中的工作技術原理可以看之前這篇文章：Ethereum 開發筆記 1–4：Blockchain 技術原理簡介
+由於工作量證明具相當高的計算成本，因此無誘因去偽造，只有遵守協議約定，才能夠回收成本並獲得收益，也因此減少了叛徒的產生，減少拜占庭錯誤。
+股權證明演算法（Proof of Stake, PoS） 股權證明的出現，主要是希望取代工作量證明，進而減少「挖礦」的大量運算。它與工作量證明不同地方在於：工作量證明中，大家比的是「算力」（運算能力），透過大量運算得出符合難度的 Hash 值，進而得到獎勵；而在股權證明，大家比拼的是「股權」，「股權」越大的人（節點）越大機會負責產生新區塊，進而得到獎勵。
+舉例來說，在股權證明系統中所有擁有股權（此 Blockchain 的數位貨幣）的人都有機會被挑選為產生新區塊（也就是記帳）的人，擁有更多股權的人被選中的機率越大。假這這個系統中共有三個人：Alice 持有 50 股、Bob 持有 30 股、Cathy 持有 20 股，那每次 Alice 被選為記帳人的機率會是 Cathy 的兩倍。所以股權證明會驅使人們購買更多的股權，進而增加獲選為記帳人的機率，以買股權來代替挖礦，同樣需要付出高成本，也因此可以減少叛徒的產生，減少拜占庭錯誤。
+不可竄改（Immutability） Blockchain 不可竄改的性質主要來自資料結構及 hash 方式的設計，讓資料的順序緊密鏈結，若從中竄改了某些資料，那之後的鏈結 hash 都會發生錯誤，形成了 Blockchain 不可竄改的特性。</description>
+    </item>
+    
+  </channel>
+</rss>

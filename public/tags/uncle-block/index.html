@@ -1,0 +1,613 @@
+
+
+
+  
+
+
+
+
+  
+
+
+  
+
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Hugo 0.48 with theme Tranquilpeak 0.4.3-BETA">
+    <title>Uncle Block</title>
+    <meta name="author" content="Fukuball">
+    <meta name="keywords" content="">
+
+    <link rel="icon" href="images/favicon.ico">
+    
+      <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.fukuball.com/tags/uncle-block/index.xml">
+    
+
+    
+    <meta name="description" content="我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，對機器學習及區塊鏈技術感到興趣。 https://www.fukuball.com">
+    <meta property="og:description" content="我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，對機器學習及區塊鏈技術感到興趣。 https://www.fukuball.com">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Uncle Block">
+    <meta property="og:url" content="/tags/uncle-block/">
+    <meta property="og:site_name" content="I am Fukuball">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="I am Fukuball">
+    <meta name="twitter:description" content="我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，對機器學習及區塊鏈技術感到興趣。 https://www.fukuball.com">
+    
+    
+
+    
+    
+
+    
+      <meta property="og:image" content="//www.gravatar.com/avatar/6c910ba730e0acfda9ee450eec9776e6?s=640">
+    
+
+    
+    
+    
+
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://blog.fukuball.com/css/style-jsjn0006wyhpyzivf6yceb31gvpjatbcs3qzjvlumobfnugccvobqwxnnaj8.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="1">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://blog.fukuball.com/">I am Fukuball</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://blog.fukuball.com/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="//www.gravatar.com/avatar/6c910ba730e0acfda9ee450eec9776e6?s=90" alt="" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="1">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://blog.fukuball.com/#about">
+          <img class="sidebar-profile-picture" src="//www.gravatar.com/avatar/6c910ba730e0acfda9ee450eec9776e6?s=110" alt="" />
+        </a>
+        <h4 class="sidebar-profile-name">Fukuball</h4>
+        
+          <h5 class="sidebar-profile-bio">我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，對機器學習及區塊鏈技術感到興趣。 <a href="https://www.fukuball.com">https://www.fukuball.com</a></h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.fukuball.com/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">About</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.fukuball.com/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">Home</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://facebook.com/fukuball" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-facebook"></i>
+      
+      <span class="sidebar-button-desc">Facebook</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/fukuball" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://blog.fukuball.com/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">Blog</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+        
+
+      
+      <div id="main" data-behavior="1"
+        class="
+               hasCoverMetaIn
+               ">
+        
+          <section class="postShorten-group main-content-wrap">
+            
+            
+              
+  
+    
+      
+        
+      
+    
+  
+
+
+  
+
+<article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+  <div class="postShorten-wrap">
+    
+    <div class="postShorten-header">
+      <h1 class="postShorten-title" itemprop="headline">
+        <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-18ethereum-%E7%9A%84%E7%8D%8E%E5%8B%B5%E6%A9%9F%E5%88%B6/">
+          Ethereum 開發筆記 1–8：Ethereum 的獎勵機制
+        </a>
+      </h1>
+      
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2018-09-11T18:05:00&#43;08:00">
+        
+  September 11, 2018
+
+      </time>
+    
+    
+  </div>
+
+    </div>
+    <div class="postShorten-excerpt" itemprop="articleBody" style="margin-bottom: 50px;">
+      <div class="main-content-wrap">
+        
+
+<p>Bitcoin 的獎勵機制基本上是挖到新區塊的節點獲得記帳權及獎勵，Ethereum 大體也是遵循這樣的概念，但做了一些調整與變化，讓我們整個脈絡了解一下。</p>
+
+<p>由於 Blockchain 是一種去中心化的系統，所有的礦工（節點）可以同時挖礦（計算合法 hash），彼此獨立運作，所以極有可能出現兩的礦工同時發現不同的滿足條件的區塊，如此就會產生我們之前有提過的分叉（Fork）。</p>
+
+<p>那我們該採用誰的區塊當主鏈呢？我們會先依工作量最大的區塊為主鏈，如果工作量一樣，就看誰先接了子區塊，一般來說只有成了主鏈的區塊才能獲得獎勵。但這樣沒有變成主鏈的區塊之前的算力就都白費了，所以 Ethereum 創造了 Uncle Block（叔塊）這樣的概念，不能成為主鏈的區塊如果後來被收留成為 Uncle Block，那這些沒有成為主鏈的區塊也有機會可以做為 Uncle Block 而獲得獎勵。</p>
+
+<p style="text-align:center">
+    <img src="https://blog.fukuball.com/images/ethereum/ethereum-1-8-01.png">
+</p>
+
+<p>這就是 Ethereum 共識機制中的 GHOST（Greedy Heaviest Observed Subtree）協議，Ethereum 會這樣設計的原因，是由於 Ethereum 產生區塊的速度較快，也因此較容易產生分叉，也會使得新區塊較難以在整個網絡傳播，這對於傳播速度較慢的區塊並不公平。且分叉後的區塊可能在幾個區塊之後整併起來，我們會發現裡面的交易可能會與主鏈一致（雖然單獨查看分塊交易內容不同，不過數個區塊整體一起看交易內容就一致了），符合這種條件的分叉區塊我們就會納入主鏈參考，這些區塊就成了所謂的 Uncle Block，這某種角度也是更確認了 Blockchain 上的交易內容一致，因此 Uncle Block 也有貢獻，應該給予獎勵。</p>
+
+<p>以上我們已經了解了 Ethereum 上的區塊大致分成兩種，普通區塊和 Uncle Block，Ethereum 對這兩種區塊的獎勵方式是不同的。我們分別來看一下。</p>
+
+<h3 id="普通區塊獎勵">普通區塊獎勵</h3>
+
+<ul>
+<li>固定獎勵 5 ETH</li>
+<li>區塊內所有的 Gas Fee</li>
+<li>如果區塊納入了 Uncle Block，那每包含一個 Uncle Block 可以得到固定獎勵 5 ETH * 1/32，也就是 0.15625 ETH，一個區塊最多隻能包含 2 個 Uncle Block，也因此不會無限延伸，同時又可鼓勵區塊納入 Uncle Block，增加交易內容的一致性。</li>
+</ul>
+
+<h3 id="uncle-block-獎勵">Uncle Block 獎勵</h3>
+
+<ul>
+<li>用公式計算：（Uncle Block 高度 + 8 - 包含此 Uncle Block 的區塊的高度）* 普通區塊固定獎勵 / 8</li>
+</ul>
+
+<p>我們用個實例來看一下獎勵怎麼算。首先我們來看一個普通區塊：<a href="https://etherscan.io/block/1234757">https://etherscan.io/block/1234757</a></p>
+
+<p style="text-align:center">
+    <img src="https://blog.fukuball.com/images/ethereum/ethereum-1-8-02.png">
+</p>
+
+<p>我們可以看到這個普通區塊的獎勵是 5.31485368 ETH，是由固定獎勵 5 ETH、總 Gas Fee 0.00235368 ETH 及包含了 2 個 Uncle Block 所以是 2*5*<sup>1</sup>&frasl;<sub>32</sub> = 0.3125 ETH，所以結果就是 5.31485368 ETH。</p>
+
+<p>接下來我們來看一個 Uncle Block：<a href="https://etherscan.io/uncle/0x54c3a32edc5b23dfeaac80ef50ed9a49faf269f2e7380b81b39f44b630346c70">https://etherscan.io/uncle/0x54c3a32edc5b23dfeaac80ef50ed9a49faf269f2e7380b81b39f44b630346c70</a></p>
+
+<p style="text-align:center">
+    <img src="https://blog.fukuball.com/images/ethereum/ethereum-1-8-03.png">
+</p>
+
+<p>我們帶入公式運算一下，Uncle Block 高度是 1234756，包含此 Uncle Block 的區塊高度是 1234757，所以是 (1234756+8–1234757)*<sup>5</sup>&frasl;<sub>8</sub> = 4.375 ETH。</p>
+
+<p>以上就是 Ethereum Blockchain 的獎勵機制，應該還算淺顯易懂，我第一次看白皮書的 Uncle Block 完全不知道在講什麼啊，希望這樣有幫忙大家看懂。</p>
+
+      </div>
+      <p>
+        <a href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-18ethereum-%E7%9A%84%E7%8D%8E%E5%8B%B5%E6%A9%9F%E5%88%B6/" class="postShorten-excerpt_link link"></a>
+        
+      </p>
+    </div>
+  </div>
+  
+</article>
+
+            
+            
+
+          </section>
+        
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 Fukuball. 
+  </span>
+</footer>
+
+      </div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="//www.gravatar.com/avatar/6c910ba730e0acfda9ee450eec9776e6?s=110" alt="" />
+    
+    <h4 id="about-card-name">Fukuball</h4>
+    
+      <div id="about-card-bio">我是林志傑，網路上常用的名字是 Fukuball。我使用 PHP 及 Python，對機器學習及區塊鏈技術感到興趣。 <a href="https://www.fukuball.com">https://www.fukuball.com</a></div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        Co-Founder / Head of Engineering at OurSong
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        Taipei, Taiwan
+      </div>
+    
+  </div>
+</div>
+
+    <div id="algolia-search-modal" class="modal-container">
+  <div class="modal">
+    <div class="modal-header">
+      <span class="close-button"><i class="fa fa-close"></i></span>
+      <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+        <span class="searchby-algolia-text text-color-light text-small">by</span>
+        <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+      </a>
+      <i class="search-icon fa fa-search"></i>
+      <form id="algolia-search-form">
+        <input type="text" id="algolia-search-input" name="search"
+          class="form-control input--large search-input" placeholder="" />
+      </form>
+    </div>
+    <div class="modal-body">
+      <div class="no-result text-color-light text-center"></div>
+      <div class="results">
+        
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-23smart-contract-%E5%88%9D%E6%8E%A2%E5%BE%9E-bytecode-%E5%88%B0-solidity/">
+                <h3 class="media-heading">Ethereum 開發筆記 2–3：Smart Contract 初探，從 Bytecode 到 Solidity</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Ethereum 上的 EVM（Ethereum Virtual Machine）可以執行程式，而 EVM 上的可執行程式基本上是 Bytecode 的形式，所以所謂的 Smart Contract 就是存放在 Ethereum 上的 Bytecode，然後可由 EVM 來執行。
+Bytecode Smart Contract 直接用 Bytecode 寫 Smart Contract 我們來嘗試一下直接用 Bytecode 來寫 Smart Contract，以下這段程式碼主要內容是執行運算後，將運算結果存放在 0 這個位置：
+PUSH1 0x03 PUSH1 0x05 ADD // 3 + 5 -&gt; 8 PUSH1 0x02 MUL // 8 * 2 -&gt; 16 PUSH1 0x00 SSTORE // 將 16 存到 0 這個位置  這段程式轉成 Bytecode 就是：
+0x60 0x03 0x60 0x05 0x01 0x60 0x02 0x02 0x60 0x00 0x55  也就是：</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-22geth-%E5%9F%BA%E7%A4%8E%E7%94%A8%E6%B3%95%E5%8F%8A%E6%9E%B6%E8%A8%AD-muti-nodes-%E7%A7%81%E6%9C%89%E9%8F%88/">
+                <h3 class="media-heading">Ethereum 開發筆記 2–2：Geth 基礎用法及架設 Muti-Nodes 私有鏈</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">要連上 Ethereum 就需要安裝 Ethereum Node，在這邊我們選擇使用 Geth 來安裝 Ethereum Node，接下來就來一步一步的學學怎麼使用 Geth，甚至如何使用 Geth 來架設自己的 Ethereum 私有鏈。
+安裝環境 首先我們在 AWS 上開啟兩台 Ubuntu 虛擬機器，記得開 t2.medium（2 vCPU, 4 GB RAM）這個規格以上才跑得動，硬碟可以開 100 G，Security Group 將 TCP 30303 打開，Ethereum Node 之間是用 30303 這個 port 來溝通的。
+接下來使用以下指令安裝 Geth：
+$ sudo apt-get install -y software-properties-common $ sudo add-apt-repository -y ppa:ethereum/ethereum $ sudo apt-get update $ sudo apt-get install -y ethereum  兩台虛擬機器都要安裝，應該幾分鐘就可以裝好了。
+使用 Main Net 安裝完 Geth 之後，我們就可以透過 Geth 連上 Ethereum Network 了，我們就來連上 Main Net 看看：</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-21ethereum-%E9%96%8B%E7%99%BC%E6%95%B4%E9%AB%94%E8%84%88%E7%B5%A1/">
+                <h3 class="media-heading">Ethereum 開發筆記 2–1：Ethereum 開發整體脈絡</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">在第一次接觸 Ethereum 應用程式開發時，會發現有各式各樣工具，不知要從何下手，我們用一個圖來說明一下與 Ethereum 互動時的整體脈絡及這之間的工具主要做了什麼事，了解之後自己就可以挑選開發時、甚至使用在產品上時要用什麼適合的工具了。
+要在自己的機器接上 Ethereum 首先需要安裝 Ethereum Node，我們之前安裝的 Mist 其實就會在我們的機器上安裝 Ethereum Node 並同步帳本，而像這樣安裝 Node 並同步帳本甚至進行挖礦的軟體有很多，大家可以去選擇適合自己使用的。Mist 其實是將一個叫 geth 的軟體用 GUI 包裝起來，如果是開發者的話，可以選擇直接安裝 geth。
+geth 提供了許多 API 指令可以讓我們跟 Ethereum 做互動，但有時下指令並不是那麼親和，所以 geth 提供了 RPC(Remote Procedure Calls) 與 IPC(Inter-process Communications) 兩種方式來與 geth 互動，如果你要在 local 機器連上 geth，那就可以使用 IPC；如果要讓遠端連上 geth，那就使用 RPC，可以開 HTTP 或 Web Socket 兩種方式來讓遠端使用。
+以上就是 Ethereum 應用程式開發的基礎環境，接下來跟開發網頁應用程式一樣，Ethereum 應用程式也分成後端與前端，後端程式就是 Smart Contract，前端程式就是 Dapp。Smart Contract 可使用 Solidity 撰寫，目前也有許多其他語言可以撰寫 Smart Contract。Smart Contract 要在 Ethereum 上的 EVM 執行要先 Compile 成 Byte Code 之後，再透過 IPC 或 RPC 發佈到 Ethereum 上。前端程式的 Dapp 可用 Web3 JavaScript 透過 RPC 接上 Ethereum，以及使用網頁應用常用到的 HTML、CSS、JavaScript 製作成使用者互動介面，如此就能執行發佈在 Ethereum 上 Smart Contract 所提供的一些程式功能了。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-18ethereum-%E7%9A%84%E7%8D%8E%E5%8B%B5%E6%A9%9F%E5%88%B6/">
+                <h3 class="media-heading">Ethereum 開發筆記 1–8：Ethereum 的獎勵機制</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Bitcoin 的獎勵機制基本上是挖到新區塊的節點獲得記帳權及獎勵，Ethereum 大體也是遵循這樣的概念，但做了一些調整與變化，讓我們整個脈絡了解一下。
+由於 Blockchain 是一種去中心化的系統，所有的礦工（節點）可以同時挖礦（計算合法 hash），彼此獨立運作，所以極有可能出現兩的礦工同時發現不同的滿足條件的區塊，如此就會產生我們之前有提過的分叉（Fork）。
+那我們該採用誰的區塊當主鏈呢？我們會先依工作量最大的區塊為主鏈，如果工作量一樣，就看誰先接了子區塊，一般來說只有成了主鏈的區塊才能獲得獎勵。但這樣沒有變成主鏈的區塊之前的算力就都白費了，所以 Ethereum 創造了 Uncle Block（叔塊）這樣的概念，不能成為主鏈的區塊如果後來被收留成為 Uncle Block，那這些沒有成為主鏈的區塊也有機會可以做為 Uncle Block 而獲得獎勵。
+這就是 Ethereum 共識機制中的 GHOST（Greedy Heaviest Observed Subtree）協議，Ethereum 會這樣設計的原因，是由於 Ethereum 產生區塊的速度較快，也因此較容易產生分叉，也會使得新區塊較難以在整個網絡傳播，這對於傳播速度較慢的區塊並不公平。且分叉後的區塊可能在幾個區塊之後整併起來，我們會發現裡面的交易可能會與主鏈一致（雖然單獨查看分塊交易內容不同，不過數個區塊整體一起看交易內容就一致了），符合這種條件的分叉區塊我們就會納入主鏈參考，這些區塊就成了所謂的 Uncle Block，這某種角度也是更確認了 Blockchain 上的交易內容一致，因此 Uncle Block 也有貢獻，應該給予獎勵。
+以上我們已經了解了 Ethereum 上的區塊大致分成兩種，普通區塊和 Uncle Block，Ethereum 對這兩種區塊的獎勵方式是不同的。我們分別來看一下。
+普通區塊獎勵  固定獎勵 5 ETH 區塊內所有的 Gas Fee 如果區塊納入了 Uncle Block，那每包含一個 Uncle Block 可以得到固定獎勵 5 ETH * 1/32，也就是 0.15625 ETH，一個區塊最多隻能包含 2 個 Uncle Block，也因此不會無限延伸，同時又可鼓勵區塊納入 Uncle Block，增加交易內容的一致性。  Uncle Block 獎勵  用公式計算：（Uncle Block 高度 + 8 - 包含此 Uncle Block 的區塊的高度）* 普通區塊固定獎勵 / 8  我們用個實例來看一下獎勵怎麼算。首先我們來看一個普通區塊：https://etherscan.</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-17blockchain-%E7%9A%84%E4%B8%80%E4%BA%9B%E9%87%8D%E8%A6%81%E6%80%A7%E8%B3%AA/">
+                <h3 class="media-heading">Ethereum 開發筆記 1–7：Blockchain 的一些重要性質</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">我們這邊再次總結一下 Blockchain 中幾點較重要的性質，包含共識機制、不可竄改、經濟激勵三項。
+共識機制（Consensus） 在分散式系統中，我們需要有一套用於協同合作的共識機制來組織行動，但有時候系統中的成員可能會出錯或是故意傳送出錯誤的資訊，而使得網路中不同成員對於全體協作的策略得出不同的結論，進而破壞系統的一致性，這就是所謂的拜占庭將軍問題。
+拜占庭將軍問題（Byzantine Generals Problem） 拜占庭將軍問題這個故事是這樣的：
+ 一組拜占庭將軍分別各率領一支軍隊共同圍困一座城市，這個敵人雖不比拜占庭帝國，但也足以抵禦 5 支拜占庭軍隊的同時襲擊。這 10 支軍隊在分開的包圍狀態下，他們任 1 支軍隊單獨進攻都毫無勝算，除非有至少 6 支軍隊（一半以上）同時襲擊才能攻下敵國。他們分散在敵國的四周，依靠通信兵騎馬相互通信來協商進攻意向及進攻時間。困擾這些將軍的問題是，他們不確定他們中是否有叛徒，叛徒可能擅自變更進攻意向或者進攻時間。在這種狀態下，拜占庭將軍們才能保證有多於 6 支軍隊在同一時間一起發起進攻，從而贏取戰鬥？
+ 上述的故事對映到電腦系統裡，將軍便成了電腦，而通信兵就是通訊系統。叛徒發送前後不一致的進攻提議，被稱為「拜占庭錯誤」，而能夠處理拜占庭錯誤的這種容錯性稱為「Byzantine Fault Tolerance」。Blockchain 上的共識機制通常具有容錯的設計來達成一致性，主要比較常見的共識機制方法有兩個，「工作量證明」以及「股權證明」兩種方法。
+工作量證明演算法（Proof of Work, PoW） 中本聰在 Bitcoin 中創造性的引入了「工作量證明」（俗稱挖礦）來解決拜占庭將軍問題，顧名思義，工作量證明就是用來證明你做了一定量的工作，可用工作成果來證明完成相應的工作量。其中的工作技術原理可以看之前這篇文章：Ethereum 開發筆記 1–4：Blockchain 技術原理簡介
+由於工作量證明具相當高的計算成本，因此無誘因去偽造，只有遵守協議約定，才能夠回收成本並獲得收益，也因此減少了叛徒的產生，減少拜占庭錯誤。
+股權證明演算法（Proof of Stake, PoS） 股權證明的出現，主要是希望取代工作量證明，進而減少「挖礦」的大量運算。它與工作量證明不同地方在於：工作量證明中，大家比的是「算力」（運算能力），透過大量運算得出符合難度的 Hash 值，進而得到獎勵；而在股權證明，大家比拼的是「股權」，「股權」越大的人（節點）越大機會負責產生新區塊，進而得到獎勵。
+舉例來說，在股權證明系統中所有擁有股權（此 Blockchain 的數位貨幣）的人都有機會被挑選為產生新區塊（也就是記帳）的人，擁有更多股權的人被選中的機率越大。假這這個系統中共有三個人：Alice 持有 50 股、Bob 持有 30 股、Cathy 持有 20 股，那每次 Alice 被選為記帳人的機率會是 Cathy 的兩倍。所以股權證明會驅使人們購買更多的股權，進而增加獲選為記帳人的機率，以買股權來代替挖礦，同樣需要付出高成本，也因此可以減少叛徒的產生，減少拜占庭錯誤。
+不可竄改（Immutability） Blockchain 不可竄改的性質主要來自資料結構及 hash 方式的設計，讓資料的順序緊密鏈結，若從中竄改了某些資料，那之後的鏈結 hash 都會發生錯誤，形成了 Blockchain 不可竄改的特性。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-16blockchain-%E7%9B%B8%E9%97%9C%E7%9A%84%E5%8A%A0%E5%AF%86%E5%9F%BA%E7%A4%8E%E7%9F%A5%E8%AD%98/">
+                <h3 class="media-heading">Ethereum 開發筆記 1–6：Blockchain 相關的加密基礎知識</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Blockchain 裡應用了一些加密技術來保證及驗證交易訊息的正確性，這也更加強了 Blockchain 資料不可竄改的特性。我們來介紹其中比較重要的「公私鑰加密」以及「Merkle Tree」加密樹。
+公私鑰加密 公私鑰加密算法是目前資訊通訊安全的基石，它保證了加密訊息不可被破解，相關的加解密原理大家可以參考這兩篇文章：
+ RSA算法原理（一）http://www.ruanyifeng.com/blog/2013/06/rsa_algorithm_part_one.html RSA算法原理（二）http://www.ruanyifeng.com/blog/2013/07/rsa_algorithm_part_two.html  加密與解密 公私鑰加密方法是一種非對稱式加密，透過公鑰加密過後的訊息只有私鑰可以解密，也因此只要保護好私鑰就能保證資訊的安全。
+現在假設 Alice 要傳一個訊息給 Bob，希望訊息加密過後只有 Bob 可以解密，大概會經過如下步驟：
+ Bob 傳他的公鑰給 Alice Alice 使用 Bob 的公鑰加密訊息 Alice 將加密過後的訊息傳給 Bob Bob 用他的私鑰解密訊息  我們這邊使用 openssl 來練習一下加密與解密，首先我們來產生一對公私鑰：
+// Create RSA private key $ openssl genrsa -des3 -out rsa-key.pem 2048 // Create public key $ openssl rsa -in rsa-key.pem -outform PEM -pubout -out rsa-key-pub.pem  其中 rsa-key.pem 就是私鑰，rsa-key-pub.pem 為公鑰，私鑰會要求設置密碼，請妥善記下密碼。
+我們先用 rsa-key-pub.pem 加密資料：</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-15blockchain-%E7%9A%84%E4%B8%80%E4%BA%9B%E5%AE%9A%E7%BE%A9%E8%88%87%E5%90%8D%E8%A9%9E/">
+                <h3 class="media-heading">Ethereum 開發筆記 1–5：Blockchain 的一些定義與名詞</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">在 Ethereum 開發筆記 1–4 應該已經將 Blockchain 的技術原理說明得很清楚了，不過如果要向一般大眾簡單說明 Blockchain 是什麼，要怎麼說呢？我會說：Blockchain 就是一個分散式帳本，大家都有一樣的帳本，大家都可一起參與記帳，且記完帳大家的帳本就會自動更新到最新版本，而帳裡的紀錄都會分塊並用密碼按順序鏈結起來，用以驗證帳的正確性，如果中間有人改了資料，那後面的鏈結密碼都會發生錯誤，因此沒有人可以亂改帳，這就是 Blockchain。
+但 Blockchain 這個名詞還包含了許多概念與內涵，我們之前說過，Blockchain 是因為分散式去中心化帳本的發展而慢慢產生出來的，這樣慢慢被統稱出來的名詞裡底下也就會包含了許多內涵，很難用三言兩語來說明，所以有一些 Blockchain 相關的定義與名詞我們都可以了解一下，這樣就能更了解 Blockchain。
+交易（Transaction） 交易是 Blockchain 帳本中的原子單位，如果將交易再往下拆分就會變得沒有意義，比如下列就是一個交易：
+ A 減少了 $10 B 增加了 $9 C 增加了 $1  如果只看 1，我們就會想那減少的 $10 到哪裡去了？所以 1、2、3 一起看才算是一個交易。
+Blockchain 是一個分散式帳本（Distributed Ledger） 不像銀行依靠自己的帳本來記帳，Blockchain 提供了可靠的分散式帳本，當銀行之間要進行交易時，會需要一個受信任的第三方來進行銀行之間的交易，這也是為何你在做跨國轉帳時，需要付出高昂的手續費以及等待數天處理交易，Blockchain 可靠的分散式帳本讓跨國交易可以在幾分鐘甚至幾秒之內完成，這也是為何銀行想要應用 Blockchain 在金融交易上以降低交易成本。
+Blockchain 是一個資料結構（Data Structure） 通常 Blockchain 的資料結構如下組成：
+ 交易是原子單位 區塊是由一系列的交易組成 區塊鏈由排序良好的區塊所組成  Blockchain 會有分叉（Fork） 當有兩名礦工 A 及 B 幾乎在相同時間內算出了合法的 hash，這兩個區塊傳播到鄰近節點時，有些節點收到了 A 的區塊，有些節點收到了 B 的區塊，這兩個區塊都可以是主鏈的延伸，這時就會產生區塊鏈分叉。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-14blockchain-%E6%8A%80%E8%A1%93%E5%8E%9F%E7%90%86%E7%B0%A1%E4%BB%8B/">
+                <h3 class="media-heading">Ethereum 開發筆記 1–4：Blockchain 技術原理簡介</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">之前我們簡單地介紹過 Blockchain 了，但我們還是對 Blockchain 背後的技術原理不是那麼了解，我們知道 Blockchain 是因為一個數位貨幣帳本這樣的概念被創造出來的，而數位貨幣最擔心的是什麼問題呢？其實就是雙重支付（Double-Spending）這樣的問題。
+數位貨幣不像實體貨幣，數位資產比起實體資產容易複製，也因此如果花用數位貨幣的行為如果沒有處理好，就會產生憑空多出其他交易，這就像是偽鈔一樣，會造成通貨膨脹而導致貨幣貶值，讓人不再信任並願意持與流通。因此數位貨幣的支付通常需要一個受信任的第三方來做驗證，這樣的做法雖然簡單，卻存在單點脆弱性，只要這第三方受到攻擊或是監守自盜也一樣會讓這個數位貨幣變成一個失敗的貨幣。
+分散式去中心化帳本能解決單點脆弱性的問題，但在驗證正確性這點難度卻很高，所有的節點都有記帳的權利，要如何確定由誰來記帳、記的帳對不對？如果無法確定帳是對的，那就存在雙重支付的風險。
+為了改善單點脆弱性及雙重支付這樣的問題，許多分散式的雙重支付防範方法慢慢被提出來，中本聰提出了去中心化（以受信任第三方為中心）的方法來展示解決雙重支付問題，並實作出了 Bitcoin，使用共識機制來解決記帳及驗證的問題，這帶來去中心化數位貨幣帳本的成功。
+Bitcoin 的共識協議主要由「工作量證明」（Proof-of-Work, PoW）和「最長鏈機制」兩部分組成，Bitcoin 上的各個節點就是透過共識機制中的工作量證明來決定誰有記帳權，然後取得記帳權的節點就能將新的區塊記帳加到最長鏈上並給予該節點獎勵（新區塊獎勵及交易費收益）。
+Bitcoin 的 工作量證明大概會做以下的事情：
+ 收集還未記到帳上的交易 檢查每個交易中付款地址有沒有足夠的餘額 驗證交易是否有正確的簽名 把驗證通過的交易信息進行打包（組成 Merkle Tree） 為自己增加一個交易紀錄獲得 Bitcoin 獎勵金 計算合法的 hash 爭奪記帳權  計算合法 hash 的方式請見下方影片說明，個人覺得這個影片是目前將 Blockchain 加密機制說明得最清楚的影片。我這邊簡略說明一下，合法的 hash 公式大致看起來像這樣：hash(交易內容+交易簽名+nonce+上一個區塊的 hash)，我們要取得記帳權，就需要找出前面開頭有 N 個 0 的 hash，由於交易內容、交易簽名及上一個區塊的 hash 都是不可變的，所以每個節點就是不斷的調整 nonce 來計算得出不同的 hash，直到找到開頭 N 個 0 的 hash 為止，第一個找的節點就能獲得記帳權，而其他的節點只要計算 hash 對不對就能驗證這個帳對不對。其中 N 個 0 開頭的 hash 就代表了計算的難度，越多 0 代表越難找到這樣的 hash，也因此可以調整計算難度。就是這樣的設計解決了去中心化分散式系統驗證資料及決定記帳順序的難題，也就改善了數位貨幣單點脆弱性及雙重支付的問題。
+  以上的內容看完應該就能大體了解 Blockchain 的原理了，甚至要自己做一個 Blockchain 都沒問題！了解了 Blockchain 的技術原理之後，應該能更信任去中心化的數位貨幣的安全性，或許有天大家都信任了去中心化的數位貨幣我們就真的能廣泛使用數位貨幣，為經濟活動帶來更有效率的流通。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98%E7%B7%B4%E7%BF%92-1%E4%BD%BF%E7%94%A8-mist-%E7%99%BC%E8%A1%8C%E8%87%AA%E5%B7%B1%E7%9A%84-token/">
+                <h3 class="media-heading">Ethereum 開發筆記練習 1：使用 Mist 發行自己的 Token</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">之前說過，Blockchain 基本上是因為金流帳本這樣的問題而被創造出來的，也就是說區塊鏈非常適合運用在金流的應用上，我們也可以建立自己的 Blockchain 來搭建自己的金流系統，不過在 Ethereum 上 Smart Contract 這種設計讓我們擁有可以在 Ethereum 區塊鏈上創造自己金流系統的能力，如此我們就不需要自己建一條鏈了。
+我們使用 Smart Contract 仿造貨幣性質創造了數位資產（說穿了其實就是在 Smart Contract 上紀錄的變數而已），而這種具貨幣性質的數位資產又被稱作 Token，如此我們就可以在應用程式中使用這個去中心化的金流系統，由於 Token 的應用很普遍，大部分的功能都已經標準化了，我們只要仿造標準來實作就可以發行自己的數位貨幣了。
+在這邊我們就練習一下怎麼使用 Mist 發佈 Token Smart Contract 來發行自己的數位貨幣。（目前我們還沒有學習過如何撰寫 Smart Contract，因此這邊會先直接提供範例程式碼，實作的部分我們之後再慢慢學習）
+以下是我們的範例程式碼：
+ 請打開 Mist，如下圖點擊 Contract，然後點擊 Deploy New Contract。
+你會看到如下圖的頁面，請在 Solidity Contract Source Code 中貼上我們上面提供的範例程式碼。
+貼上範例程式碼之後，Mist 會自動編譯程式，檢查是否有語法上的錯誤，如果沒問題，右方的 Select Contract to Deploy 就會出現選項，在這邊我們選擇 Token ERC 20。
+選擇 Token ERC 20 之後，右方會出現要初始化 Contract 的參數表單，有 Initial supply、Token name、Token symbol 需要填寫。Initial supply 代表 Token 的總發行量是多少，我這邊設定成 7777777777，你可以設成你想要的數字。Token name 就是這個 Token 要叫什麼名字，這邊我設定成 7 Token，你想要取 Dog Coin 或是 Cat Coin 也都可以。Token symbol 就是這個 Token 要用什麼代號，像是美金就是用 $、Ether 是用 ETH，這邊我設定成 7token，你可以取自己覺得帥的代號。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+          <div class="media">
+            
+            <div class="media-body">
+              <a class="link-unstyled" href="https://blog.fukuball.com/ethereum-%E9%96%8B%E7%99%BC%E7%AD%86%E8%A8%98-13%E4%BD%BF%E7%94%A8-mist/">
+                <h3 class="media-heading">Ethereum 開發筆記 1–3：使用 Mist</h3>
+              </a>
+              <span class="media-meta">
+                <span class="media-date text-small">
+                  Sep 9, 2018
+                </span>
+              </span>
+              <div class="media-content hide-xs font-merryweather">Mist 跟前回介紹的 MetaMask 一樣是可以與 Ethereum 進行互動的工具，除了可以管理 Ethereum 相關密鑰之外，Mist 還包含了 Ethereum 節點以及網頁瀏覽器，方便大家瀏覽 Dapp 網頁。
+首先請到這邊安裝 Mist，請選擇適於自己的作業系統安裝。
+由於 Mist 會安裝節點在你的電腦裡，也因此會同步整個帳本下來，所以會花上不少時間同時也會佔用許多硬碟空間。我們目前僅是要使用測試鏈，所以請切換到 Ropsten 測試鏈（如下圖），這樣就不用花這麼多時間與空間了。
+在 Mist 的左下角可以觀察目前已同步到你的電腦的區塊數（如下圖），如果這個數字跟 Etherscan（Etherscan 是一個可以查看 Ethereum 區塊鏈所有交易的網站） 上的最新區塊數一致的話，那就代表已經同步完成了。
+接下來讓我們用 Mist 開一個 Ethereum 帳戶，請點擊 Add Account，並依指示輸入密碼後創建帳號，密碼請務必要記下來，將來交易時都會需要輸入你的密碼。
+學會創建 Ethereum 帳戶之後，我們要來看一下 Mist 要怎麼備份帳號，請點擊 Mist 上方選單的 File -&gt; Backup -&gt;Accounts（如下圖），這樣就會打開帳號存放的資料夾，所有的帳號都會加密存在這邊，所以只要備份這些檔案及當時設定的密碼，你就可以在別台電腦復原你的帳號。
+現在你這個 Ethereum 帳戶還沒有任何 Ether，我們仿造之前用 MetaMask 來跟水龍頭要 Ether 的步驟來取得 Ether 看看。
+我個人提供了一個水龍頭 Dapp，請前往這個網址來取得 Ether：https://blog.fukuball.com/dapp/faucet/
+由於 Mist 也是一個 Dapp 網頁瀏覽器，請在 Mist 上方的網址列輸入：https://blog.fukuball.com/dapp/faucet/
+Mist 在揭露你的 Ethereum 帳戶資訊給 Dapp 網頁時都會詢問你的同意，請先選擇要瀏覽這個 Dapp 網頁的帳號（你可能在 Mist 有多個帳號，所以就需要選擇目前要用哪個帳號瀏覽這個網頁）。</div>
+            </div>
+            <div style="clear:both;"></div>
+            <hr>
+          </div>
+        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <p class="results-count text-medium"
+         data-message-zero=""
+         data-message-one=""
+         data-message-other="">
+         76 posts found
+      </p>
+    </div>
+  </div>
+</div>
+    
+  
+    
+    <div id="cover" style="background-image:url('https://blog.fukuball.com/images/ok.jpg');"></div>
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://blog.fukuball.com/js/script-qi9wbxp2ya2j6p7wx1i6tgavftewndznf4v0hy2gvivk1rxgc3lm7njqb6bz.min.js"></script>
+
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41911929-4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-41911929-4');
+</script>
+
+    
+  </body>
+</html>
+
